@@ -1,2 +1,8 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<%# Put this in the corresponding view where activity can be created, as part of PUNDIT %>
+<% if policy(Activity).create? %>
+  <%= link_to "New activity", new_activity_path %>
+<% end %>
