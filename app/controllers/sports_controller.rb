@@ -23,6 +23,7 @@ class SportsController < ApplicationController
         lat: activity.latitude,
         lng: activity.longitude
       }
+    end
   end
 
   def create
