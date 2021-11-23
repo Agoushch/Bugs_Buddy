@@ -1,0 +1,13 @@
+<div class="container_activities">
+  <div class="information_activities ">
+    <% @activities.each do |f| %>
+      <div class="card">
+        <ul>
+          <li><%= f.localisation %></li>
+          <li><%= f.date %></li>
+          <li> <%= f.description %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
