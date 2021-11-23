@@ -3,9 +3,9 @@ class SportsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "kind ILIKE :query OR category ILIKE :query"
-      @movies = Sport.where(sql_query, query: "%#{params[:query]}%")
+      @sports = Sport.where(sql_query, query: "%#{params[:query]}%")
     else
-      @movies = Sport.all
+      @sports = Sport.all
     end
   end
 

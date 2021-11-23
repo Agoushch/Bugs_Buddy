@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :comments, through: :user_activity
   has_many :user_activities
 
-  validates :nickname, presence: true
+  # validates :nickname, presence: true
 end
