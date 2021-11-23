@@ -1,7 +1,12 @@
 class SportsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
-    @sports = Sport.all
+    if params[:query].present?
+      sql_query = "kind ILIKE :query OR category ILIKE :query"
+      @sports = Sport.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @sports = Sport.all
+    end
   end
 
   def new
@@ -10,8 +15,7 @@ class SportsController < ApplicationController
   end
 
   def show
-    @activity = Activity.new
-    @activities = @sport.activities
+    @sports = Sport.find(params[:id])
   end
 
   def create
@@ -36,8 +40,8 @@ class SportsController < ApplicationController
   private
 
   def find
-    @sport = sport.find(params[:id])
-    authorize @sport
+    @sport = Sport.find(params[:id])
+    # authorize @sport
   end
 
   def sport_params
