@@ -1,7 +1,12 @@
 class SportsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
-    @sports = Sport.all
+    if params[:query].present?
+      sql_query = "kind ILIKE :query OR category ILIKE :query"
+      @movies = Sport.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @movies = Sport.all
+    end
   end
 
   def new

@@ -1,3 +1,13 @@
+
+<%= form_tag sports_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search a sport or category"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <% @sports.each do |sport| %>
   <div class="sport_card">
     <strong ><%= sport.kind %></strong>
