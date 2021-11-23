@@ -1,12 +1,13 @@
 class ActivitiesController < ApplicationController
   before_action :find, only:[:show,:destroy]
+
   def new
     @activity = Activity.new
     # authorize @activity
   end
 
   def show
-    @booking = Booking.new
+    @activities = Activity.all
   end
 
   def create
@@ -17,7 +18,7 @@ class ActivitiesController < ApplicationController
     else
       render :new
     end
-    raise
+
     # authorize @activity
   end
 
@@ -34,6 +35,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:localisation, :date, :description)
+    params.require(:activity).permit(:localisation, :date, :description, :sport_id)
   end
 end
