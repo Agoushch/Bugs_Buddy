@@ -36,11 +36,11 @@ class SportsController < ApplicationController
   private
 
   def find
-    @sport = sport.find(params[:id])
-    authorize @sport
+    @sport = Sport.find(params[:id])
+    # authorize @sport
   end
 
   def sport_params
-    params.require(:sport).permit(:type, :category)
+    params.require(:sport).permit(:kind, :category)
   end
 end

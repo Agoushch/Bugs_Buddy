@@ -1,5 +1,9 @@
-<% @sports.each do |sport| %>
-  <div class="sport_card">
-    <strong ><%= sport.kind %></strong>
-  </div>
-<% end %>
+<h1>All sports</h1>
+<div class= 'container'>
+  <% @sports.each do |sport| %>
+    <div class="sport_card">
+      <strong ><%= sport.kind %></strong>
+      <%# <%= link_to "Delete", sport_path(@sport), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+</div>
