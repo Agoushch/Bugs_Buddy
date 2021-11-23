@@ -2,7 +2,9 @@ class SportsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
     @sports = Sport.all
+    end
   end
+
 
   def new
     @sport = Sport.new
@@ -12,6 +14,11 @@ class SportsController < ApplicationController
   def show
     @activity = Activity.new
     @activities = @sport.activities
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+      }
   end
 
   def create

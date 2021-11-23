@@ -3,7 +3,10 @@
   <% @sports.each do |sport| %>
     <div class="sport_card">
       <strong ><%= sport.kind %></strong>
+      <%= image_tag 'https://source.unsplash.com/1600x900/?person' %>
       <%# <%= link_to "Delete", sport_path(@sport), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
   <% end %>
+</div>
+<div class="map">
 </div>
