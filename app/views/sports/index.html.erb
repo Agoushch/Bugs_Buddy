@@ -10,6 +10,6 @@
 
 <% @sports.each do |sport| %>
   <div class="sport_card">
-    <strong ><%= sport.kind %></strong>
+    <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
   </div>
 <% end %>

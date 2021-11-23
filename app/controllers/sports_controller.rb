@@ -15,8 +15,7 @@ class SportsController < ApplicationController
   end
 
   def show
-    @activity = Activity.new
-    @activities = @sport.activities
+    @sports = Sport.find(params[:id])
   end
 
   def create
@@ -41,8 +40,8 @@ class SportsController < ApplicationController
   private
 
   def find
-    @sport = sport.find(params[:id])
-    authorize @sport
+    @sport = Sport.find(params[:id])
+    # authorize @sport
   end
 
   def sport_params
