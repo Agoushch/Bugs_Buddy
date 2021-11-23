@@ -1,0 +1,14 @@
+<div class="addaact text-center m-5">
+  <h1>Add a new activity</h1>
+</div>
+<div class="container_new">
+  <div class="information_newacti">
+    <%= simple_form_for @activity do |f| %>
+      <%= f.input :localisation, placeholder: 'Royal park, 1000 brussel'%>
+      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"}%>
+      <%= f.input :description, placeholder: 'Jogging'%>
+      <%= f.association :sport, label_method: :kind %>
+      <%= f.submit class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div>
