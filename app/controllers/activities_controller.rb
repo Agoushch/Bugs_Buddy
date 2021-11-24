@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.delete
-    redirect_to activitys_path
+    redirect_to activities_path
   end
 
   private
