@@ -18,6 +18,10 @@
       <% end %>
     <% end %>
   </div>
+  <h3>Attending</h3>
+  <% @activity.user_activities.each do |user_activity| %>
+    <%= user_activity.user.nickname %>
+  <% end %>
   <% if @user_activity %>
     <div class="container_new">
       <div class="information_newcomment">
@@ -29,4 +33,3 @@
       </div>
     </div>
   <% end %>
-  <h3>Attending</h3>

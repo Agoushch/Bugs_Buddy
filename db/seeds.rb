@@ -33,7 +33,7 @@ puts 'database cleaned'
 # end
 
 curling = Sport.create(kind: 'curling')
-nicolas = User.create(email: "nicolas@hotmail.com", password: "123456")
+nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
