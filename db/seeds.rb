@@ -49,9 +49,3 @@ result.each do |hash|
   )
   p activity
 end
-
-allactivities = ["running 10 kil", "200000000 pull-ups", "play 30 minutes basketball in the place jourdan"]
-allactivities.each do |act|
-  new_user_activity = UserActivity.create!(kind: act)
-  p new_user_activity
-end
