@@ -5,8 +5,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @activity = Activity.find(params[:activity_id])
-    @user_activity = UserActivity.where(activity_id: @activity, user_id: current_user)
+    @user_activity = UserActivity.find(params[:user_activity_id])
+     @comment.user_activity = @user_activity
+     @comment.save!
+
+     redirect_to activity_path(@user_activity.activity)
+
   end
 
   def destroy

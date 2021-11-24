@@ -4,13 +4,29 @@
       <%= @activity.description %>
     </div>
     <div>
-      localisation is:<%= @activity.localisation %>
+      localisation:<%= @activity.localisation %>
       <div class="localisation">
         <%= @activity.date %>
       </div>
     </div>
   </div>
-  <h2>Comment</h2>
+  <h2>Comments</h2>
   <div class="chatbox">
+    <% @activity.user_activities.each do |user_activity| %>
+      <% user_activity.comments.each do |comment| %>
+        <%= comment.content %>
+      <% end %>
+    <% end %>
   </div>
+  <% if @user_activity %>
+    <div class="container_new">
+      <div class="information_newcomment">
+        <%= simple_form_for [@user_activity, @comment] do |f| %>
+          <%= f.input :content %>
+          <%= f.hidden_field :activity, value: @activity.id  %>
+          <%= f.submit class: 'btn btn-secondary' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   <h3>Attending</h3>

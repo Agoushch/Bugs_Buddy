@@ -4,6 +4,7 @@ class UserActivitiesController < ApplicationController
     @user_activity.user = current_user
     @activity = Activity.find(params[:activity_id])
     @user_activity.activity = @activity
+    @user_activity.save!
     redirect_to activity_path(@activity)
   end
 
