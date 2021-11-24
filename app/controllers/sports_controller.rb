@@ -1,8 +1,14 @@
 class SportsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
-    @sports = Sport.all
+    if params[:query].present?
+      sql_query = "kind ILIKE :query OR category ILIKE :query"
+      @sports = Sport.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @sports = Sport.all
+    end
   end
+
 
   def new
     @sport = Sport.new
@@ -12,6 +18,12 @@ class SportsController < ApplicationController
   def show
     @activity = Activity.new
     @activities = @sport.activities
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+      }
+    end
   end
 
   def create
@@ -36,11 +48,11 @@ class SportsController < ApplicationController
   private
 
   def find
-    @sport = sport.find(params[:id])
-    authorize @sport
+    @sport = Sport.find(params[:id])
+    # authorize @sport
   end
 
   def sport_params
-    params.require(:sport).permit(:type, :category)
+    params.require(:sport).permit(:kind, :category)
   end
 end
