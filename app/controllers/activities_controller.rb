@@ -7,6 +7,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @user_activity = UserActivity.find_by(activity_id: @activity, user_id: current_user)
+    @comment = Comment.new
   end
 
   def create
