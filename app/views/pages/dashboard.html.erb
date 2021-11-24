@@ -1,0 +1,13 @@
+
+<h2>My Activities</h2>
+<% @activities_mine.each do |activ| %>
+<h4><%= activ.created_at %></h4>
+<% end %>
+</h2>
+
+<h2>Upcoming/ Finished Activies</h2>
+<% @user_activities_by_user.each do |acti_user| %>
+  <h4><% acti_user.activity.user_activities.each do |act_user2| %></h4>
+    <%= act_user2.user.nickname %>
+  <% end %>
+<% end %>
