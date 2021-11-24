@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 devise_for :users
 root to: 'pages#home'
+get 'dashboard', to: 'pages#dashboard'
 resources :activities, only: %i[show new create destroy] do
   resources :user_activities, only: %i[create]
 end
