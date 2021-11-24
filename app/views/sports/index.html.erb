@@ -1,9 +1,9 @@
 <h1>All sports</h1>
-<div class= 'container'>
+<div class= 'sport_container'>
   <% @sports.each do |sport| %>
     <div class="sport_card">
-      <strong ><%= sport.kind %></strong>
-      <%= image_tag 'https://source.unsplash.com/1600x900/?person' %>
+      <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
+      <%# <%= image_tag '' %>
       <%# <%= link_to "Delete", sport_path(@sport), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
   <% end %>
@@ -17,9 +17,4 @@
     placeholder: "Search a sport or category"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<% @sports.each do |sport| %>
-  <div class="sport_card">
-    <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
-  </div>
 <% end %>

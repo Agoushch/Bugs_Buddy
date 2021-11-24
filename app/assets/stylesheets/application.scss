@@ -12,3 +12,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.sport_container {
+  display: flex;
+  flex-wrap: wrap;
+}
