@@ -5,8 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @activities = Activity.all
-    @user = current_user
-    @user_activities_by_user = UserActivity.where(user: @user)
+    @activities_mine = current_user.activities
+    @user_activities_by_user = current_user.user_activities
   end
 end
