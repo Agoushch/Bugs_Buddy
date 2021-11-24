@@ -7,6 +7,7 @@
 
 <h2 class="row">User-activies
 <% @user_activities_by_user.each do |acti_user| %>
-<%= acti_user.  %>
+<% acti_user(where user_id: @user).each |c|  %>
+  <%= @user: c %>
 <% end %>
 </h2>
