@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_152518) do
+ActiveRecord::Schema.define(version: 2021_11_24_115150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_11_23_152518) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_activity_id"
+    t.index ["user_activity_id"], name: "index_comments_on_user_activity_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -55,11 +57,9 @@ ActiveRecord::Schema.define(version: 2021_11_23_152518) do
   create_table "user_activities", force: :cascade do |t|
     t.bigint "activity_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_user_activities_on_activity_id"
-    t.index ["comment_id"], name: "index_user_activities_on_comment_id"
     t.index ["user_id"], name: "index_user_activities_on_user_id"
   end
 
@@ -84,6 +84,5 @@ ActiveRecord::Schema.define(version: 2021_11_23_152518) do
   add_foreign_key "preferences", "sports"
   add_foreign_key "preferences", "users"
   add_foreign_key "user_activities", "activities"
-  add_foreign_key "user_activities", "comments"
   add_foreign_key "user_activities", "users"
 end
