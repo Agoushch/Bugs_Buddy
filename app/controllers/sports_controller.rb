@@ -9,13 +9,21 @@ class SportsController < ApplicationController
     end
   end
 
+
   def new
     @sport = Sport.new
     # authorize @sport
   end
 
   def show
-    @sports = Sport.find(params[:id])
+    @activity = Activity.new
+    @activities = @sport.activities
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+      }
+    end
   end
 
   def create
@@ -45,6 +53,6 @@ class SportsController < ApplicationController
   end
 
   def sport_params
-    params.require(:sport).permit(:type, :category)
+    params.require(:sport).permit(:kind, :category)
   end
 end

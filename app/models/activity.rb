@@ -6,4 +6,6 @@ class Activity < ApplicationRecord
 
   validates :localisation, presence: true
   validates :date, presence: true
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
 end

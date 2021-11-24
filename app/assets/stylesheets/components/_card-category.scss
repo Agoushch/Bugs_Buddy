@@ -19,3 +19,22 @@
   border-color: rgb(17, 172, 30);
   border-style: solid;
 }
+
+.sport_card {
+  background-image: url('https://source.unsplash.com/random');
+  background-size: cover;
+  width: 200px;
+  height: 150px;
+  margin: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 23px;
+}
+
+.sport_card a {
+  text-decoration : none;
+  color: white;
+  font-size: 23px;
+}

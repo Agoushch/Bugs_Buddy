@@ -1,4 +1,15 @@
-
+<h1>All sports</h1>
+<div class= 'sport_container'>
+  <% @sports.each do |sport| %>
+    <div class="sport_card">
+      <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
+      <%# <%= image_tag '' %>
+      <%# <%= link_to "Delete", sport_path(@sport), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+</div>
+<div class="map">
+</div>
 <%= form_tag sports_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
@@ -6,10 +17,4 @@
     placeholder: "Search a sport or category"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<% @sports.each do |sport| %>
-  <div class="sport_card">
-    <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
-  </div>
 <% end %>
