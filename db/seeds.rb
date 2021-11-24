@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
+require 'faker'
+require 'json'
 
+User.destroy_all
 Sport.destroy_all
 
 puts 'database cleaned'
@@ -22,10 +25,29 @@ puts 'database cleaned'
 #   end
 # end
 
-allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
-allsports.each do |sport|
-  newsport = Sport.create!(kind: sport)
-  p newsport
+
+# allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
+# allsports.each do |sport|
+#   newsport = Sport.create!(kind: sport)
+#   p newsport
+# end
+
+curling = Sport.create(kind: 'curling')
+nicolas = User.create(email: "nicolas@hotmail.com", password: "123456")
+
+url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
+json = JSON.parse(URI.open(url).read)
+result = json["addresses"]
+result.each do |hash|
+  address = "#{hash["address1"]}, #{hash["city"]}"
+  activity = Activity.create!(
+    localisation: address,
+    user: nicolas,
+    description: Faker::Quote.famous_last_words,
+    sport: curling,
+    date: Date.today
+  )
+  p activity
 end
 
 allactivities = ["running 10 kil", "200000000 pull-ups", "play 30 minutes basketball in the place jourdan"]
