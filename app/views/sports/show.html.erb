@@ -1,12 +1,13 @@
-<%= @sport.kind %>
-<% @activities.each do |activity| %>
-  <div class="container_activities">
-    <div class="card_info">
-      <%= activity.description %>
-    </div>
-  </div>
-<% end %>
+<h1><%= @sport.kind.capitalize %></h1>
 <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<% @activities.each do |activity| %>
+  <div class="container_activities">
+    <div class="card_info">
+      <%= activity.description %> <%= link_to 'Join', activity_user_activities_path(activity), method: :post %>
+    </div>
+  </div>
+<% end %>
