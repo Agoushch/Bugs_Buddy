@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
-
-Sport.destroy_all
+require 'faker'
+require 'json'
 
 puts 'database cleaned'
 
@@ -26,4 +26,21 @@ allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX
 allsports.each do |sport|
   newsport = Sport.create!(kind: sport)
   p newsport
+end
+
+curling = Sport.create(kind: 'curling')
+
+url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
+json = JSON.parse(URI.open(url).read)
+result = json["addresses"]
+result.each do |hash|
+  address = "#{hash["address1"]}, #{hash["city"]}"
+  activity = Activity.create!(
+    localisation: address,
+    user: User.first,
+    description: Faker::Quote.famous_last_words,
+    sport: curling,
+    date: Date.today
+  )
+  p activity
 end

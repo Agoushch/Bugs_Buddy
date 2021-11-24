@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @user_activity = UserActivity.where(activity_id: activity, user_id: current_user)
+    @activity = Activity.find(params[:activity_id])
+    @user_activity = UserActivity.where(activity_id: @activity, user_id: current_user)
   end
 
   def destroy
