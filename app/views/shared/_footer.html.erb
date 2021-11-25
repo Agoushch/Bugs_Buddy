@@ -1,6 +1,10 @@
 <div class="footer">
   <div class="footer-social ">
-    <a href="sports"><i class="fas fa-futbol"></i></a>
-    <a href="#"><i class="fas fa-user-alt"></i></a>
-  </div>
+    <%= link_to sports_path do %>
+      <i class="fas fa-futbol"></i></a>
+  <% end %>
+  <%= link_to dashboard_path do %>
+    <i class="fas fa-user-alt"></i></a>
+<% end %>
+</div>
 </div>

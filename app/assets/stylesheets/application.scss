@@ -13,14 +13,9 @@
 @import "components/index";
 @import "pages/index";
 
-.sport_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: rgb(214, 212, 212);
 }
