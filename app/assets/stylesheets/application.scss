@@ -13,14 +13,10 @@
 @import "components/index";
 @import "pages/index";
 
-.sport_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 50px;
+  background-color: rgb(241, 241, 241);
 }

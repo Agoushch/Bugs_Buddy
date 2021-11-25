@@ -1,18 +1,36 @@
-<h1>All sports</h1>
 <%= form_tag sports_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Search a sport or category"
   %>
-  <div class='text-right'><%= submit_tag "Search", class: "btn button-633" %></div>
-<% end %>
+  <div class="btn-positionn">
+    <div ><%= submit_tag "Search", class: "btn button-633" %></div>
+  <% end %>
+</div>
+<div class="recommended-title">
+  <h3>Recommended</h3>
+</div>
+<div class="recommended_cards">
+  <% @recommended.each do |sport|%>
+    <div class="recommended_card">
+      <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
+    </div>
+  <% end %>
+  <h2>Categories</h2>
+  <div class="sport_categories">
+    <% @sports.first(5).each do |cat| %>
+      <div class="singlecard_category">
+        <%= cat.category %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<h1 class="text-center">All sports</h1>
 <div class= 'sport_container'>
   <% @sports.each do |sport| %>
     <div class="sport_card">
       <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
-      <%# <%= image_tag '' %>
-      <%# <%= link_to "Delete", sport_path(@sport), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
   <% end %>
 </div>
