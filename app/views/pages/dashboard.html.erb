@@ -2,8 +2,11 @@
 
 
 <h1>My Profile</h1>
-<%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
-<h3>Description: <%= current_user.description %></h3>
+<% if current_user.photo.attached? %>
+  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
+  <h3>Description: <%= current_user.description %></h3>
+  <% end %>
+
 <h2>My Activities</h2>
 
 <div class="all_activities">
