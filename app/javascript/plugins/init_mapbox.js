@@ -24,6 +24,13 @@ const initMapbox = () => {
     });
     fitMapToMarkers(map, markers);
   }
+  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
+    // This map option disables world wrapping.
+    continuousWorld: false,
+    // This option disables loading tiles outside of the world bounds. By default, it is false.
+    noWrap: false
+  }).addTo(map);
+
 };
 
 export { initMapbox };
