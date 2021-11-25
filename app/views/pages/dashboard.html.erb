@@ -1,9 +1,13 @@
 
 
+
 <h2>My Activities</h2>
+
+<div class="all_activities">
 <% @activities_mine.each do |activ| %>
-<%# <div class="sport_card"> %>
-<% time_delta = (activ.date - DateTime.current).to_f %>
+<div class="activityy_card">
+<% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
+
   <% if time_delta < 0 %>
     <h4><%= activ.date %> (<%= -time_delta.round(0) %> days ago)</h4>
     <h4><%= activ.sport.kind  %></h4>
@@ -14,9 +18,9 @@
       <h4><%= activ.sport.kind  %></h4>
       <h4><%= activ.description %></h4>
   <% end %>
-  <%# </div> %>
+  </div>
 <% end %>
-
+</div>
 ----------------------
 <h2>Upcoming/ Finished Activies</h2>
 <% @user_activities_by_user.each do |acti_user| %>
