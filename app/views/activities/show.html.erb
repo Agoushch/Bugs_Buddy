@@ -4,32 +4,38 @@
       <%= @activity.description %>
     </div>
     <div>
-      localisation:<%= @activity.localisation %>
-      <div class="localisation">
-        <%= @activity.date %>
-      </div>
+      Where?  <%= @activity.localisation %>
+    </div>
+    <div>
+      When?  <%= @activity.date %>
+    </div>
+    <div>
+      <%= link_to 'Join', activity_user_activities_path(@activity), method: :post, class: 'btn btn-secondary' %>
     </div>
   </div>
+  <% if @user_activity %>
+    <div class="container_new">
+      <div class="information_newcomment">
+        <%= simple_form_for [@user_activity, @comment] do |f| %>
+          <%= f.input :content, label: "Now let's talk and plan the activity together!" %>
+          <%= f.hidden_field :activity, value: @activity.id  %>
+          <%= f.submit class: 'btn btn-secondary' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   <h2>Comments</h2>
   <div class="chatbox">
     <% @activity.user_activities.each do |user_activity| %>
       <% user_activity.comments.each do |comment| %>
-        <%= comment.content %>
+        <div class="comment">
+          <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill %>
+          <%= comment.content %>
+        </div>
       <% end %>
     <% end %>
   </div>
   <h3>Attending</h3>
   <% @activity.user_activities.each do |user_activity| %>
     <%= user_activity.user.nickname %>
-  <% end %>
-  <% if @user_activity %>
-    <div class="container_new">
-      <div class="information_newcomment">
-        <%= simple_form_for [@user_activity, @comment] do |f| %>
-          <%= f.input :content %>
-          <%= f.hidden_field :activity, value: @activity.id  %>
-          <%= f.submit class: 'btn btn-secondary' %>
-        <% end %>
-      </div>
-    </div>
   <% end %>

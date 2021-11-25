@@ -7,6 +7,7 @@ class SportsController < ApplicationController
     else
       @sports = Sport.all
     end
+     @recommended = Sport.first(4)
   end
 
 

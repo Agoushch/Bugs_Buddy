@@ -20,13 +20,12 @@
         <%= f.association :sport, label_method: :kind %>
         <%= f.submit class: 'btn btn-secondary' %>
       <% end %>
-    </div>
-  </div>
+</div>
 </div>
 <div class="container_activities">
   <% @activities.each do |activity| %>
 
-    <%= link_to  activity_user_activities_path(activity), method: :post, class: "card_info" do %>
+    <%= link_to  activity_path(activity), class: "card_info" do %>
       <div class="">
         <%= activity.description %>
       </div>
