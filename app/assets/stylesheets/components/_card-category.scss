@@ -1,26 +1,38 @@
 .card-category {
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(255, 255, 255);
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
-  margin-top: 20px;
-  border-radius: 30px;
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .card-category:hover {
-  //filter: blur(10px);
-  border-color: rgb(17, 172, 30);
-  border-style: solid;
-  border-width: 6px;
+  background-color: #1e293b;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .card-category {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
 }
 
 .sport_container {
@@ -101,4 +113,28 @@
   color: white;
   font-size: 23px;
   text-align: center;
+}
+
+.sport_categories {
+  max-height: 150px;
+  // border: 1px solid black;
+  display: flex;
+  overflow-x: auto;
+}
+.sport_categories::-webkit-scrollbar {
+  width: 0;
+}
+.singlecard_category {
+  min-width: 150px;
+  height: 150px;
+  line-height: 110px;
+  text-align: center;
+  background-color: rgb(17, 87, 17);
+  margin: 4px;
+  color: white;
+  opacity: 0.7;
+}
+
+.singlecard_category:hover {
+  opacity: 1;
 }

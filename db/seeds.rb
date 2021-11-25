@@ -32,6 +32,7 @@ allsports.each do |sport|
   p Sport.create!(kind: sport, category: categories.sample)
 end
 
+
 nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
@@ -46,4 +47,5 @@ p Activity.create!(
     sport: Sport.all.sample,
     date: Date.today
   )
+
 end

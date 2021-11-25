@@ -19,6 +19,11 @@
   <% end %>
   <h2>Categories</h2>
   <div class="sport_categories">
+    <% @sports.first(5).each do |cat| %>
+      <div class="singlecard_category">
+        <%= cat.category %>
+      </div>
+    <% end %>
   </div>
 </div>
 <h1 class="text-center">All sports</h1>
