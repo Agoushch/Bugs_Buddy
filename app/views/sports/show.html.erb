@@ -21,7 +21,6 @@
 <% @activities.each do |activity| %>
   <div class="container_activities">
     <div class="card_info">
-      <%= activity.description %> <%= link_to 'More informations', activity_user_activities_path(activity), method: :post, class: 'btn btn-secondary' %>
     </div>
   </div>
 <% end %>

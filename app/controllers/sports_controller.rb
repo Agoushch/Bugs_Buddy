@@ -8,6 +8,9 @@ class SportsController < ApplicationController
       @sports = Sport.all
     end
      @recommended = Sport.first(4)
+
+    #  if
+    #   @sports = Sport.where(caterogy: params)
   end
 
 
