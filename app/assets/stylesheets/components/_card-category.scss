@@ -148,13 +148,21 @@
 .all_activities {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly
+  justify-content: left;
 }
-.activityy_card{
+.activityy_card {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   background-color: lightblue;
   margin: 10px;
   padding: 20px;
+  border-radius: 18px;
+  background-color: rgb(17, 87, 17);
+  color: rgb(255, 255, 255);
+
+}
+
+.all_activities .activityy_card h4 {
+  font-weight:bolder;
 }
