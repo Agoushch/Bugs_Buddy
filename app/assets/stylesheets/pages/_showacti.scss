@@ -1,5 +1,8 @@
+
 .container_activities {
   padding-top: 5px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .container_new {
@@ -19,7 +22,24 @@
   text-decoration: none;
   color: 316B83;
 }
+.container_activity_user {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 2px #316B83;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
+.activity_user {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3px;
+  font-size: 12px;
+  font-family: 'Lobster' ;
+
+}
 .join {
   font-weight: bold;
   position: absolute;
@@ -87,6 +107,9 @@
   list-style: none;
 }
 
+.attending_container {
+  margin: 40px;
+}
 .attending {
   display: flex;
   flex-direction: column;
