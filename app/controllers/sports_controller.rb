@@ -8,10 +8,11 @@ class SportsController < ApplicationController
       @sports = Sport.all
     end
      @recommended = Sport.first(4)
-
-    #  if
-    #   @sports = Sport.where(caterogy: params)
   end
+
+  # def categories
+  #   @sports = Sport.select {|sport| sport.category == ''}
+  # end
 
 
   def new
