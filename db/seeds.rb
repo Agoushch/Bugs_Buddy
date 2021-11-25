@@ -34,7 +34,7 @@ end
 
 categories = ['Ball', 'Indoor', 'Outdoor', 'Endurance', 'Strength', 'Combat', 'Fitness']
 
-random_sports = allsports.shuffle
+random_sports = categories.shuffle
 Sport.all.each do |sport|
     sport.update(category: random_sports.sample)
     sport.save

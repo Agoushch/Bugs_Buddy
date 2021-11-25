@@ -114,3 +114,27 @@
   font-size: 23px;
   text-align: center;
 }
+
+.sport_categories {
+  max-height: 150px;
+  // border: 1px solid black;
+  display: flex;
+  overflow-x: auto;
+}
+.sport_categories::-webkit-scrollbar {
+  width: 0;
+}
+.singlecard_category {
+  min-width: 150px;
+  height: 150px;
+  line-height: 110px;
+  text-align: center;
+  background-color: rgb(17, 87, 17);
+  margin: 4px;
+  color: white;
+  opacity: 0.7;
+}
+
+.singlecard_category:hover {
+  opacity: 1;
+}
