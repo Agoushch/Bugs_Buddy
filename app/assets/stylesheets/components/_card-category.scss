@@ -144,3 +144,17 @@
 .singlecard_category:hover {
   opacity: 1;
 }
+
+.all_activities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+.activityy_card{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+  margin: 10px;
+  padding: 20px;
+}
