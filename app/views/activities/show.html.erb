@@ -4,17 +4,17 @@
       <%= @activity.description %>
     </div>
     <div>
-      localisation:<%= @activity.localisation %>
-      <div class="localisation">
-        <%= @activity.date %>
-      </div>
+      Where?  <%= @activity.localisation %>
+    </div>
+    <div class="localisation">
+      When?  <%= @activity.date %>
     </div>
   </div>
   <h2>Comments</h2>
   <div class="chatbox">
     <% @activity.user_activities.each do |user_activity| %>
       <% user_activity.comments.each do |comment| %>
-        <%= comment.content %>
+        <div><%= comment.content %></div>
       <% end %>
     <% end %>
   </div>
