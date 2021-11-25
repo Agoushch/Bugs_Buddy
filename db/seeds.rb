@@ -27,34 +27,25 @@ puts 'database cleaned'
 
 
 allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
-allsports.each do |sport|
-  newsport = Sport.create!(kind: sport)
-  p newsport
-end
-
 categories = ['Ball', 'Indoor', 'Outdoor', 'Endurance', 'Strength', 'Combat', 'Fitness']
-
-random_sports = categories.shuffle
-Sport.all.each do |sport|
-    sport.update(category: random_sports.sample)
-    sport.save
-    p sport
+allsports.each do |sport|
+  p Sport.create!(kind: sport, category: categories.sample)
 end
 
-# curling = Sport.create(kind: 'curling')
-# nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 
-# url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
-# json = JSON.parse(URI.open(url).read)
-# result = json["addresses"]
-# result.each do |hash|
-#   address = "#{hash["address1"]}, #{hash["city"]}"
-#   activity = Activity.create!(
-#     localisation: address,
-#     user: nicolas,
-#     description: Faker::Quote.famous_last_words,
-#     sport: curling,
-#     date: Date.today
-#   )
-#   p activity
-# end
+nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+
+url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
+json = JSON.parse(URI.open(url).read)
+result = json["addresses"]
+result.first(40).each do |hash|
+  address = "#{hash["address1"]}, #{hash["city"]}"
+p Activity.create!(
+    localisation: address,
+    user: nicolas,
+    description: Faker::Quote.famous_last_words,
+    sport: Sport.all.sample,
+    date: Date.today
+  )
+
+end
