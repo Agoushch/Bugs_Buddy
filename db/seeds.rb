@@ -26,7 +26,13 @@ puts 'database cleaned'
 #   end
 # end
 
+file = URI.open('https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x')
+nicolas = User.create!(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+nicolas.photo.attach(io: file, filename: 'nicolas.png', content_type: 'image/png')
+nicolas.save!
 
+
+adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
 
 
 categories = ['Indoor', 'Outdoor', 'Strength', 'Fitness']
@@ -58,14 +64,12 @@ combat.each do |sport|
   p Sport.create!(kind: sport, category: combat_cat)
 end
 
-nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
-adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
 
 running = Sport.create(kind: 'running')
 
 courir = Activity.create!(
     localisation: '10 Cantersteen 1000 Bruxelles',
-    user: nicolas,
+    user_id: nicolas.id,
     description: 'Running at Bois de la Cambre this evening at 6pm',
     sport_id: 1,
     date: Date.today
@@ -73,7 +77,7 @@ courir = Activity.create!(
 
 nager = Activity.create!(
     localisation: '12 Rue du midi 1000 Bruxelles',
-    user: nicolas,
+    user_id: nicolas.id,
     description: 'Anyone up to swim near Etterbeek ?',
     sport: Sport.all.sample,
     date: Date.today
@@ -86,13 +90,13 @@ result.first(5).each do |hash|
   address = "#{hash["address1"]}, #{hash["city"]}"
 p Activity.create!(
     localisation: address,
-    user: nicolas,
+    user_id: nicolas.id,
     description: Faker::Quote.famous_last_words,
     sport: Sport.all.sample,
     date: Date.today
   )
 end
 
-nicolas_run= UserActivity.create(activity: courir, user_id: 1)
+nicolas_run= UserActivity.create(activity: courir, user_id: nicolas.id)
 
-adonis_run = UserActivity.create(activity: courir, user_id: 2)
+adonis_run = UserActivity.create(activity: courir, user_id: adonis.id)
