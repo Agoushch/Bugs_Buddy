@@ -9,5 +9,7 @@ class PagesController < ApplicationController
 
   # purpose is to fetch an array of users_activities, with the same activity for a user
     @user_activities_by_user = current_user.user_activities
+    raise
+
   end
 end
