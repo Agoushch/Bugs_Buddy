@@ -18,5 +18,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 50px;
-  background-color: white;
+  background: linear-gradient(
+    0.25turn,
+    rgb(227, 237, 240),
+    hsl(94, 100%, 99%),
+    rgb(243, 251, 253)
+  );
 }
