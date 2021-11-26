@@ -8,31 +8,21 @@
     <div ><%= submit_tag "Search", class: "btn button-633" %></div>
   <% end %>
 </div>
-<div class="recommended-title">
-  <h3>Recommended</h3>
-</div>
-<div class="recommended_cards">
-  <% @recommended.each do |sport|%>
-    <div class="recommended_card">
-      <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
+<h2 class="text-center">Categories</h2>
+<div class="sport_categories">
+  <% @sports.first(5).each do |cat| %>
+    <div class="singlecard_category">
+      <%= cat.category %>
     </div>
   <% end %>
-  <h2>Categories</h2>
-  <div class="sport_categories">
-    <% @sports.first(5).each do |cat| %>
-      <div class="singlecard_category">
-        <%= cat.category %>
-      </div>
-    <% end %>
-  </div>
+</div>
 </div>
 <h1 class="text-center">All sports</h1>
 <div class= 'sport_container'>
   <% @sports.each do |sport| %>
-    <div class="sport_card">
-      <strong ><%= link_to "#{sport.kind}", sport_path(sport) %></strong>
-    </div>
+    <a href="<%=sport_path(sport)%>" class="sport_card">
+      <strong ><%=sport.kind %></strong>
+    </a>
   <% end %>
-</div>
-<div class="map">
-</div>
+  <div class="map">
+  </div>
