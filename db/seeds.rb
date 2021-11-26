@@ -71,18 +71,18 @@ courir = Activity.create!(
     date: Date.today
   )
 
-# nager = Activity.create!(
-#     localisation: '12 Rue du midi 1000 Bruxelles',
-#     user: nicolas,
-#     description: 'Anyone up to swim near Etterbeek ?',
-#     sport: Sport.all.sample,
-#     date: Date.today
-#   )
+nager = Activity.create!(
+    localisation: '12 Rue du midi 1000 Bruxelles',
+    user: nicolas,
+    description: 'Anyone up to swim near Etterbeek ?',
+    sport: Sport.all.sample,
+    date: Date.today
+  )
 
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
-result.first(40).each do |hash|
+result.first(5).each do |hash|
   address = "#{hash["address1"]}, #{hash["city"]}"
 p Activity.create!(
     localisation: address,
@@ -91,9 +91,8 @@ p Activity.create!(
     sport: Sport.all.sample,
     date: Date.today
   )
-
 end
 
-nicolas_act = UserActivity.create(activity: courir, user_id: 1)
+nicolas_run= UserActivity.create(activity: courir, user_id: 1)
 
-# adonis_ act = UserActivity.create(activity: courir, user_id: 2)
+adonis_run = UserActivity.create(activity: courir, user_id: 2)
