@@ -10,23 +10,12 @@
 </div>
 <h2 class="text-center">Categories</h2>
 <div class="sport_categories">
-  <% @sports.first(5).each do |cat| %>
+  <% @categories.each do |category| %>
     <div class="singlecard_category">
-      <%= cat.category %>
+      <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %>
     </div>
   <% end %>
-<<<<<<< HEAD
 </div>
-=======
-  <h2>Categories</h2>
-  <div class="sport_categories">
-    <% @categories.each do |category| %>
-      <div class="singlecard_category">
-        <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %>
-      </div>
-    <% end %>
-  </div>
->>>>>>> 7c3c5f1011ff7053aa88064e5068917ee5046e8a
 </div>
 <h1 class="text-center">All sports</h1>
 <div class= 'sport_container'>

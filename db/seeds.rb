@@ -29,7 +29,7 @@ puts 'database cleaned'
 
 
 
-categories = ['Indoor', 'Outdoor', 'Strength', 'Fitness']
+categories = ['Strength', 'Fitness']
 
 categories.each do |category|
   Category.create(name: category)
@@ -38,13 +38,24 @@ end
 ball_cat = Category.create(name: 'Ball')
 endurance_cat = Category.create(name: 'Endurance')
 combat_cat = Category.create(name: 'Combat')
+indoor_cat = Category.create(name: 'Indoor')
+outdoor_cat = Category.create(name: 'Outdoor')
+
 
 allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
 ball = ["baseball", "basketball", "football", "paintball", "softball", "volleyball"]
 endurance = ["cycling", "jogging", "rafting", "running", "swimming", "triathlon"]
 combat = ["boxing", "judo", "karate", "sumo wrestling"]
+indor = ["gymnastics", "trampolining"]
+outdoor = ["jogging", "athletics", "triathlon"]
 
+indoor.each do |sport|
+  p Sport.create!(kind: sport, category: indor_cat)
+end
 
+outdoor.each do |sport|
+  p Sport.create!(kind: sport, category: outdoor_cat)
+end
 
 ball.each do |sport|
   p Sport.create!(kind: sport, category: ball_cat)
