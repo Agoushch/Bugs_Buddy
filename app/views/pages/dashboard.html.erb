@@ -1,29 +1,51 @@
-
-
-
 <h1>My Profile</h1>
 <% if current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= current_user.nickname %>
+  <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill, radius: 20 %>
   <h3>Description: <%= current_user.description %></h3>
-  <% end %>
-
-<h3>Activities created by myself</h3>
-
+<% end %>
+<h2>My Activities</h2>
 <div class="all_activities">
-<% @activities_mine.each do |activ| %>
-<div class="activityy_card">
-<% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
-  <% if time_delta < 0 %>
-    <h6><%= activ.date %> (<%= -time_delta.round(0) %> days ago)</h6>
-    <h4><%= activ.sport.kind  %></h4>
-    <h6><%= activ.description %></h6>
-    <h4>You completed your activity!</h4>
-
-    <% else %>
-      <h6><%= activ.date %> (in <%= time_delta.round(0) %> days)</h6>
-      <h4><%= activ.sport.kind  %></h4>
-      <h6><%= activ.description %></h6>
+  <% @activities_mine.each do |activ| %>
+    <div class="activityy_card">
+      <% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
+      <% if time_delta < 0 %>
+        <h4><%= activ.date %> (<%= -time_delta.round(0) %> days ago)</h4>
+        <h4><%= activ.sport.kind  %></h4>
+        <h4><%= activ.description %></h4>
+        <h3>You completed your activity!</h2>
+      <% else %>
+        <h4><%= activ.date %> (in <%= time_delta.round(0) %> days)</h4>
+        <h4><%= activ.sport.kind  %></h4>
+        <h4><%= activ.description %></h4>
+      <% end %>
+    </div>
   <% end %>
+  <h3>Activities created by myself</h3>
+  <div class="all_activities">
+    <% @activities_mine.each do |activ| %>
+      <div class="activityy_card">
+        <% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
+        <% if time_delta < 0 %>
+          <h6><%= activ.date %> (<%= -time_delta.round(0) %> days ago)</h6>
+          <h4><%= activ.sport.kind  %></h4>
+          <h6><%= activ.description %></h6>
+          <h4>You completed your activity!</h4>
+        <% else %>
+          <h6><%= activ.date %> (in <%= time_delta.round(0) %> days)</h6>
+          <h4><%= activ.sport.kind  %></h4>
+          <h6><%= activ.description %></h6>
+        <% end %>
+      </div>
+    <% end %>
+    <h2>Upcoming/ Finished Activies</h2>
+    <% @user_activities_by_user.each do |acti_user| %>
+      <h4><% acti_user.activity.date %></h4>
+    <% end %>
+    <h2>Buddies activites: Upcoming/ Finished</h2>
+    <% @user_activities_by_user.sort_by do |u_a| %>
+      <%= u_a[u_a.activity_id] %>
+    <% end %>
   </div>
 <% end %>
 </div>
