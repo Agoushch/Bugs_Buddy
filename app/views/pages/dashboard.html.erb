@@ -27,10 +27,15 @@
   </div>
 <% end %>
 </div>
-
 <h2>Buddies activites: Upcoming/ Finished</h2>
-<% @user_activities_by_user.each do |user_activiti| %>
-<%= user_activiti.activity.sport.kind %>
+<% current_user.user_activities.each do |user_activiti| %>
+  <%= user_activiti.activity.sport.kind %>
+  participant:
+
+  <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+    <% # next if user_activity_member == user_activiti  %>
+    <%= user_activity_member.user.nickname %>
+  <% end %>
 <% end %>
 
 
