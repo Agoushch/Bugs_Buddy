@@ -10,9 +10,4 @@ resources :user_activities, only: %i[ destroy] do
   resources :comments, only: %i[new create]
 end
 resources :comments, only: %i[destroy]
-resources :sports do
-  collection do
-    get :categories
-  end
-end
 end

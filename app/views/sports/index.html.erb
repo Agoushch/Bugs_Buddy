@@ -19,9 +19,9 @@
   <% end %>
   <h2>Categories</h2>
   <div class="sport_categories">
-    <% @sports.first(8).each do |cat| %>
+    <% @categories.each do |category| %>
       <div class="singlecard_category">
-        <%= link_to cat.category, categories_sports_path %>
+        <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %>
       </div>
     <% end %>
   </div>
