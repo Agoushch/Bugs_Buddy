@@ -36,7 +36,7 @@
       <% @activity.user_activities.each do |user_activity| %>
         <% user_activity.comments.each do |comment| %>
           <div class="comment">
-            <%= cl_image_tag comment.user_activity.user.photo.key, height: 30, width: 30, crop: :fill, radius: 50 %>
+            <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
             <div class='comment_text'><%= comment.content %></div>
           </div>
         <% end %>
@@ -44,7 +44,7 @@
     </div>
   </div>
   <div class='attending_container'>
-    <div>Attending</div>
+    <div class='attending_title'>Attending</div>
     <div class='attending'>
       <% @activity.user_activities.each do |user_activity| %>
         <div><%= user_activity.user.nickname %></div>
