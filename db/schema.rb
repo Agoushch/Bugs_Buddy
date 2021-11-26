@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_101346) do
+ActiveRecord::Schema.define(version: 2021_11_26_152428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 2021_11_25_101346) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
@@ -70,9 +76,10 @@ ActiveRecord::Schema.define(version: 2021_11_25_101346) do
 
   create_table "sports", force: :cascade do |t|
     t.string "kind"
-    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_sports_on_category_id"
   end
 
   create_table "user_activities", force: :cascade do |t|
@@ -105,6 +112,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_101346) do
   add_foreign_key "activities", "users"
   add_foreign_key "preferences", "sports"
   add_foreign_key "preferences", "users"
+  add_foreign_key "sports", "categories"
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
 end
