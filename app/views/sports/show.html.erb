@@ -2,7 +2,7 @@
   <h1><%= @sport.kind.capitalize %></h1>
 </div>
 <div id="map"
-  style="style=width: 90%; height: 45vh; border-radius: 50px; justify-content: center"
+  style="style=width: 90%; height: 45vh; border-radius: 50px; justify-content: center; margin-top: 40px; margin-left: 5%; margin-right: 5%"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   >
@@ -23,13 +23,15 @@
 </div>
 </div>
 <div class="container_activities">
-  <% @activities.each do |activity| %>
-
-    <%= link_to  activity_path(activity), class: "card_info" do %>
-      <div class="">
-        <%= activity.description %>
-      </div>
+  <ul>
+    <% @activities.each do |activity| %>
+      <li>
+        <%= link_to  activity_path(activity) do %>
+          <div class="activity_description">
+            <%= activity.description %>
+          </div>
+        <% end %>
+      </li>
     <% end %>
-
-  <% end %>
+  </ul>
 </div>
