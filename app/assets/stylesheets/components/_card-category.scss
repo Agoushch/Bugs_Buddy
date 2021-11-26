@@ -155,6 +155,10 @@ a {
   border-radius: 18px;
 }
 
+.singlecard_category a {
+  text-decoration: none;
+}
+
 .singlecard_category:hover {
   opacity: 1;
 }
@@ -162,7 +166,7 @@ a {
 .all_activities {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: left;
 }
 .activityy_card {
   border: 1px solid black;
@@ -171,4 +175,11 @@ a {
   background-color: lightblue;
   margin: 10px;
   padding: 20px;
+  border-radius: 18px;
+  background-color: rgb(17, 87, 17);
+  color: rgb(255, 255, 255);
+}
+
+.all_activities .activityy_card h4 {
+  font-weight: bolder;
 }
