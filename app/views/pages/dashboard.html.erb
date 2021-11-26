@@ -29,6 +29,6 @@
 </div>
 
 <h2>Buddies activites: Upcoming/ Finished</h2>
-<% @user_activities_by_user.sort_by do |u_a| %>
+<% @user_activities_by_user.group_by do |u_a| %>
  <%= u_a[u_a.activity_id] %>
  <% end %>
