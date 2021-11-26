@@ -12,6 +12,7 @@ require 'json'
 
 User.destroy_all
 Sport.destroy_all
+Category.destroy_all
 
 puts 'database cleaned'
 
@@ -26,12 +27,20 @@ puts 'database cleaned'
 # end
 
 
-allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
+
+
 categories = ['Ball', 'Indoor', 'Outdoor', 'Endurance', 'Strength', 'Combat', 'Fitness']
-allsports.each do |sport|
-  p Sport.create!(kind: sport, category: categories.sample)
+
+categories.each do |category|
+  Category.create(name: category)
 end
 
+fitness = Category.create(name: 'Fitness')
+
+allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
+allsports.each do |sport|
+  p Sport.create!(kind: sport, category: fitness)
+end
 
 nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 
