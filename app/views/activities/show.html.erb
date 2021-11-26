@@ -1,41 +1,54 @@
 <div class="container_activities">
-  <div class="card_info">
-    <div>
-      <%= @activity.description %>
-    </div>
-    <div>
-      Where?  <%= @activity.localisation %>
-    </div>
-    <div>
-      When?  <%= @activity.date %>
-    </div>
-    <div>
-      <%= link_to 'Join', activity_user_activities_path(@activity), method: :post, class: 'btn btn-secondary' %>
-    </div>
-  </div>
-  <% if @user_activity %>
-    <div class="container_new">
-      <div class="information_newcomment">
-        <%= simple_form_for [@user_activity, @comment] do |f| %>
-          <%= f.input :content, label: "Now let's talk and plan the activity together!" %>
-          <%= f.hidden_field :activity, value: @activity.id  %>
-          <%= f.submit class: 'btn btn-secondary' %>
-        <% end %>
+  <div class='activities_and_chatbox'>
+    <div class="card_info">
+      <div class='container_activity_user'>
+        <div class='activity_user'>
+          <%# <%= cl_image_tag @activity.user.photo.key, height: 30, width: 30, crop: :fill, radius: 50 %> %>
+          <%= @activity.user.nickname.capitalize %>
+        </div>
+      </div>
+      <div>
+        Description : <%= @activity.description %>
+      </div>
+      <div>
+        Address :  <%= @activity.localisation %>
+      </div>
+      <div>
+        Date :  <%= @activity.date %>
+      </div>
+      <div class='join'>
+        <%= link_to '+ join', activity_user_activities_path(@activity), method: :post %>
       </div>
     </div>
-  <% end %>
-  <h2>Comments</h2>
-  <div class="chatbox">
-    <% @activity.user_activities.each do |user_activity| %>
-      <% user_activity.comments.each do |comment| %>
-        <div class="comment">
-          <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill %>
-          <%= comment.content %>
+
+    <div class="chatbox">
+      <% if @user_activity %>
+        <div class="container_new">
+          <div class="information_newcomment">
+            <%= simple_form_for [@user_activity, @comment] do |f| %>
+              <%= f.input :content, label: "Let's talk and plan your activity!" %>
+              <%= f.hidden_field :activity, value: @activity.id  %>
+              <%= f.button :submit, 'Submit', class: 'btn_comment' %>
+            <% end %>
+          </div>
         </div>
       <% end %>
-    <% end %>
+      <div class='comment_title'>Comments</div>
+      <% @activity.user_activities.each do |user_activity| %>
+        <% user_activity.comments.each do |comment| %>
+          <div class="comment">
+            <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
+            <div class='comment_text'><%= comment.content %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-  <h3>Attending</h3>
-  <% @activity.user_activities.each do |user_activity| %>
-    <%= user_activity.user.nickname %>
-  <% end %>
+  <div class='attending_container'>
+    <div class='attending_title'>Attending</div>
+    <div class='attending'>
+      <% @activity.user_activities.each do |user_activity| %>
+        <div><%= user_activity.user.nickname %></div>
+      <% end %>
+    </div>
+  </div>
