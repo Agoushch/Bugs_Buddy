@@ -10,7 +10,7 @@
 
 <div class=container_new_activity>
   <div class="titre 2">
-    <h1>New activity</h1>
+    <h2>New activity</h2>
   </div>
     <div class="new_activity_info">
       <%= simple_form_for @activity do |f| %>
@@ -18,7 +18,7 @@
         <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"}%>
         <%= f.input :description, placeholder: 'Jogging'%>
         <%= f.association :sport, label_method: :kind %>
-        <%= f.submit class: 'btn btn-secondary' %>
+        <%= f.submit class: 'btn btn-thibaut' %>
       <% end %>
 </div>
 </div>
