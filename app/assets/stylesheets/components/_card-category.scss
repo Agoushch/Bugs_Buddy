@@ -34,24 +34,26 @@
   }
 }
 
+.sport_container_categories_and_sports {
+  display: flex;
+}
 .sport_container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
+
 .sport_card {
   // background-image: url("https://source.unsplash.com/random");
   background-size: cover;
-  width: 100px;
-  height: 75px;
-  margin: 25px 17px;
+  // width: 100px;
+  // height: 75px;
+  // margin: 25px 17px;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0.7;
-  background-color: #316b83;
-  border-radius: 15px;
-  border: 1px solid rgb(0, 0, 0);
+  // background-color: #316b83;
+  // border: 1px solid rgb(0, 0, 0);
   text-align: center;
   color: white;
   text-decoration: none;
@@ -138,6 +140,7 @@ a {
 .sport_categories {
   // border: 1px solid black;
   display: flex;
+  flex-direction: column;
   overflow-x: auto;
 }
 .sport_categories::-webkit-scrollbar {
@@ -152,7 +155,6 @@ a {
   margin: 4px;
   color: white;
   opacity: 0.7;
-  border-radius: 18px;
 }
 .singlecard_category a {
   color: white;
