@@ -26,15 +26,7 @@ puts 'database cleaned'
 #   end
 # end
 
-
-
-
-categories = ['Strength', 'Fitness']
-
-categories.each do |category|
-  Category.create(name: category)
-end
-
+# Categories
 ball_cat = Category.create(name: 'Ball')
 endurance_cat = Category.create(name: 'Endurance')
 combat_cat = Category.create(name: 'Combat')
@@ -42,58 +34,46 @@ indoor_cat = Category.create(name: 'Indoor')
 outdoor_cat = Category.create(name: 'Outdoor')
 
 
-allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
-ball = ["baseball", "basketball", "football", "paintball", "softball", "volleyball"]
-endurance = ["cycling", "jogging", "rafting", "running", "swimming", "triathlon"]
-combat = ["boxing", "judo", "karate", "sumo wrestling"]
-indor = ["gymnastics", "trampolining"]
-outdoor = ["jogging", "athletics", "triathlon"]
-
+# Sports
+allsports = ["athletics", "badminton", "baseball", "basketball", "boxing", "cycling", "hockey", "skating", "football", "golf", "judo", "karate", "rafting", "rugby", "running", "skiing", "surfing", "swimming", "tennis", "triathlon", "volleyball", "taekwondo", "kung fu"]
+ball = ["baseball", "basketball", "football", "volleyball"]
+endurance = ["cycling", "rafting", "running", "swimming", "triathlon"]
+combat = ["boxing", "judo", "karate", "taekwondo", "kung fu"]
+indoor = ["athletics", "badminton", "basketball", "boxing", "skating", "football", "judo", "karate", "swimming", "tennis", "volleyball"]
+outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating", "football", "golf", "rafting", "rugby", "running", "skiing", "surfing", "tennis", "triathlon"]
 indoor.each do |sport|
-  p Sport.create!(kind: sport, category: indor_cat)
+  p Sport.create!(kind: sport, category: indoor_cat)
 end
-
 outdoor.each do |sport|
   p Sport.create!(kind: sport, category: outdoor_cat)
 end
-
 ball.each do |sport|
   p Sport.create!(kind: sport, category: ball_cat)
 end
-
 endurance.each do |sport|
   p Sport.create!(kind: sport, category: endurance_cat)
 end
-
 combat.each do |sport|
   p Sport.create!(kind: sport, category: combat_cat)
 end
 
+# Users
 nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
 
-running = Sport.create(kind: 'running')
-
+#Activity
 courir = Activity.create!(
     localisation: '10 Cantersteen 1000 Bruxelles',
-    user: nicolas,
+    user_id: nicolas.id,
     description: 'Running at Bois de la Cambre this evening at 6pm',
     sport_id: 1,
     date: Date.today
   )
 
-# nager = Activity.create!(
-#     localisation: '12 Rue du midi 1000 Bruxelles',
-#     user: nicolas,
-#     description: 'Anyone up to swim near Etterbeek ?',
-#     sport: Sport.all.sample,
-#     date: Date.today
-#   )
-
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
-result.first(40).each do |hash|
+result.first(20).each do |hash|
   address = "#{hash["address1"]}, #{hash["city"]}"
 p Activity.create!(
     localisation: address,
@@ -102,9 +82,7 @@ p Activity.create!(
     sport: Sport.all.sample,
     date: Date.today
   )
-
 end
 
-nicolas_act = UserActivity.create(activity: courir, user_id: 1)
-
-# adonis_ act = UserActivity.create(activity: courir, user_id: 2)
+#Useractivity
+nicolas_act = UserActivity.create(activity: courir, user_id: nicolas.id)
