@@ -10,9 +10,12 @@ require 'nokogiri'
 require 'faker'
 require 'json'
 
+UserActivity.destroy_all
+Activity.destroy_all
 User.destroy_all
 Sport.destroy_all
 Category.destroy_all
+
 
 puts 'database cleaned'
 
@@ -46,11 +49,11 @@ allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX
 ball = ["baseball", "basketball", "football", "paintball", "softball", "volleyball"]
 endurance = ["cycling", "jogging", "rafting", "running", "swimming", "triathlon"]
 combat = ["boxing", "judo", "karate", "sumo wrestling"]
-indor = ["gymnastics", "trampolining"]
+indoor = ["gymnastics", "trampolining"]
 outdoor = ["jogging", "athletics", "triathlon"]
 
 indoor.each do |sport|
-  p Sport.create!(kind: sport, category: indor_cat)
+  p Sport.create!(kind: sport, category: indoor_cat)
 end
 
 outdoor.each do |sport|
@@ -69,18 +72,19 @@ combat.each do |sport|
   p Sport.create!(kind: sport, category: combat_cat)
 end
 
-nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+nicolas = User.create!(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
+filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nickname: 'Filip')
 
 running = Sport.create(kind: 'running')
 
 courir = Activity.create!(
-    localisation: '10 Cantersteen 1000 Bruxelles',
-    user: nicolas,
-    description: 'Running at Bois de la Cambre this evening at 6pm',
-    sport_id: 1,
-    date: Date.today
-  )
+  localisation: '10 Cantersteen 1000 Bruxelles',
+  user: nicolas,
+  description: 'Running at Bois de la Cambre this evening at 6pm',
+  sport_id: 1,
+  date: Date.today
+)
 
 # nager = Activity.create!(
 #     localisation: '12 Rue du midi 1000 Bruxelles',
@@ -93,7 +97,7 @@ courir = Activity.create!(
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
-result.first(40).each do |hash|
+result.first(10).each do |hash|
   address = "#{hash["address1"]}, #{hash["city"]}"
 p Activity.create!(
     localisation: address,
@@ -105,6 +109,7 @@ p Activity.create!(
 
 end
 
-nicolas_act = UserActivity.create(activity: courir, user_id: 1)
+nicolas_act = UserActivity.create!(activity: courir, user_id: 1)
+filip_act = UserActivity.create!(activity: courir, user_id: 3)
 
 # adonis_ act = UserActivity.create(activity: courir, user_id: 2)

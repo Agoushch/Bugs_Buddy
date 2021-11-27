@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   def dashboard
     @activities_mine = current_user.activities
 
+
   end
 end
