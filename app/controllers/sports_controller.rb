@@ -64,6 +64,6 @@ class SportsController < ApplicationController
   end
 
   def sport_params
-    params.require(:sport).permit(:kind, :category)
+    params.require(:sport).permit(:kind, :category_id, :photo)
   end
 end
