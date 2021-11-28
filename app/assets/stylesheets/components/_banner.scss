@@ -23,3 +23,24 @@
   margin: 0 auto;
   width: 100%;
 }
+
+.banner_container {
+  position: relative;
+}
+
+.banner_container h1 {
+  position: absolute;
+  right: 135px;
+  bottom: 55px;
+  color: white;
+  font-family: 'Keania One', cursive;
+  font-size: 47px;
+  opacity: 0.9;
+}
+
+#sport_banner {
+  height: 320px;
+  width: 100vw;
+  object-fit: cover;
+  background-position: center;
+}
