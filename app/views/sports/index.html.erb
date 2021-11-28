@@ -8,11 +8,11 @@
     class: "form-control",
     placeholder: "Search a sport or category"
   %>
-  <div class="btn-positionn"><%= submit_tag "Search", class: "btn button-633" %></div>
+  <%# <div class="btn-positionn"><%= submit_tag "Search", class: "btn button-633" %>
 <% end %>
 <div class= 'sport_container_categories_and_sports'>
-  <div class="row">
-    <div class="col-2 sport_categories">
+  <div class="row_sport">
+    <div class="col-3 sport_categories">
       <h2 class="text-center">Categories</h2>
       <% @categories.each do |category| %>
         <div class="singlecard_category">
@@ -20,10 +20,15 @@
         </div>
       <% end %>
     </div>
-    <div class="col-8 sport_container">
-      <% @sports.each do |sport| %>
-        <%= link_to sport.kind, sport_path(sport), class: 'sport_card' %>
-      <% end %>
+    <div class= "col-9 big_sport_container">
+      <h2>All Sports</h2>
+      <div class="sport_container">
+        <% @sports.each do |sport| %>
+          <div class= 'sport_card'>
+            <%= link_to "#{sport.kind.capitalize}.", sport_path(sport), class: 'sport_kind' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
