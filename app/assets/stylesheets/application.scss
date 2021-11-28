@@ -15,6 +15,7 @@
 @import "pages/index";
 
 body {
+  font-family: 'Anton', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,4 +26,13 @@ body {
     hsl(94, 100%, 99%),
     rgb(243, 251, 253)
   );
+}
+
+h2 {
+  font-family: 'Anton', sans-serif;
+  margin-bottom: 20px;
+}
+
+p{
+  font-family: 'Anton', sans-serif;
 }

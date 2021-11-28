@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   margin: 30px auto;
-  width: 270px;
+
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1;
@@ -36,15 +36,33 @@
 
 .sport_container_categories_and_sports {
   display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
 }
-.sport_container {
+
+.row_sport {
   display: flex;
   flex-wrap: wrap;
 }
 
+.big_sport_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.big_sport_container h2 {
+
+}
+.sport_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .sport_card {
-  // background-image: url("https://source.unsplash.com/random");
+  background-image: url("https://source.unsplash.com/random");
   background-size: cover;
+  position: relative;
   // width: 100px;
   // height: 75px;
   // margin: 25px 17px;
@@ -73,23 +91,23 @@
 .sport_card a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  font-size: 15px;
+  font-size: 25px;
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
 }
 
 @media (min-width: 768px) {
   .sport_card {
-    // background-image: url("https://source.unsplash.com/random");
+    background-image: url("https://source.unsplash.com/random");
     background-size: cover;
     width: 200px;
-    height: 75px;
-    margin: 25px 17px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.7;
-    background-color: #316b83;
-    border-radius: 15px;
-    border: 1px solid rgb(0, 0, 0);
+    opacity: 1;
+    // border: 1px solid rgb(0, 0, 0);
     text-align: center;
   }
 }
@@ -147,21 +165,19 @@ a {
   width: 0;
 }
 .singlecard_category {
-  min-width: 150px;
-  height: 150px;
-  line-height: 150px;
+  min-width: 170px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
-  background-color: #316b83;
+  background-color: #ca4133;
   margin: 4px;
   color: white;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .singlecard_category a {
   color: white;
-}
-
-.singlecard_category a {
   text-decoration: none;
+  font-size: 22px;
 }
 
 .singlecard_category:hover {
@@ -173,6 +189,7 @@ a {
   flex-wrap: wrap;
   justify-content: left;
 }
+
 .activityy_card {
   border: 1px solid black;
   display: flex;
