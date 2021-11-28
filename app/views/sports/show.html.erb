@@ -28,10 +28,14 @@
         <%= link_to  activity_path(activity) do %>
           <div class="activity_description">
             <%= activity.description %>
+            <p>Level: <% activity.level.to_i.times do  %>
+                <span class="glyphicon glyphicon-star">💪</span>
+              <% end %>
+            </p>
+            <%= activity.user.nickname %>
           </div>
         <% end %>
       </li>
     <% end %>
   </ul>
 </div>
-

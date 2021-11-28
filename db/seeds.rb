@@ -67,6 +67,7 @@ courir = Activity.create!(
     user_id: nicolas.id,
     description: 'Running at Bois de la Cambre this evening at 6pm',
     sport_id: 1,
+    level: rand(1..5),
     date: Date.today
   )
 
@@ -80,6 +81,7 @@ p Activity.create!(
     user: nicolas,
     description: Faker::Quote.famous_last_words,
     sport: Sport.all.sample,
+    level: rand(1..5),
     date: Date.today
   )
 end

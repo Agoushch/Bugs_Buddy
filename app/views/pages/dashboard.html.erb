@@ -1,4 +1,17 @@
 <h1>My Profile</h1>
+<div class="dashboard_sport">
+  <h2>My sports</h2>
+  <!-- HTML !-->
+  <button class="button_addpreferences">
+    <%= link_to '+ Add your Preferences', new_preference_path %>
+  </button>
+  <% current_user.preferences.each do |preference| %>
+    <%= preference.sport.kind %> <%= link_to edit_preference_path(preference) do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <p><%= preference.level.times do %>💪<% end %></p>
+  <% end %>
+</div>
 <% if current_user.photo.attached? %>
   <%= current_user.nickname %>
   <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill, radius: 20 %>
