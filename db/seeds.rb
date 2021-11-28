@@ -29,21 +29,16 @@ puts 'database cleaned'
 #   end
 # end
 
-
-
-
-categories = ['Strength', 'Fitness']
-
-categories.each do |category|
-  Category.create(name: category)
-end
+nicolas = User.create!(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+adonis = User.create!(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
+filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nickname: 'Filip')
+thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nickname: 'Thibbe')
 
 ball_cat = Category.create(name: 'Ball')
 endurance_cat = Category.create(name: 'Endurance')
 combat_cat = Category.create(name: 'Combat')
 indoor_cat = Category.create(name: 'Indoor')
 outdoor_cat = Category.create(name: 'Outdoor')
-
 
 allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
 ball = ["baseball", "basketball", "football", "paintball", "softball", "volleyball"]
@@ -52,47 +47,43 @@ combat = ["boxing", "judo", "karate", "sumo wrestling"]
 indoor = ["gymnastics", "trampolining"]
 outdoor = ["jogging", "athletics", "triathlon"]
 
-indoor.each do |sport|
-  p Sport.create!(kind: sport, category: indoor_cat)
-end
-
-outdoor.each do |sport|
-  p Sport.create!(kind: sport, category: outdoor_cat)
-end
-
 ball.each do |sport|
-  p Sport.create!(kind: sport, category: ball_cat)
+  p Sport.create!(kind: sport, category_id: 1)
 end
 
 endurance.each do |sport|
-  p Sport.create!(kind: sport, category: endurance_cat)
+  p Sport.create!(kind: sport, category_id: 2)
 end
 
 combat.each do |sport|
-  p Sport.create!(kind: sport, category: combat_cat)
+  p Sport.create!(kind: sport, category_id: 3)
 end
 
-nicolas = User.create!(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
-adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
-filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nickname: 'Filip')
+indoor.each do |sport|
+  p Sport.create!(kind: sport, category_id: 4)
+end
 
-running = Sport.create(kind: 'running')
+outdoor.each do |sport|
+  p Sport.create!(kind: sport, category_id: 5)
+end
 
-courir = Activity.create!(
+# activity_id = 1
+Activity.create!(
   localisation: '10 Cantersteen 1000 Bruxelles',
   user: nicolas,
   description: 'Running at Bois de la Cambre this evening at 6pm',
-  sport_id: 1,
-  date: Date.today
+  sport_id: 10,
+  date: Date.today + 3
 )
 
-# nager = Activity.create!(
-#     localisation: '12 Rue du midi 1000 Bruxelles',
-#     user: nicolas,
-#     description: 'Anyone up to swim near Etterbeek ?',
-#     sport: Sport.all.sample,
-#     date: Date.today
-#   )
+# activity_id = 2
+Activity.create!(
+  localisation: '12 Rue du midi 1000 Bruxelles',
+  user: filip,
+  description: 'Anyone up to swim near Etterbeek ?',
+  sport: Sport.all.sample,
+  date: Date.today + 7
+)
 
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
@@ -104,12 +95,18 @@ p Activity.create!(
     user: nicolas,
     description: Faker::Quote.famous_last_words,
     sport: Sport.all.sample,
-    date: Date.today
+    date: Date.today + 2
   )
 
 end
 
-nicolas_act = UserActivity.create!(activity: courir, user_id: 1)
-filip_act = UserActivity.create!(activity: courir, user_id: 3)
+#user1= nicolas user 2= adonis ;; user3 =filip ;; user4= thibaut
+UserActivity.create!(activity_id: 3, user_id: 2)
+UserActivity.create!(activity_id: 3, user_id: 3)
+UserActivity.create!(activity_id: 3, user_id: 1)
+UserActivity.create!(activity_id: 4, user_id: 3)
+UserActivity.create!(activity_id: 4, user_id: 2)
+UserActivity.create!(activity_id: 4, user_id: 4)
+UserActivity.create!(activity_id: 4, user_id: 1)
 
 # adonis_ act = UserActivity.create(activity: courir, user_id: 2)

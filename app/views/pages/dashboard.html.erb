@@ -1,28 +1,25 @@
-<h1>My Profile</h1>
+<h1>Welcome <%= current_user.nickname %></h1>
+
 <% if current_user.photo.attached? %>
-  <%= current_user.nickname %>
   <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill, radius: 20 %>
   <h3>Description: <%= current_user.description %></h3>
 <% end %>
 
-<h2>My Activities</h2>
+<h2>Your submitted activities:</h2>
 <div class="all_activities">
   <% @activities_mine.each do |activ| %>
-    <div class="activityy_card">
       <% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
-      <% if time_delta < 0 %>
-        <h4><%= activ.date %> (<%= -time_delta.round(0) %> days ago)</h4>
-        <h4>Sport: <%= activ.sport.kind  %></h4>
-        <h4><%= activ.description %></h4>
-        <h3>You completed your activity!</h3>
-      <% else %>
+      <% if time_delta > 0 %>
+        <div class="activityy_card">
         <h4><%= activ.date %> (in <%= time_delta.round(0) %> days)</h4>
         <h4><%= activ.sport.kind  %></h4>
         <h4><%= activ.description %></h4>
+        </div>
       <% end %>
-    </div>
   <% end %>
 </div>
+
+<%# <% raise %> %>
 
 <h2>Buddies activites: Upcoming/ Finished</h2>
 
@@ -30,7 +27,17 @@
   <% current_user.user_activities.each do |user_activiti| %>
       <div class="activityy_card">
       <% time_delta = (user_activiti.activity.date - DateTime.current.beginning_of_day).to_f %>
-      <% if time_delta < 0 %>
+      <%# time_delta < 0 : in the past !!!! > %>
+      <% if time_delta > 0 %>
+          <h4><%= user_activiti.activity.date %> (in <%= time_delta.round(0) %> days)</h4>
+          <h4>Activity: <%= user_activiti.activity.description %></h4>
+          <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
+          <h4>Participants:
+            <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+            <% next if user_activity_member == user_activiti  %>
+            <h6><%= user_activity_member.user.nickname %></h6>
+        <% end %>
+        <% else %>
               <h4><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h4>
               <h4>Activity: <%= user_activiti.activity.description %></h4>
               <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
@@ -39,16 +46,7 @@
                   <% next if user_activity_member == user_activiti  %>
                   <h6><%= user_activity_member.user.nickname %></h6>
                 <% end %>
-            <% else %>
-              <h4><%= user_activiti.activity.date %> (in <%= time_delta.round(0) %> days)</h4>
-              <h4>Activity: <%= user_activiti.activity.description %></h4>
-              <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
-              <h4>Participants:
-                <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-                  <% next if user_activity_member == user_activiti  %>
-                  <h6><%= user_activity_member.user.nickname %></h6>
-                <% end %>
-          <% end %>
+      <% end %>
       </div>
   </div>
   <% end %>
