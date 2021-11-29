@@ -73,16 +73,16 @@ end
 # activity_id = 1
 Activity.create!(
   localisation: '10 Cantersteen 1000 Bruxelles',
-  user: nicolas,
+  user_id: nicolas.id,
   description: 'Running at Bois de la Cambre this evening at 6pm',
   sport_id: 10,
   date: Date.today + 3
 )
 
 # activity_id = 2
-Activity.create!(
+p Activity.create!(
   localisation: '12 Rue du midi 1000 Bruxelles',
-  user: filip,
+  user_id: filip.id,
   description: 'Anyone up to swim near Etterbeek ?',
   sport: Sport.all.sample,
   date: Date.today + 7
@@ -96,7 +96,6 @@ end
 
 # Users
 file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
-nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 25.times do
   User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)

@@ -1,7 +1,6 @@
 
 <h1>Welcome <%= current_user.nickname %></h1>
 
-<h1>My Profile</h1>
 <div class="dashboard_sport">
   <h2>My sports</h2>
   <!-- HTML !-->
@@ -57,7 +56,7 @@
             <% user_activiti.activity.user_activities.each do |user_activity_member|%>
             <% next if user_activity_member == user_activiti  %>
             <h6><%= user_activity_member.user.nickname %></h6>
-        <% end %>
+            <% end %>
         <% else %>
               <h4><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h4>
               <h4>Activity: <%= user_activiti.activity.description %></h4>
