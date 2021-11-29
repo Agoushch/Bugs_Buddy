@@ -1,0 +1,13 @@
+<div class="addaact text-center m-5">
+  <h1>Update your preferences</h1>
+</div>
+<div class="container_new">
+  <div class="information_newacti">
+    <%= simple_form_for @preference do |f| %>
+      <%= f.association :sport, label_method: :kind %>
+      <%= f.input :level %>
+      <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id }  %>
+      <%= f.submit class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div>

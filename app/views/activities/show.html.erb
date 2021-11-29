@@ -16,11 +16,15 @@
       <div>
         Date :  <%= @activity.date %>
       </div>
+      <div>
+        Level: <% @activity.level.to_i.times do  %>
+          <span class="glyphicon glyphicon-star">💪</span>
+        <% end %>
+      </div>
       <div class='join'>
         <%= link_to '+ join', activity_user_activities_path(@activity), method: :post %>
       </div>
     </div>
-
     <div class="chatbox">
       <% if @user_activity %>
         <div class="container_new">

@@ -34,6 +34,8 @@ adonis = User.create!(email: "adonis@hotmail.com", password: "123456", nickname:
 filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nickname: 'Filip')
 thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nickname: 'Thibbe')
 
+
+# Categories
 ball_cat = Category.create(name: 'Ball')
 endurance_cat = Category.create(name: 'Endurance')
 combat_cat = Category.create(name: 'Combat')
@@ -47,14 +49,26 @@ combat = ["boxing", "judo", "karate", "sumo wrestling"]
 indoor = ["gymnastics", "trampolining"]
 outdoor = ["jogging", "athletics", "triathlon"]
 
+
+# Sports
+allsports = ["athletics", "badminton", "baseball", "basketball", "boxing", "cycling", "hockey", "skating", "football", "golf", "judo", "karate", "rafting", "rugby", "running", "skiing", "surfing", "swimming", "tennis", "triathlon", "volleyball", "taekwondo", "kung fu"]
+ball = ["baseball", "basketball", "football", "volleyball"]
+endurance = ["cycling", "rafting", "running", "swimming", "triathlon"]
+combat = ["boxing", "judo", "karate", "taekwondo", "kung fu"]
+indoor = ["athletics", "badminton", "basketball", "boxing", "skating", "football", "judo", "karate", "swimming", "tennis", "volleyball"]
+outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating", "football", "golf", "rafting", "rugby", "running", "skiing", "surfing", "tennis", "triathlon"]
+indoor.each do |sport|
+  p Sport.create!(kind: sport, category: indoor_cat)
+end
+outdoor.each do |sport|
+  p Sport.create!(kind: sport, category: outdoor_cat)
+end
 ball.each do |sport|
   p Sport.create!(kind: sport, category_id: 1)
 end
-
 endurance.each do |sport|
   p Sport.create!(kind: sport, category_id: 2)
 end
-
 combat.each do |sport|
   p Sport.create!(kind: sport, category_id: 3)
 end
@@ -89,15 +103,34 @@ url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-10
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
 result.first(10).each do |hash|
+
+# Users
+nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
+
+#Activity
+courir = Activity.create!(
+    localisation: '10 Cantersteen 1000 Bruxelles',
+    user_id: nicolas.id,
+    description: 'Running at Bois de la Cambre this evening at 6pm',
+    sport_id: 1,
+    level: rand(1..5),
+    date: Date.today
+  )
+
+url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
+json = JSON.parse(URI.open(url).read)
+result = json["addresses"]
+result.first(20).each do |hash|
   address = "#{hash["address1"]}, #{hash["city"]}"
 p Activity.create!(
     localisation: address,
     user: nicolas,
     description: Faker::Quote.famous_last_words,
     sport: Sport.all.sample,
+    level: rand(1..5),
     date: Date.today + 2
   )
-
 end
 
 #user1= nicolas user 2= adonis ;; user3 =filip ;; user4= thibaut
@@ -108,5 +141,3 @@ UserActivity.create!(activity_id: 4, user_id: 3)
 UserActivity.create!(activity_id: 4, user_id: 2)
 UserActivity.create!(activity_id: 4, user_id: 4)
 UserActivity.create!(activity_id: 4, user_id: 1)
-
-# adonis_ act = UserActivity.create(activity: courir, user_id: 2)
