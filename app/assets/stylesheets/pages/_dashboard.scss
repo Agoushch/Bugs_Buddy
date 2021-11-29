@@ -1,0 +1,29 @@
+.profile_card {
+  display: flex;
+  width: 900px;
+  height: 400px;
+  margin: 10px;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4) ;
+}
+
+.profile_photo {
+  width: 350px;
+  display: flex;
+  background-color: #ca4133;
+  justify-content: center;
+  align-items: center;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.profile_info {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+}
