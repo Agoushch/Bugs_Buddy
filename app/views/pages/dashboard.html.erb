@@ -1,34 +1,42 @@
 <h1>Welcome <%= current_user.nickname %></h1>
 <h1>My Profile</h1>
 <div class="dashboard_sport">
-  <h2>My sports</h2>
   <!-- HTML !-->
-  <button class="button_addpreferences">
-    <%= link_to '+ Add your Preferences', new_preference_path %>
-  </button>
-  <% current_user.preferences.each do |preference| %>
-    <p>
-      <%= preference.sport.kind %> <%= link_to edit_preference_path(preference) do %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end %>
-    </p>
-    <p><%= preference.level.times do %>💪<% end %></p>
-    <%= link_to preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }  do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  <% end %>
 </div>
 <%# User profile %>
 <div class="profile_card">
-  <div class="profile_photo">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, crop: :fill %>
-    <% end %>
-  </div>
+  <% if current_user.photo.attached? %>
+    <div class="profile_photo" style="background-image: url(<%= cl_image_path current_user.photo.key %>)">
+    </div>
+  <% end %>
   <div class="profile_info">
-    <h3><%= current_user.nickname %></h3>
-    <p>Description: <%= current_user.description %></h3>
-    <p>Age: <%= current_user.age %></h3>
+    <div>
+      <h2><%= current_user.nickname %></h2>
+    </div>
+    <div class="profile_description">
+      <h4>Description: <%= current_user.description %></h4>
+      <h4>Age: <%= current_user.age %> yo</h4>
+      <div class='profile_preference'>
+        <h3>My favorite sports</h3>
+        <div class='preference_wrap'>
+          <% current_user.preferences.each do |preference| %>
+            <div class='preference'>
+              <h3><%= preference.sport.kind.capitalize %></h3>
+              <p><%= preference.level.times do %>💪<% end %></p>
+            </div>
+            <%= link_to preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }  do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <%= link_to edit_preference_path(preference) do %>
+              <i class="fas fa-pencil-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <button class="button_addpreferences">
+        <%= link_to '+ Add your Preferences', new_preference_path %>
+      </button>
+    </div>
   </div>
 </div>
 <%= link_to 'Update your Profile', edit_user_registration_path %>
