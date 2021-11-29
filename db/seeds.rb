@@ -10,9 +10,12 @@ require 'nokogiri'
 require 'faker'
 require 'json'
 
+UserActivity.destroy_all
+Activity.destroy_all
 User.destroy_all
 Sport.destroy_all
 Category.destroy_all
+
 
 puts 'database cleaned'
 
@@ -26,74 +29,107 @@ puts 'database cleaned'
 #   end
 # end
 
+nicolas = User.create!(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+adonis = User.create!(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
+filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nickname: 'Filip')
+thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nickname: 'Thibbe')
 
 
-
-categories = ['Indoor', 'Outdoor', 'Strength', 'Fitness']
-
-categories.each do |category|
+# Categories
+['Ball', 'Endurance', 'Indoor', 'Outdoor', 'Strength', 'Water'].each do |category|
   Category.create(name: category)
 end
-
-ball_cat = Category.create(name: 'Ball')
-endurance_cat = Category.create(name: 'Endurance')
-combat_cat = Category.create(name: 'Combat')
 
 allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
 ball = ["baseball", "basketball", "football", "paintball", "softball", "volleyball"]
 endurance = ["cycling", "jogging", "rafting", "running", "swimming", "triathlon"]
 combat = ["boxing", "judo", "karate", "sumo wrestling"]
+indoor = ["gymnastics", "trampolining"]
+outdoor = ["jogging", "athletics", "triathlon"]
 
 
+# Sports
+allsports = ["athletics", "badminton", "baseball", "basketball", "boxing", "cycling", "hockey", "skating", "football", "golf", "judo", "karate", "rafting", "rugby", "running", "skiing", "surfing", "swimming", "tennis", "triathlon", "volleyball", "taekwondo", "kung fu"]
+ball = ["baseball", "basketball", "football", "volleyball"]
+endurance = ["cycling", "rafting", "running", "swimming", "triathlon"]
+combat = ["boxing", "judo", "karate", "taekwondo", "kung fu"]
+indoor = ["athletics", "badminton", "basketball", "boxing", "skating", "football", "judo", "karate", "swimming", "tennis", "volleyball"]
+outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating", "football", "golf", "rafting", "rugby", "running", "skiing", "surfing", "tennis", "triathlon"]
 
-ball.each do |sport|
-  p Sport.create!(kind: sport, category: ball_cat)
+
+athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
+athletics..photo.attach(io: file, filename: 'athletics.png', content_type: 'athletics/png')
+
+
+indoor.each do |sport|
+  p Sport.create!(kind: sport, category_id: 4)
 end
 
-endurance.each do |sport|
-  p Sport.create!(kind: sport, category: endurance_cat)
+outdoor.each do |sport|
+  p Sport.create!(kind: sport, category_id: 5)
 end
 
-combat.each do |sport|
-  p Sport.create!(kind: sport, category: combat_cat)
-end
+# activity_id = 1
+Activity.create!(
+  localisation: '10 Cantersteen 1000 Bruxelles',
+  user: nicolas,
+  description: 'Running at Bois de la Cambre this evening at 6pm',
+  sport_id: 10,
+  date: Date.today + 3
+)
 
-nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
-adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
-
-running = Sport.create(kind: 'running')
-
-courir = Activity.create!(
-    localisation: '10 Cantersteen 1000 Bruxelles',
-    user: nicolas,
-    description: 'Running at Bois de la Cambre this evening at 6pm',
-    sport_id: 1,
-    date: Date.today
-  )
-
-# nager = Activity.create!(
-#     localisation: '12 Rue du midi 1000 Bruxelles',
-#     user: nicolas,
-#     description: 'Anyone up to swim near Etterbeek ?',
-#     sport: Sport.all.sample,
-#     date: Date.today
-#   )
+# activity_id = 2
+Activity.create!(
+  localisation: '12 Rue du midi 1000 Bruxelles',
+  user: filip,
+  description: 'Anyone up to swim near Etterbeek ?',
+  sport: Sport.all.sample,
+  date: Date.today + 7
+)
 
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
-result.first(40).each do |hash|
-  address = "#{hash["address1"]}, #{hash["city"]}"
-p Activity.create!(
-    localisation: address,
-    user: nicolas,
-    description: Faker::Quote.famous_last_words,
-    sport: Sport.all.sample,
+result.first(10).each do |hash|
+
+# Users
+file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
+nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
+nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+25.times do
+  User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)
+end
+
+#Activity
+courir = Activity.create!(
+    localisation: '10 Cantersteen 1000 Bruxelles',
+    user_id: nicolas.id,
+    description: 'Running at Bois de la Cambre this evening at 6pm',
+    sport_id: 1,
+    level: rand(1..5),
     date: Date.today
   )
 
+url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
+json = JSON.parse(URI.open(url).read)
+result = json["addresses"]
+result.first(20).each do |hash|
+  address = "#{hash["address1"]}, #{hash["city"]}"
+p Activity.create!(
+    localisation: address,
+    user_id: nicolas.id,
+    description: Faker::Quote.famous_last_words,
+    sport: Sport.all.sample,
+    level: rand(1..5),
+    date: Date.today + 2
+  )
 end
 
-nicolas_act = UserActivity.create(activity: courir, user_id: 1)
-
-# adonis_ act = UserActivity.create(activity: courir, user_id: 2)
+#user1= nicolas user 2= adonis ;; user3 =filip ;; user4= thibaut
+UserActivity.create!(activity_id: 3, user_id: 2)
+UserActivity.create!(activity_id: 3, user_id: 3)
+UserActivity.create!(activity_id: 3, user_id: 1)
+UserActivity.create!(activity_id: 4, user_id: 3)
+UserActivity.create!(activity_id: 4, user_id: 2)
+UserActivity.create!(activity_id: 4, user_id: 4)
+UserActivity.create!(activity_id: 4, user_id: 1)

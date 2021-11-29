@@ -1,28 +1,34 @@
+<div class= 'banner_container'>
+  <%= cl_image_tag "jizhidexiaohailang_u5kjm5", effect: "sharpen", id: 'sport_banner' %>
+  <h1>Discover our sports</h1>
+</div>
 <%= form_tag sports_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Search a sport or category"
   %>
-  <div class="btn-positionn">
-    <div ><%= submit_tag "Search", class: "btn button-633" %></div>
-  <% end %>
-</div>
-<h2 class="text-center">Categories</h2>
-<div class="sport_categories">
-  <% @sports.first(5).each do |cat| %>
-    <div class="singlecard_category">
-      <%= cat.category %>
+  <%# <div class="btn-positionn"><%= submit_tag "Search", class: "btn button-633" %>
+<% end %>
+<div class= 'sport_container_categories_and_sports'>
+  <div class="row_sport">
+    <div class="col-3 sport_categories">
+      <h2 class="text-center">Categories</h2>
+      <% @categories.each do |category| %>
+        <div class="singlecard_category">
+          <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
-</div>
-<h1 class="text-center">All sports</h1>
-<div class= 'sport_container'>
-  <% @sports.each do |sport| %>
-    <a href="<%=sport_path(sport)%>" class="sport_card">
-      <strong ><%=sport.kind %></strong>
-    </a>
-  <% end %>
-  <div class="map">
+    <div class= "col-9 big_sport_container">
+      <h2>All Sports</h2>
+      <div class="sport_container">
+        <% @sports.each do |sport| %>
+          <div class= 'sport_card'>
+            <%= link_to "#{sport.kind.capitalize}.", sport_path(sport), class: 'sport_kind' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
