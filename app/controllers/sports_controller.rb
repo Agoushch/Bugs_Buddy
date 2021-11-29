@@ -1,5 +1,5 @@
 class SportsController < ApplicationController
-  before_action :find, only:[:show, :edit, :update, :destroy]
+  before_action :find, only: [:show, :edit, :update, :destroy]
   def index
     if params[:query].present? && params[:type].present?
       sql_query = "name ILIKE :query"
