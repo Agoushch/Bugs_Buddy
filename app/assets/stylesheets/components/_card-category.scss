@@ -1,40 +1,231 @@
-.card-category a {
-  background-color: rgb(84, 145, 145);
-  color: white;
-  border-radius: 1.5rem;
+// .card-category a {
+//   background-color: rgb(84, 145, 145);
+//   color: white;
+//   border-radius: 1.5rem;
+//   box-sizing: border-box;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 30px auto;
+//   width: 200px;
+//   font-size: 1.1rem;
+//   font-weight: 600;
+//   line-height: 1;
+//   padding: 1rem 1.6rem;
+//   text-align: center;
+//   height: 200px;
+//   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+//     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+//   text-align: center;
+//   text-decoration: none;
+// }
+
+// .card-category:hover {
+//   color: #fff;
+//   text-decoration: none;
+// }
+
+// @media (min-width: 768px) {
+//   .card-category {
+//     color: white;
+//     text-decoration: none;
+//     font-size: 1.125rem;
+//     padding: 1rem 2rem;
+//   }
+// }
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 30px auto;
-
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 1rem 1.6rem;
-  text-align: center;
-  height: 220px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  text-align: center;
-  text-decoration: none;
 }
 
-.card-category:hover {
-  color: #fff;
-  text-decoration: none;
-}
+body {
+  background: #ebecf0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
 
-@media (min-width: 768px) {
-  .card-category {
-    color: white;
+  a {
     text-decoration: none;
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
+    color: #172b4d;
+  }
+
+  h1 {
+    font-family: "Song Myung", serif;
   }
 }
 
+/* DEFAULT STYLE */
+:root {
+  font-size: 16px;
+  --card-img-height: 200px;
+}
+.card-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease-in-out;
+}
+
+.card {
+  align-self: flex-start;
+  position: relative;
+  width: 325px;
+  min-width: 275px;
+  margin: 1.25rem 0.75rem;
+  background: white;
+  transition: all 300ms ease-in-out;
+
+  .card-img {
+    visibility: hidden;
+    width: 100%;
+    height: var(--card-img-height);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .card-img-hovered {
+    --card-img-hovered-overlay: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    );
+    transition: all 400ms ease-in-out;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    height: var(--card-img-height);
+    top: 0;
+  }
+
+  .card-info {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    transition: all 300ms ease-in-out;
+
+    .card-about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      transition: all 300ms ease-in-out;
+
+      .card-tag {
+        width: 60px;
+        max-width: 100px;
+        padding: 0.2rem 0.5rem;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: #505f79;
+        color: #fff;
+
+        &.tag-news {
+          background: #36b37e;
+        }
+
+        &.tag-deals {
+          background: #ffab00;
+        }
+
+        &.tag-politics {
+          width: 71px;
+          background: #ff5630;
+        }
+      }
+    }
+
+    .card-title {
+      z-index: 10;
+      font-size: 1.5rem;
+      padding-bottom: 0.75rem;
+      transition: all 450ms ease-in-out;
+    }
+
+    .card-creator {
+      padding-bottom: 0.75rem;
+      transition: all 3000ms ease-in-out;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 15px 35px rgba(227, 252, 239, 0.1),
+      0px 5px 15px rgba(0, 0, 0, 0.07);
+    transform: scale(1.025);
+
+    .card-img-hovered {
+      --card-img-hovered-overlay: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.65)
+      );
+      height: 100%;
+    }
+
+    .card-about,
+    .card-creator {
+      opacity: 0;
+    }
+
+    .card-info {
+      background-color: transparent;
+    }
+
+    .card-title {
+      color: #ebecf0;
+      // margin-bottom: -40px;
+      transform: translate(0, 40px);
+    }
+  }
+}
+
+// CARD IMAGES
+.card-1 {
+  .card-img,
+  .card-img-hovered {
+    background-image: var(--card-img-hovered-overlay),
+      url(https://images.unsplash.com/photo-1616279967983-ec413476e824?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=852&q=80);
+  }
+}
+
+.card-2 {
+  .card-img,
+  .card-img-hovered {
+    background-image: var(--card-img-hovered-overlay),
+      url(https://running-care.com/wp-content/uploads/2020/10/AdobeStock_140869383.jpg);
+  }
+}
+
+.card-3 {
+  .card-img,
+  .card-img-hovered {
+    background-image: var(--card-img-hovered-overlay),
+      url(https://images.unsplash.com/photo-1528543606781-2f6e6857f318?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80);
+  }
+}
+
+.card-4 {
+  .card-img,
+  .card-img-hovered {
+    background-image: var(--card-img-hovered-overlay),
+      url(https://source.unsplash.com/zAi2Is48-MA);
+  }
+}
+
+.home-pagecard {
+  display: flex;
+  justify-content: space-around;
+}
 .sport_container_categories_and_sports {
   display: flex;
   margin-left: 20px;
@@ -48,24 +239,25 @@
 
 .big_sport_container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
+  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  padding-top: 14px;
 }
 
 .big_sport_container h2 {
 }
 .sport_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .sport_card {
   background-image: url("https://source.unsplash.com/random");
   background-size: cover;
   position: relative;
-  // width: 100px;
-  // height: 75px;
-  // margin: 25px 17px;
+  width: 180px;
+  height: 180px;
+  margin: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,21 +287,6 @@
   position: absolute;
   right: 7px;
   bottom: 7px;
-}
-
-@media (min-width: 768px) {
-  .sport_card {
-    background-image: url("https://source.unsplash.com/random");
-    background-size: cover;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    // border: 1px solid rgb(0, 0, 0);
-    text-align: center;
-  }
 }
 
 .recommended-title {
@@ -159,18 +336,17 @@ a {
   // border: 1px solid black;
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
 }
 .sport_categories::-webkit-scrollbar {
   width: 0;
 }
 .singlecard_category {
-  min-width: 170px;
-  height: 50px;
+  min-width: 220px;
+  height: 55px;
   line-height: 50px;
   text-align: center;
   background-color: #ca4133;
-  margin: 4px;
+  margin: 15px;
   color: white;
   opacity: 0.8;
 }
@@ -210,4 +386,20 @@ a {
 .dashboard_sport {
   display: flex;
   flex-direction: column;
+}
+
+.categoryandsports {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.categoryandactivites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.container-category-sports {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
 }
