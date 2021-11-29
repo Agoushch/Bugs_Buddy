@@ -1,4 +1,4 @@
-class AddCategoryToSports < ActiveRecord::Migration[6.0]
+class AddCategoryRefToSports < ActiveRecord::Migration[6.0]
   def change
     add_reference :sports, :category, null: false, foreign_key: true
   end
