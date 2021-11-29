@@ -28,28 +28,32 @@
 <h2>Your submitted activities:</h2>
 <div class="all_activities">
   <% @activities_mine.each do |activ| %>
-      <% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
-      <% if time_delta > 0 %>
+      <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
+      <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
+
+      <% if time_delta> 0 %>
+      <%# raise %>
         <div class="activityy_card">
-        <h4><%= activ.date %> (in <%= time_delta.round(0) %> days)</h4>
+
+        <h4><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h4>
+
         <h4><%= activ.sport.kind  %></h4>
         <h4><%= activ.description %></h4>
         </div>
       <% end %>
   <% end %>
 </div>
-
-<%# <% raise %> %>
-
 <h2>Buddies activites: Upcoming/ Finished</h2>
-
 <div class="all_activities">
-  <% current_user.user_activities.each do |user_activiti| %>
+  <% @activities.each do |user_activiti| %>
       <div class="activityy_card">
-      <% time_delta = (user_activiti.activity.date - DateTime.current.beginning_of_day).to_f %>
+      <%# delta_same_day: used to determine which statement is valid: eg same day: >0 && <1 %>
+      <% delta_same_day = (user_activiti.activity.date.to_datetime - DateTime.current).to_f %>
+      <% time_delta = (user_activiti.activity.date.to_datetime - DateTime.current).to_i %>
+      <% time_delta_hours = (user_activiti.activity.date.to_datetime - DateTime.current).to_f*24 - time_delta*24  %>
       <%# time_delta < 0 : in the past !!!! > %>
-      <% if time_delta > 0 %>
-          <h4><%= user_activiti.activity.date %> (in <%= time_delta.round(0) %> days)</h4>
+      <% if delta_same_day > 0 && delta_same_day < 1 %>
+          <h4><%= user_activiti.activity.date %> (in <%= time_delta_hours.round(1) %> hours)</h4>
           <h4>Activity: <%= user_activiti.activity.description %></h4>
           <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
           <h4>Participants:
@@ -57,8 +61,29 @@
             <% next if user_activity_member == user_activiti  %>
             <h6><%= user_activity_member.user.nickname %></h6>
             <% end %>
-        <% else %>
-              <h4><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h4>
+            <%# more than 1 day in the future %>
+      <% elsif delta_same_day > 1 %>
+
+          <h4><%= user_activiti.activity.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h4>
+          <h4>Activity: <%= user_activiti.activity.description %></h4>
+          <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
+          <h4>Participants:
+            <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+            <% next if user_activity_member == user_activiti  %>
+            <h6><%= user_activity_member.user.nickname %></h6>
+            <% end %>
+          <%# less than one day ago %>
+          <% elsif delta_same_day < 0 && delta_same_day > -1 %>
+              <h4><%= user_activiti.activity.date %> (<%= -time_delta_hours.round(0) %> hours ago)</h4>
+              <h4>Activity: <%= user_activiti.activity.description %></h4>
+              <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
+              <h4>Participants:
+                <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+                  <% next if user_activity_member == user_activiti  %>
+                  <h6><%= user_activity_member.user.nickname %></h6>
+                <% end %>
+            <% else %>
+               <h4><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h4>
               <h4>Activity: <%= user_activiti.activity.description %></h4>
               <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
               <h4>Participants:
