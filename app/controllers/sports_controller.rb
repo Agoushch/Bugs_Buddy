@@ -11,8 +11,8 @@ class SportsController < ApplicationController
     else
       @sports = Sport.all
     end
-     @recommended = Sport.first(4)
-     @categories = Category.all
+    @recommended = Sport.first(4)
+    @categories = Category.all
   end
 
   # def categories
@@ -28,6 +28,12 @@ class SportsController < ApplicationController
   def show
     @activity = Activity.new
     @activities = @sport.activities
+
+    if params[:query].present?
+      @activities = @activities.where(date: params[:query])
+    else
+      @sports = Sport.all
+    end
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,

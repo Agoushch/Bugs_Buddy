@@ -29,10 +29,16 @@ puts 'database cleaned'
 #   end
 # end
 
+#Users
 nicolas = User.create!(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
 adonis = User.create!(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
 filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nickname: 'Filip')
 thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nickname: 'Thibbe')
+file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
+nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+25.times do
+  User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)
+end
 
 
 # Categories
@@ -58,7 +64,7 @@ outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating"
 
 
 athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
-athletics..photo.attach(io: file, filename: 'athletics.png', content_type: 'athletics/png')
+# athletics..photo.attach(io: file, filename: 'athletics.png', content_type: 'athletics/png')
 
 
 indoor.each do |sport|
@@ -72,7 +78,7 @@ end
 # activity_id = 1
 Activity.create!(
   localisation: '10 Cantersteen 1000 Bruxelles',
-  user: nicolas,
+  user_id: nicolas.id,
   description: 'Running at Bois de la Cambre this evening at 6pm',
   sport_id: 10,
   date: Date.today + 3
@@ -81,24 +87,12 @@ Activity.create!(
 # activity_id = 2
 Activity.create!(
   localisation: '12 Rue du midi 1000 Bruxelles',
-  user: filip,
+  user_id: filip.id,
   description: 'Anyone up to swim near Etterbeek ?',
   sport: Sport.all.sample,
   date: Date.today + 7
 )
 
-url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
-json = JSON.parse(URI.open(url).read)
-result = json["addresses"]
-result.first(10).each do |hash|
-
-# Users
-file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
-nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
-nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-25.times do
-  User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)
-end
 
 #Activity
 courir = Activity.create!(
