@@ -1,5 +1,5 @@
 .card-category a {
-  background-color: rgb(103, 182, 182);
+  background-color: rgb(84, 145, 145);
   color: white;
   border-radius: 1.5rem;
   box-sizing: border-box;
@@ -14,8 +14,9 @@
   line-height: 1;
   padding: 1rem 1.6rem;
   text-align: center;
-  height: 100px;
-
+  height: 220px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   text-align: center;
   text-decoration: none;
 }
@@ -52,7 +53,6 @@
 }
 
 .big_sport_container h2 {
-
 }
 .sport_container {
   display: grid;
@@ -187,7 +187,7 @@ a {
 .all_activities {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: space-evenly;
 }
 
 .activityy_card {
@@ -211,4 +211,3 @@ a {
   display: flex;
   flex-direction: column;
 }
-
