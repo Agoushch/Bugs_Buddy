@@ -58,7 +58,8 @@ outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating"
 
 
 athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
-athletics..photo.attach(io: file, filename: 'athletics.png', content_type: 'athletics/png')
+
+# athletics..photo.attach(io: file, filename: 'athletics.png', content_type: 'athletics/png')
 
 
 indoor.each do |sport|
@@ -91,6 +92,7 @@ url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-10
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
 result.first(10).each do |hash|
+end
 
 # Users
 file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
