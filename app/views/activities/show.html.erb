@@ -16,11 +16,17 @@
       <div>
         Date :  <%= @activity.date %>
       </div>
-      <div class='join'>
-        <%= link_to '+ join', activity_user_activities_path(@activity), method: :post %>
+      <div>
+        Level: <% @activity.level.to_i.times do  %>
+          <span class="glyphicon glyphicon-star">💪</span>
+        <% end %>
       </div>
+      <% unless @user_activity %>
+        <div class='join'>
+          <%= link_to '+ join', activity_user_activities_path(@activity), method: :post %>
+        </div>
+      <% end %>
     </div>
-
     <div class="chatbox">
       <% if @user_activity %>
         <div class="container_new">
@@ -37,7 +43,9 @@
       <% @activity.user_activities.each do |user_activity| %>
         <% user_activity.comments.each do |comment| %>
           <div class="comment">
+            <% if user_activity.user.photo.attached? %>
             <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
+            <% end %>
             <div class='comment_text'><%= comment.content %></div>
           </div>
         <% end %>

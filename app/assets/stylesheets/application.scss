@@ -8,20 +8,33 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
 body {
+  font-family: "Anton", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 50px;
+
   background: linear-gradient(
     0.25turn,
     rgb(227, 237, 240),
     hsl(94, 100%, 99%),
     rgb(243, 251, 253)
   );
+  background-color: white;
+}
+
+h2 {
+  font-family: "Anton", sans-serif;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: "Anton", sans-serif;
 }
