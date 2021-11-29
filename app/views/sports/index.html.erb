@@ -16,7 +16,7 @@
       <h2 class="text-center">Categories</h2>
       <% @categories.each do |category| %>
         <div class="singlecard_category">
-          <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %>
+          <h3><%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %></h3>
         </div>
       <% end %>
     </div>
@@ -24,8 +24,8 @@
       <h2>All Sports</h2>
       <div class="sport_container">
         <% @sports.each do |sport| %>
-          <div class= 'sport_card'>
-            <%= link_to "#{sport.kind.capitalize}.", sport_path(sport), class: 'sport_kind' %>
+          <div class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)">
+            <h3><%= link_to "#{sport.kind.capitalize}.", sport_path(sport), class: 'sport_kind' %></h3>
           </div>
         <% end %>
       </div>

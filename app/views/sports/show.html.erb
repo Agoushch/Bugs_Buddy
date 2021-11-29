@@ -24,7 +24,7 @@
           <div class="activity_description">
             <%= activity.description %>
             <%= activity.date %>
-            <p>Level: <% activity.level.times do  %>
+            <p>Level: <% activity.level.to_i.times do  %>
                 <span class="glyphicon glyphicon-star">💪</span>
               <% end %>
             </p>
