@@ -7,7 +7,15 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   >
 </div>
-<h3>Find your activity for <%= @sport.kind %></h3>
+<h3>Find an activity for <%= @sport.kind %></h3>
+<%= form_tag sport_path, method: :get do %>
+  <%= date_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Choose a date"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 <div class="container_activities">
   <ul>
     <% @activities.each do |activity| %>
@@ -15,7 +23,8 @@
         <%= link_to  activity_path(activity) do %>
           <div class="activity_description">
             <%= activity.description %>
-            <p>Level: <% activity.level.to_i.times do  %>
+            <%= activity.date %>
+            <p>Level: <% activity.level.times do  %>
                 <span class="glyphicon glyphicon-star">💪</span>
               <% end %>
             </p>
@@ -31,5 +40,10 @@
   <% @sport.users.each do |user| %>
     <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
     <%= user.nickname %>
+    <% user.preferences.each do |preference| %>
+      <% if preference.sport == @sport %>
+        <%= preference.level %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
