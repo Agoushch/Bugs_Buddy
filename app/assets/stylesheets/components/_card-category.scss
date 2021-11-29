@@ -46,6 +46,7 @@ body {
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
 
+
   a {
     text-decoration: none;
     color: #172b4d;
@@ -441,7 +442,7 @@ margin-bottom: 30px;
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
-
+}
 .categoryandsports {
   display: flex;
   flex-wrap: wrap;
@@ -456,5 +457,4 @@ margin-bottom: 30px;
 .container-category-sports {
   display: grid;
   grid-template-columns: 2fr 10fr;
-
 }
