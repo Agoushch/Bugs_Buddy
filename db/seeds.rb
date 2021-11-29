@@ -36,11 +36,9 @@ thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nic
 
 
 # Categories
-ball_cat = Category.create(name: 'Ball')
-endurance_cat = Category.create(name: 'Endurance')
-combat_cat = Category.create(name: 'Combat')
-indoor_cat = Category.create(name: 'Indoor')
-outdoor_cat = Category.create(name: 'Outdoor')
+['Ball', 'Endurance', 'Indoor', 'Outdoor', 'Strength', 'Water'].each do |category|
+  Category.create(name: category)
+end
 
 allsports = ["archery", "athletics", "badminton", "baseball", "basketball", "BMX racing", "boxing", "chess", "shooting", "cricket", "cycling", "diving", "mountain biking", "equestrian", " hockey", " skating", "football", "golf", "gymnastics", "horse racing", "ice hockey", "jogging", "judo", "karate", "kayaking", "paintball", "polo", "billiards", "rafting", "rock climbing", "rugby", "running", "sailing", "skiing", "ski jumping", "snowboarding", "softball", "squash", "sumo wrestling", "surfing", "swimming", "table tennis", "tennis", "tenpin bowling", "trampolining", "triathlon", "volleyball", "water polo", "weightlifting"]
 ball = ["baseball", "basketball", "football", "paintball", "softball", "volleyball"]
@@ -57,21 +55,11 @@ endurance = ["cycling", "rafting", "running", "swimming", "triathlon"]
 combat = ["boxing", "judo", "karate", "taekwondo", "kung fu"]
 indoor = ["athletics", "badminton", "basketball", "boxing", "skating", "football", "judo", "karate", "swimming", "tennis", "volleyball"]
 outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating", "football", "golf", "rafting", "rugby", "running", "skiing", "surfing", "tennis", "triathlon"]
-indoor.each do |sport|
-  p Sport.create!(kind: sport, category: indoor_cat)
-end
-outdoor.each do |sport|
-  p Sport.create!(kind: sport, category: outdoor_cat)
-end
-ball.each do |sport|
-  p Sport.create!(kind: sport, category_id: 1)
-end
-endurance.each do |sport|
-  p Sport.create!(kind: sport, category_id: 2)
-end
-combat.each do |sport|
-  p Sport.create!(kind: sport, category_id: 3)
-end
+
+
+athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
+athletics..photo.attach(io: file, filename: 'athletics.png', content_type: 'athletics/png')
+
 
 indoor.each do |sport|
   p Sport.create!(kind: sport, category_id: 4)
@@ -105,8 +93,12 @@ result = json["addresses"]
 result.first(10).each do |hash|
 
 # Users
+file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
 nicolas = User.create(email: "nicolas@hotmail.com", password: "123456", nickname: 'Nicolas')
-adonis = User.create(email: "adonis@hotmail.com", password: "123456", nickname: 'Adonis')
+nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+25.times do
+  User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)
+end
 
 #Activity
 courir = Activity.create!(
@@ -125,7 +117,7 @@ result.first(20).each do |hash|
   address = "#{hash["address1"]}, #{hash["city"]}"
 p Activity.create!(
     localisation: address,
-    user: nicolas,
+    user_id: nicolas.id,
     description: Faker::Quote.famous_last_words,
     sport: Sport.all.sample,
     level: rand(1..5),
