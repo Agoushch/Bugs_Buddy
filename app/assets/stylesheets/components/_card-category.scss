@@ -26,15 +26,6 @@
   text-decoration: none;
 }
 
-@media (min-width: 768px) {
-  .card-category {
-    color: white;
-    text-decoration: none;
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
-  }
-}
-
 .sport_container_categories_and_sports {
   display: flex;
   margin-left: 20px;
@@ -52,8 +43,7 @@
   justify-content: center;
 }
 
-.big_sport_container h2 {
-}
+
 .sport_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -97,20 +87,6 @@
   bottom: 7px;
 }
 
-@media (min-width: 768px) {
-  .sport_card {
-    background-image: url("https://source.unsplash.com/random");
-    background-size: cover;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    // border: 1px solid rgb(0, 0, 0);
-    text-align: center;
-  }
-}
 
 .recommended-title {
   padding-left: 15px;
@@ -210,4 +186,56 @@ a {
 .dashboard_sport {
   display: flex;
   flex-direction: column;
+}
+
+.container-card-activities {
+display: flex;
+flex-wrap: wrap;
+// align-items: center;
+justify-content: center;
+margin-top: 30px;
+margin-bottom: 30px;
+
+}
+
+.card-activities{
+  border-style: solid;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 20px;
+  height: 150px;
+  display: grid;
+  flex-direction: column;
+/*   justify-content: center; */
+/*   align-items: center; */
+  width: 300px;
+
+}
+
+.card-activities:hover {
+  text-decoration: none;
+  box-shadow: 0px 6px 10px;
+}
+
+@media (min-width: 768px) {
+  .sport_card {
+    background-image: url("https://source.unsplash.com/random");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    // border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .card-category {
+    color: white;
+    text-decoration: none;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
 }

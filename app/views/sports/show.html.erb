@@ -13,28 +13,26 @@
   <%= form_tag sport_path, method: :get, class: "text-center d-flex flex-column" do %>
     <%= date_field_tag :query,
       params[:query],
-      class: "form-date",
+      class: "form-date"
     %>
     <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
   <% end %>
-<div class="container_activities">
-  <ul>
-    <% @activities.each do |activity| %>
-      <li>
-        <%= link_to activity_path(activity) do %>
-          <div class="activity_description">
-            <%= activity.description %>
-            <%= activity.date %>
-            <p>Level: <% activity.level.times do  %>
-                <span class="glyphicon glyphicon-star">💪</span>
-              <% end %>
-            </p>
-            <p>posted by <%= activity.user.nickname %></p>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+<div class="container-card-activities">
+  <% @activities.each do |activity| %>
+    <%= link_to activity_path(activity), class: "card-activities" do %>
+                  <div class="acti-descript"><%= activity.description %></div>
+                  <%= activity.date %>
+                  <p>Level: <% activity.level.times do  %>
+                      <span class="glyphicon glyphicon-star">💪</span>
+                    <% end %>
+                  </p>
+                    <p>posted by <%= activity.user.nickname %></p>
+                    <p>Lets Go !</p><i class="fas fa-arrow-right"></i>
+
+
+
+      <% end %>
+  <% end %>
 </div>
 <div class='sport_users'>
   <h3>Buddies for <%= @sport.kind %></h3>

@@ -1,17 +1,12 @@
-/* .activity_description{
-  border-style: solid;
-  padding: 10px;
-  margin-top: 30px;
-  border-radius: 20px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-} */
-
-ul {
-  list-style: none;
-
+.user-activity {
+display: grid;
+grid-template-columns: 3fr 3fr 3fr;
 }
+/* .acti-descript {
+  white-space: nowrap;
+  width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #000000;
+}
+ */
