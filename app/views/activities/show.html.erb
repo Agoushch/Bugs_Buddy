@@ -21,9 +21,11 @@
           <span class="glyphicon glyphicon-star">💪</span>
         <% end %>
       </div>
-      <div class='join'>
-        <%= link_to '+ join', activity_user_activities_path(@activity), method: :post %>
-      </div>
+      <% unless @user_activity %>
+        <div class='join'>
+          <%= link_to '+ join', activity_user_activities_path(@activity), method: :post %>
+        </div>
+      <% end %>
     </div>
     <div class="chatbox">
       <% if @user_activity %>
