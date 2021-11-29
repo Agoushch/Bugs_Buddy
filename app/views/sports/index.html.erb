@@ -10,27 +10,28 @@
   %>
   <%# <div class="btn-positionn"><%= submit_tag "Search", class: "btn button-633" %>
 <% end %>
-<div class= 'sport_container_categories_and_sports'>
-  <div class="row_sport">
-    <div class="col-3 sport_categories">
-      <h2 class="text-center">Categories</h2>
+<div class="container-category-sports">
+  <div>
+    <h2 class="text ">Categories</h2>
+    <div class="sport_categories">
       <% @categories.each do |category| %>
         <div class="singlecard_category">
           <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %>
         </div>
       <% end %>
     </div>
-    <div class= "col-9 big_sport_container">
-      <h2>All Sports</h2>
-        <div class="sport_container">
-          <% @sports.each do |sport| %>
-            <%= link_to sport_path(sport) do %>
-              <div class= 'sport_card'>
-                <h3 class= 'sport_kind'><%= "#{sport.kind.capitalize}"  %></h3>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
+
+  </div>
+  <div>
+    <h2 class="activity-title">All activities</h2>
+    <div class= "big_sport_container">
+      <% @sports.each do |sport| %>
+        <div class= 'sport_card'>
+          <div class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)">
+            <%= link_to "#{sport.kind.capitalize}.", sport_path(sport), class: 'sport_kind' %>
+          </div>
+        <% end %>
+      </div>
+
     </div>
   </div>
-</div>
