@@ -2,25 +2,28 @@
   <h1><%= @sport.kind.capitalize %></h1>
 </div>
 <div id="map"
-  style="style=width: 90%; height: 45vh; justify-content: center; margin-top: 40px; margin-left: 5%; margin-right: 5%"
+  style="style=width: 90%; height: 45vh; justify-content: center; margin-top: 40px; margin-left: 5%; margin-right: 5%; border-radius: 50px; margin-bottom: 40px"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   >
 </div>
-<h3>Find an activity for <%= @sport.kind %></h3>
-<%= form_tag sport_path, method: :get do %>
-  <%= date_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Choose a date"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="activity-page">
+  <h3>Find an activity for <%= @sport.kind %></h3>
+</div>
+  <%= form_tag sport_path, method: :get, class: "text-center d-flex flex-column" do %>
+    <%= date_field_tag :query,
+      params[:query],
+      class: "form-date",
+      value: "31/12/2021"
+
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
+  <% end %>
 <div class="container_activities">
   <ul>
     <% @activities.each do |activity| %>
       <li>
-        <%= link_to  activity_path(activity) do %>
+        <%= link_to activity_path(activity) do %>
           <div class="activity_description">
             <%= activity.description %>
             <%= activity.date %>
@@ -36,7 +39,7 @@
   </ul>
 </div>
 <div class='sport_users'>
-  <h3>Find your buddy for <%= @sport.kind %></h3>
+  <h3>Buddies for <%= @sport.kind %></h3>
   <% @sport.users.each do |user| %>
     <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
     <%= user.nickname %>
