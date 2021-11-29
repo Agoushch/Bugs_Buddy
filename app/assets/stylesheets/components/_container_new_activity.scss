@@ -1,9 +1,12 @@
 .container_new_activity {
   border-width: 15px;
-  background-color: green;
+  // background-color: green;
   margin: auto;
   border-radius: 50px;
   width: 90%;
   margin-top: 40px;
-
+  border: solid;
+  border-color: rgb(39, 30, 96);
+  padding-bottom: 30px;
+  justify-content: center;
 }

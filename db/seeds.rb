@@ -45,6 +45,7 @@ combat = ["boxing", "judo", "karate", "taekwondo", "kung fu"]
 indoor = ["athletics", "badminton", "basketball", "boxing", "skating", "football", "judo", "karate", "swimming", "tennis", "volleyball"]
 outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating", "football", "golf", "rafting", "rugby", "running", "skiing", "surfing", "tennis", "triathlon"]
 
+
 athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
 athletics.photo.attach(io: URI.open('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'), filename: 'athletics.png', content_type: 'athletics/png')
 
@@ -114,6 +115,7 @@ volleyball.photo.attach(io: URI.open('https://images.unsplash.com/photo-15211380
 taekwondo = Sport.create(kind: 'taekwondo', category: Category.all.sample)
 taekwondo.photo.attach(io: URI.open('https://images.unsplash.com/photo-1617480348565-d60644e43fe3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGFla3dvbmRvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
+
 # activity_id = 1
 Activity.create!(
   localisation: '10 Cantersteen 1000 Bruxelles',
@@ -130,6 +132,8 @@ Activity.create!(
   sport: Sport.all.sample,
   date: Date.today + 7
 )
+
+
 #Activity
 courir = Activity.create!(
     localisation: '10 Cantersteen 1000 Bruxelles',
