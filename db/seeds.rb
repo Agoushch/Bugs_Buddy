@@ -68,11 +68,6 @@ Activity.create!(
   sport: Sport.all.sample,
   date: Date.today + 7
 )
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 #Activity
 courir = Activity.create!(
     localisation: '10 Cantersteen 1000 Bruxelles',
