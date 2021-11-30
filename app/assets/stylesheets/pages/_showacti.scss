@@ -1,38 +1,15 @@
 .container_activities_show {
-  background-size: cover;
-  background-position: center;
   display: flex;
   justify-content: center;
-  max-height: 90vh;
+  height: 100%;
 }
 
 .user_profile_activity {
-background-color: white;
+    background-color: white;
     /* width: 30%; */
-    height: 70%;
-    margin: 4px;
     padding: 15px;
-    height: 100%;
 }
 
-.activities_and_chatbox{
-margin: 20px;
-}
-
-.photo_nickname {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-
-.user_photo_activity {
-  height: 70px;
-  margin: 5px;
-  border-radius: 20px;
-}
-.container_new {
-  margin-bottom: 10px;
-}
 .card_info {
 padding: 15px;
     position: relative;
@@ -41,8 +18,22 @@ padding: 15px;
     flex-direction: column;
     /* margin: 20px; */
     flex-grow: 1;
-    height: 100%;
+    width: 63%;
+    height: 92vh;
 }
+
+.photo_nickname {
+
+}
+
+.user_photo_activity {
+  height: 200px;
+
+}
+.container_new {
+  margin-bottom: 10px;
+}
+
 
 .card_info a {
   text-decoration: none;
@@ -99,7 +90,7 @@ padding: 15px;
 
 .chatbox {
   overflow: scroll;
-  max-height: 30vh;
+  max-height: 50vh;
 }
 
 .comment {
@@ -123,6 +114,18 @@ padding: 15px;
 
 }
 
+.container_photo_and_info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.profile_info_act {
+  width: 50%;
+  padding: 15px;
+
+}
 .profile_preference_act {
   display: flex;
   flex-direction: column;
@@ -130,8 +133,8 @@ padding: 15px;
 
 .preference_act {
   padding: 9px;
-    border: 1px solid #ca4133;
-    border-radius: 5px;
+    border: 3px solid #ca4133;
+    border-radius: 1px;
     display: flex;
     justify-content: space-around;
   margin-bottom: 5px;

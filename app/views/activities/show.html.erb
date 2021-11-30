@@ -1,77 +1,73 @@
-<div class="container_activities_show" style="background-image: url(<%= cl_image_path @activity.sport.photo.key %>)">
-  <div class='activities_and_chatbox'>
-    <div class="card_info">
-      <h3><%= @activity.description %></h3>
-      <p><i class="fas fa-map-marked-alt"></i>    <%= @activity.localisation %></p>
-      <p><i class="far fa-calendar-alt"></i>    <%= @activity.date %></p>
-      <p><i class="fab fa-superpowers"></i><% @activity.level.to_i.times do %>💪<% end %>
+<div class="container_activities_show">
+  <div class="card_info">
+    <h3><%= @activity.description %></h3>
+    <p><i class="fas fa-map-marked-alt"></i>    <%= @activity.localisation %></p>
+    <p><i class="far fa-calendar-alt"></i>    <%= @activity.date %></p>
+    <p>Level:  <% @activity.level.to_i.times do %>💪<% end %>
+    </p>
+    <div class="attending_container dropdown">
+      <p class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+        Buddies attending
       </p>
-      <div class="attending_container dropdown">
-        <p class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-          Buddies attending
-        </p>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <% @activity.user_activities.each do |user_activity| %>
-            <li class="dropdown-item"><%= user_activity.user.nickname %></li>
-          <% end %></a>
-      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% @activity.user_activities.each do |user_activity| %>
+          <li class="dropdown-item"><%= user_activity.user.nickname %></li>
+        <% end %></a>
     </div>
-    <% unless @user_activity %>
-      <div class='join'>
-        <%= link_to activity_user_activities_path(@activity), method: :post do %>
-          <button class="button-7" role="button">+ join</button>
-        <% end %>
-      </div>
-    <% end %>
-    <% if @user_activity %>
-      <div class="chatbox">
-        <% if @user_activity %>
-          <div class="container_new_act">
-            <div class="information_newcomment">
-              <%= simple_form_for([@user_activity, @comment], remote: true) do |f| %>
-                <p>
-                  <%= f.input :content, label: "Talk with buddy" %>
-                  <%= f.hidden_field :activity, value: @activity.id  %>
-                </p>
-              <% end %>
-            </div>
+  </div>
+  <% unless @user_activity %>
+    <div class='join'>
+      <%= link_to activity_user_activities_path(@activity), method: :post do %>
+        <button class="button-7" role="button">+ join</button>
+      <% end %>
+    </div>
+  <% end %>
+  <% if @user_activity %>
+    <div class="chatbox">
+      <% if @user_activity %>
+        <div class="container_new_act">
+          <div class="information_newcomment">
+            <%= simple_form_for([@user_activity, @comment], remote: true) do |f| %>
+              <p>
+                <%= f.input :content, label: "Talk with buddy" %>
+                <%= f.hidden_field :activity, value: @activity.id  %>
+                <%= f.button :submit %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% @activity.user_activities.each do |user_activity| %>
+        <% user_activity.comments.each do |comment| %>
+          <div class="comment">
+            <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
+            <div id='comment_text'><%= comment.content %></div>
           </div>
         <% end %>
-        <% @activity.user_activities.each do |user_activity| %>
-          <% user_activity.comments.each do |comment| %>
-            <div class="comment">
-              <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
-              <div id='comment_text'><%= comment.content %></div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="user_profile_activity">
-  <div class='photo_nickname'>
+  <h3>Created by</h3>
+  <div class='container_photo_and_info'>
     <% if @activity.user.photo.attached? %>
       <%= cl_image_tag @activity.user.photo.key, class: 'user_photo_activity' %>
     <% end %>
-    <div>
-      <h2><%= @activity.user.nickname %></h2>
+    <div class="profile_info_act">
+      <h4><%= @activity.user.nickname %></h4>
+      <p><%= @activity.user.description %></p>
+      <p><%= @activity.user.age %> yo</p>
     </div>
   </div>
-  <div class="profile_info_act">
-    <div class="profile_description">
-      <p>Description: <%= @activity.user.description %></p>
-      <p>Age: <%= @activity.user.age %> yo</p>
-      <div class='profile_preference_act'>
-        <h3>Favorite sports</h3>
-        <% @activity.user.preferences.each do |preference| %>
-          <div class='preference_act'>
-            <h6><%= preference.sport.kind.capitalize %></h6>
-            <p><% preference.level.times do %>💪<% end %></p>
-          </div>
-        <% end %>
+  <div class='profile_preference_act'>
+    <h3>Favorite sports</h3>
+    <% @activity.user.preferences.each do |preference| %>
+      <div class='preference_act'>
+        <p><%= preference.sport.kind.capitalize %></p>
+        <p><% preference.level.times do %>💪<% end %></p>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
 </div>
