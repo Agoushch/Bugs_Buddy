@@ -213,7 +213,6 @@ Activity.create!(
   date: Date.today + 7
 )
 
-
 #Activity
 courir = Activity.create!(
     localisation: '10 Cantersteen 1000 Bruxelles',
