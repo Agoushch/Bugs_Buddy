@@ -1,14 +1,33 @@
-<h1 class='text-center p-5'><strong>BugsBuddy</strong></h1>
-<div class="banner banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://freshidees.com/wp-content/uploads/2018/08/id%C3%A9e-quel-sport-pratiquer-en-%C3%A9t%C3%A9-1.jpg);">
+<div class="banner banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
   <div class="container">
-    <h1>L'application <strong>BugsBuddy</strong> va vous emmener loin !</h1>
-    <p>Trouvez votre <strong>Buddy</strong> et commencez votre sport <strong>ensemble</strong>.</p>
   </div>
 </div>
-
-<div class="card-category" >
+<div class="card-container">
   <%= link_to sports_path do %>
-    Find your BugsBuddy
-  <% end %>
+    <div class="card card-1">
+      <div class="card-img"></div>
+      <div class="card-img-hovered"></div>
+      <div class="card-info">
+        <h1 class="card-title">Find you BugsBuddy</h1>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to sports_path do %>
+    <div class="card card-2">
+      <div class="card-img"></div>
+      <div class="card-img-hovered"></div>
+      <div class="card-info">
+        <h1 class="card-title">No inspiration? let us pick for you</h1>
+      </div>
+    <% end  %>
+  </div>
+  <%= link_to sports_path do %>
+    <div class="card card-3">
+      <div class="card-img"></div>
+      <div class="card-img-hovered"></div>
+      <div class="card-info">
+        <h1 class="card-title">Change your way of living!</h1>
+      </div>
+    <% end %>
+  </div>
 </div>
-

@@ -1,6 +1,18 @@
 .btn-secondary {
-  background-color: green;
+  background-color: rgb(39, 30, 96);
   text-align: center;
+
+}
+
+.btn-thibaut {
+  // display: flex;
+  justify-content: center;
+  border: solid;
+  border-color: rgb(39, 30, 96);
+  color: rgb(39, 30, 96);
+  background-color: #16611c;
+/*   text-align: center;
+  align-items: center; */
 }
 
 .button-633 {
@@ -68,51 +80,49 @@
   height: 30px;
 }
 
-.btn_addpreferences {
+.button-6 {
   align-items: center;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
-  color: #000;
+  color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  fill: #000;
-  font-family: Inter,sans-serif;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  height: 48px;
   justify-content: center;
-  letter-spacing: -.8px;
-  line-height: 24px;
-  min-width: 140px;
-  outline: 0;
-  padding: 0 17px;
-  text-align: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
   text-decoration: none;
-  transition: all .3s;
+  transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 }
 
-.btn_addpreferences:focus {
-  color: #171e29;
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
-.btn_addpreferences:hover {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
+.button-6:hover {
+  transform: translateY(-1px);
 }
 
-.btn_addpreferences:active {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
-}
-
-@media (min-width: 768px) {
-  .btn_addpreferences {
-    min-width: 170px;
-  }
+.button-6:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
