@@ -90,7 +90,7 @@ padding: 15px;
 
 .chatbox {
   overflow: scroll;
-  max-height: 50vh;
+  max-height: 70vh;
 }
 
 .comment {
@@ -100,9 +100,6 @@ padding: 15px;
   border: 1px solid white;
 }
 
-#comment_text {
-  margin-left: 8px;
-}
 
 .attending_user {
   list-style: none;
