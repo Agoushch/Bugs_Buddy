@@ -1,28 +1,3 @@
-<div class="act_container">
-  <div class="post">
-    <div class="header_post">
-      <img src="https://source.unsplash.com/600x400/?sport">
-    </div>
-    <div class="body_post">
-      <div class="post_content">
-        <h2><%= @activity.description %></h2>
-        <p><%= @activity.date %></p>
-        <p><%= @activity.localisation %></p>
-        <div class="container_infos">
-          <div class="postedBy">
-            <span>author</span>
-            <div class="user">
-              <%= cl_image_tag @activity.user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %> %>
-              <div class="user__info">
-                <h5><%= @activity.user.nickname %></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container_activities">
   <div class='activities_and_chatbox'>
     <div class="card_info">
