@@ -2,11 +2,33 @@
 display: grid;
 grid-template-columns: 3fr 3fr 3fr;
 }
-/* .acti-descript {
-  white-space: nowrap;
-  width: 50px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border: 1px solid #000000;
+
+.two-columns {
+  display: flex;
+  height: 70vh;
+  width: 100vw;
+  padding: 0 100px;
 }
- */
+
+.col-first {
+  padding: 20px;
+  margin: 20px;
+  width: calc(50% - 10px);
+  overflow: hidden;
+}
+
+.col-second {
+  padding: 20px;
+  width: calc(50% - 10px);
+}
+
+.container-card-product {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+
+.form-aligned {
+  padding-bottom: 20px;
+  width: 100%;
+}
