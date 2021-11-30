@@ -10,15 +10,15 @@
 <div class="activity-page">
   <h3>Find an activity for <%= @sport.kind %></h3>
 </div>
-  <%= form_tag sport_path, method: :get, class: "text-center d-flex flex-column" do %>
-    <%= date_field_tag :query,
+<%= form_tag sport_path, method: :get, class: "text-center d-flex flex-column" do %>
+  <%= date_field_tag :query,
       params[:query],
       class: "form-date",
       value: "31/12/2021"
 
     %>
-    <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
-  <% end %>
+  <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
+<% end %>
 <div class="container_activities">
   <ul>
     <% @activities.each do |activity| %>
@@ -43,6 +43,7 @@
   <% @sport.users.each do |user| %>
     <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
     <%= user.nickname %>
+    <%= link_to 'See profile', user_path(user)  %>
     <% user.preferences.each do |preference| %>
       <% if preference.sport == @sport %>
         <%= preference.level %>
