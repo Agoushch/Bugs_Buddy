@@ -24,6 +24,7 @@ filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nick
 thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nickname: 'Thibbe')
 file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
 nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 25.times do
   User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)
 end
@@ -46,9 +47,9 @@ indoor = ["athletics", "badminton", "basketball", "boxing", "skating", "football
 outdoor = ["athletics", "baseball", "basketball", "cycling", "hockey", "skating", "football", "golf", "rafting", "rugby", "running", "skiing", "surfing", "tennis", "triathlon"]
 
 
-athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
-athletics.photo.attach(io: URI.open('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'), filename: 'athletics.png', content_type: 'athletics/png')
 
+p athletics = Sport.create(kind: 'athletics', category: Category.all.sample)
+athletics.photo.attach(io: URI.open('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'), filename: 'athletics.png', content_type: 'athletics/png')
 badminton = Sport.create(kind: 'badminton', category: Category.all.sample)
 badminton.photo.attach(io: URI.open('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFkbWludG9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
@@ -58,7 +59,7 @@ baseball.photo.attach(io: URI.open('https://images.unsplash.com/photo-1573352362
 basketball = Sport.create(kind: 'basketball', category: Category.all.sample)
 basketball.photo.attach(io: URI.open('https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'),filename: 'athletics.png', content_type: 'athletics/png')
 
-boxing = Sport.create(kind: 'boxing', category: Category.all.sample)
+p boxing = Sport.create(kind: 'boxing', category: Category.all.sample)
 boxing.photo.attach(io: URI.open('https://images.unsplash.com/photo-1618517048289-4646902edaf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'),filename: 'athletics.png', content_type: 'athletics/png')
 
 cycling = Sport.create(kind: 'cycling', category: Category.all.sample)
@@ -85,7 +86,7 @@ karate.photo.attach(io: URI.open('https://images.unsplash.com/photo-157799855598
 rafting = Sport.create(kind: 'rafting', category: Category.all.sample)
 rafting.photo.attach(io: URI.open('https://images.unsplash.com/photo-1594026634827-fe99c0a22e83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFmdGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
-rugby = Sport.create(kind: 'rugby', category: Category.all.sample)
+p rugby = Sport.create(kind: 'rugby', category: Category.all.sample)
 rugby.photo.attach(io: URI.open('https://images.unsplash.com/photo-1582547221270-75f62358c60c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHJ1Z2J5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
 running = Sport.create(kind: 'running', category: Category.all.sample)
@@ -94,8 +95,8 @@ running.photo.attach(io: URI.open('https://images.unsplash.com/photo-15710088875
 skiing = Sport.create(kind: 'skiing', category: Category.all.sample)
 skiing.photo.attach(io: URI.open('https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2tpaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
-surfing = Sport.create(kind: 'surfing', category: Category.all.sample)
-badminton.photo.attach(io: URI.open('https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3VyZmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
+p surfing = Sport.create(kind: 'surfing', category: Category.all.sample)
+surfing.photo.attach(io: URI.open('https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3VyZmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
 swimming = Sport.create(kind: 'swimming', category: Category.all.sample)
 swimming.photo.attach(io: URI.open('https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3dpbW1pbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
@@ -116,22 +117,33 @@ taekwondo = Sport.create(kind: 'taekwondo', category: Category.all.sample)
 taekwondo.photo.attach(io: URI.open('https://images.unsplash.com/photo-1617480348565-d60644e43fe3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dGFla3dvbmRvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),filename: 'athletics.png', content_type: 'athletics/png')
 
 
+# indoor.each do |sport|
+#   p Sport.create!(kind: sport, category_id: 4)
+# end
+
+# outdoor.each do |sport|
+#   p Sport.create!(kind: sport, category_id: 5)
+# end
+
+
 # activity_id = 1
 Activity.create!(
   localisation: '10 Cantersteen 1000 Bruxelles',
   user_id: nicolas.id,
   description: 'Running at Bois de la Cambre this evening at 6pm',
-  sport_id: 10,
+  sport_id: Sport.all.sample.id,
   date: Date.today + 3
 )
 # activity_id = 2
-Activity.create!(
+p Activity.create!(
   localisation: '12 Rue du midi 1000 Bruxelles',
   user_id: filip.id,
   description: 'Anyone up to swim near Etterbeek ?',
   sport: Sport.all.sample,
   date: Date.today + 7
 )
+
+
 
 #Activity
 courir = Activity.create!(

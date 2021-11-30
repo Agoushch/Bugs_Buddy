@@ -1,6 +1,7 @@
 <div class="titre">
   <h1><%= @sport.kind.capitalize %></h1>
 </div>
+
 <div class="two-columns">
 
   <div class="col-first">
@@ -29,6 +30,8 @@
         <% end %>
         </div>
       <% end %>
+
+
 
 
       <% @activities.each do |activity| %>
@@ -63,3 +66,14 @@
 
 
 </div>
+
+<div class='sport_users'>
+  <h3>Buddies for <%= @sport.kind %></h3>
+  <% @sport.users.each do |user| %>
+    <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
+    <%= user.nickname %>
+    <% user.preferences.each do |preference| %>
+      <% if preference.sport == @sport %>
+        <%= preference.level %>
+
+      <% end %>

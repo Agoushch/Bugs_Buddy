@@ -1,0 +1,55 @@
+.profile_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 10px;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4) ;
+}
+
+.profile_photo {
+  width: 400px;
+  display: flex;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  img {
+    border-radius: 1px;
+  }
+}
+
+.profile_info {
+  text-align: center;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.profile_description {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.profile_preference {
+  margin-top: 10px;
+  border-top: 1px solid black;
+  padding-top: 20px;
+  h3 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}
+
+.preference_wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.preference {
+  padding: 15px;
+  background-color: #ca4133;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 25%;
+}
