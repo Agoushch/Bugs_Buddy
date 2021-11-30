@@ -44,7 +44,7 @@
         <% user_activity.comments.each do |comment| %>
           <div class="comment">
             <% if user_activity.user.photo.attached? %>
-            <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
+              <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
             <% end %>
             <div class='comment_text'><%= comment.content %></div>
           </div>

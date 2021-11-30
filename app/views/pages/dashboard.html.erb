@@ -1,73 +1,82 @@
-
 <h1>Welcome <%= current_user.nickname %></h1>
-
 <h1>My Profile</h1>
 <div class="dashboard_sport">
-  <h2>My sports</h2>
   <!-- HTML !-->
-  <button class="button_addpreferences">
-    <%= link_to '+ Add your Preferences', new_preference_path %>
-  </button>
-  <% current_user.preferences.each do |preference| %>
-    <p>
-      <%= preference.sport.kind %> <%= link_to edit_preference_path(preference) do %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end %>
-    </p>
-    <p><%= preference.level.times do %>💪<% end %></p>
-    <%= link_to preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }  do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  <% end %>
 </div>
-
-<% if current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill, radius: 20 %>
-  <h3>Description: <%= current_user.description %></h3>
-<% end %>
-
+<%# User profile %>
+<div class="profile_card">
+  <% if current_user.photo.attached? %>
+    <div class="profile_photo" style="background-image: url(<%= cl_image_path current_user.photo.key %>)">
+    </div>
+  <% end %>
+  <div class="profile_info">
+    <div>
+      <h2><%= current_user.nickname %></h2>
+    </div>
+    <div class="profile_description">
+      <h4>Description: <%= current_user.description %></h4>
+      <h4>Age: <%= current_user.age %> yo</h4>
+      <div class='profile_preference'>
+        <h3>My favorite sports</h3>
+        <div class='preference_wrap'>
+          <% current_user.preferences.each do |preference| %>
+            <div class='preference'>
+              <h3><%= preference.sport.kind.capitalize %></h3>
+              <p><%= preference.level.times do %>💪<% end %></p>
+            </div>
+            <%= link_to preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }  do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <%= link_to edit_preference_path(preference) do %>
+              <i class="fas fa-pencil-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <button class="button-6" role="button">Add your preferences</button>
+    </div>
+  </div>
+</div>
+<%= link_to 'Update your Profile', edit_user_registration_path %>
 <h2>Your submitted activities:</h2>
 <div class="all_activities">
   <% @activities_mine.each do |activ| %>
-      <% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
-      <% if time_delta > 0 %>
-        <div class="activityy_card">
+    <% time_delta = (activ.date - DateTime.current.beginning_of_day).to_f %>
+    <% if time_delta > 0 %>
+      <div class="activityy_card">
         <h4><%= activ.date %> (in <%= time_delta.round(0) %> days)</h4>
         <h4><%= activ.sport.kind  %></h4>
         <h4><%= activ.description %></h4>
-        </div>
-      <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
 <%# <% raise %> %>
-
 <h2>Buddies activites: Upcoming/ Finished</h2>
-
 <div class="all_activities">
   <% current_user.user_activities.each do |user_activiti| %>
-      <div class="activityy_card">
+    <div class="activityy_card">
       <% time_delta = (user_activiti.activity.date - DateTime.current.beginning_of_day).to_f %>
       <%# time_delta < 0 : in the past !!!! > %>
       <% if time_delta > 0 %>
-          <h4><%= user_activiti.activity.date %> (in <%= time_delta.round(0) %> days)</h4>
+        <h4><%= user_activiti.activity.date %> (in <%= time_delta.round(0) %> days)</h4>
+        <h4>Activity: <%= user_activiti.activity.description %></h4>
+        <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
+        <h4>Participants:
+          <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+            <% next if user_activity_member == user_activiti  %>
+            <h6><%= user_activity_member.user.nickname %></h6>
+          <% end %>
+        <% else %>
+          <h4><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h4>
           <h4>Activity: <%= user_activiti.activity.description %></h4>
           <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
           <h4>Participants:
             <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-            <% next if user_activity_member == user_activiti  %>
-            <h6><%= user_activity_member.user.nickname %></h6>
-        <% end %>
-        <% else %>
-              <h4><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h4>
-              <h4>Activity: <%= user_activiti.activity.description %></h4>
-              <h4>Sport: <%= user_activiti.activity.sport.kind %> </h4>
-              <h4>Participants:
-                <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-                  <% next if user_activity_member == user_activiti  %>
-                  <h6><%= user_activity_member.user.nickname %></h6>
-                <% end %>
-      <% end %>
+              <% next if user_activity_member == user_activiti  %>
+              <h6><%= user_activity_member.user.nickname %></h6>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-  </div>
-  <% end %>
+    <% end %>
