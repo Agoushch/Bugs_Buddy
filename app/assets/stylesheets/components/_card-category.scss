@@ -36,15 +36,14 @@
 // }
 /* RESET */
 * {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   background: #ebecf0;
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
+
 
   a {
     text-decoration: none;
@@ -249,9 +248,6 @@ body {
 }
 
 
-.sport_container {
-}
-
 .sport_card {
   background-size: cover;
   position: relative;
@@ -368,21 +364,14 @@ a {
 }
 
 .activityy_card {
-  width: 400px;
   border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  background-color: lightblue;
-  margin: 10px;
-  padding: 20px;
   border-radius: 18px;
-  background-color: rgb(17, 87, 17);
-  color: rgb(255, 255, 255);
+  background-image: url("https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=384&q=80");
+  max-width: 500px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
-.all_activities .activityy_card h4 {
-  font-weight: bolder;
-}
 
 .dashboard_sport {
   display: flex;
@@ -390,31 +379,49 @@ a {
 }
 
 
-.container-card-activities {
-display: flex;
-flex-wrap: wrap;
-// align-items: center;
-justify-content: center;
-margin-top: 30px;
-margin-bottom: 30px;
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 512px;
+  margin-bottom: 20px;
 
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+  height: 120px;
+  width: 512px;
 }
 
 .card-activities{
-  border-style: solid;
-  padding: 10px;
-  margin: 15px;
-  border-radius: 20px;
-  height: 150px;
-  display: grid;
-  flex-direction: column;
-/*   justify-content: center; */
-/*   align-items: center; */
   width: 300px;
-
 }
 
-.card-activities:hover {
+.container-card-activities:hover {
   text-decoration: none;
   box-shadow: 0px 6px 10px;
 }
@@ -433,6 +440,7 @@ margin-bottom: 30px;
     text-align: center;
   }
 }
+
 @media (min-width: 768px) {
   .card-category {
     color: white;
@@ -440,7 +448,7 @@ margin-bottom: 30px;
     font-size: 1.125rem;
     padding: 1rem 2rem;
   }
-
+}
 .categoryandsports {
   display: flex;
   flex-wrap: wrap;
@@ -452,9 +460,9 @@ margin-bottom: 30px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .container-category-sports {
   display: grid;
   grid-template-columns: 2fr 10fr;
 
-}
 }
