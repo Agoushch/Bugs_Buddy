@@ -22,8 +22,11 @@ padding: 15px;
     height: 92vh;
 }
 
-.photo_nickname {
-
+.the_activity {
+  position: relative;
+  background-color: #ca4133;
+  color: white;
+  padding: 15px;
 }
 
 .user_photo_activity {
@@ -56,23 +59,37 @@ padding: 15px;
   font-family: "Lobster";
 }
 .join {
-  font-weight: bold;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 27px;
+    bottom: 19px;
+    color: white;
+    text-align: center;
 }
 
+.new_comment {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 15px;
+  text-align: center;
+}
 
 .information_newcomment label {
-  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+  text-align: center;
 }
 
-.btn_comment {
-  color: white;
-  border-radius: 8px;
-  border: 1px solid white;
+.information_newcomment input {
+  border-radius: 10px;
+}
+
+.information_newcomment input:focus {
+  border: 3px solid #555;
+}
+
+input.btn {
+  border: 2px solid black;
 }
 
 .localisation {
@@ -113,13 +130,11 @@ padding: 15px;
 
 .container_photo_and_info {
   display: flex;
-  align-items: center;
   margin-bottom: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .profile_info_act {
-  width: 50%;
   padding: 15px;
 
 }
