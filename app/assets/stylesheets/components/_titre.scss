@@ -8,7 +8,15 @@
   margin-top: 30px;
 }
 
-h1 {
+.titre h1 {
   font-size: 75px;
   font-weight: bold;
+}
+
+.col-first h3 {
+  display: flex;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: rgb(202, 65, 51);
+  text-align: center;
 }

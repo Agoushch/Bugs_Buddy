@@ -1,0 +1,26 @@
+<div class="profile_card">
+  <% if @user.photo.attached? %>
+    <div class="profile_photo" style="background-image: url(<%= cl_image_path @user.photo.key %>)">
+    </div>
+  <% end %>
+  <div class="profile_info">
+    <div>
+      <h2><%= @user.nickname %></h2>
+    </div>
+    <div class="profile_description">
+      <h4>Description: <%= @user.description %></h4>
+      <h4>Age: <%= @user.age %> yo</h4>
+      <div class='profile_preference'>
+        <h3>Favorite sports</h3>
+        <div class='preference_wrap'>
+          <% @user.preferences.each do |preference| %>
+            <div class='preference'>
+              <h3><%= preference.sport.kind.capitalize %></h3>
+              <p><%= preference.level.times do %>💪<% end %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
