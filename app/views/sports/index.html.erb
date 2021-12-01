@@ -2,39 +2,38 @@
   <%= cl_image_tag "jizhidexiaohailang_u5kjm5", effect: "sharpen", id: 'sport_banner' %>
   <h1>Discover our sports</h1>
 </div>
-<%= form_tag sports_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search a sport or category"
-  %>
-  <%# <div class="btn-positionn"><%= submit_tag "Search", class: "btn button-633" %>
-<% end %>
 <div class="container-category-sports">
   <div>
     <h2 class="text ">Categories</h2>
     <div class="sport_categories">
       <% @categories.each do |category| %>
         <div class="singlecard_category">
-          <h3><%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %></h3>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div>
-    <h2 class="activity-title">All Sports</h2>
-    <div class= "big_sport_container">
-      <% @sports.each do |sport| %>
-
-      <% if sport.photo.attached? %>
-        <div class= 'sport_card'>
-          <div class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)">
-            <%= link_to "#{sport.kind.capitalize}.", sport_path(sport), class: 'sport_kind' %>
-          </div>
-        </div>
-          <% end %>
-        <% end %>
+          <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %></h3>
       </div>
+    <% end %>
+  </div>
+
+</div>
+<div>
+  <div class="activity-title">
+    <h2>All Sports</h2>
+  </div>
+  <%= form_tag sports_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search a sport or category"
+  %>
+  <% end %>
+  <div class= "big_sport_container">
+    <% @sports.each do |sport| %>
+      <% if sport.photo.attached? %>
+        <a href="<%=sport_path(sport) %>"class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)">
+          <%= sport.kind.capitalize %>
+        </a>
+      <% end %>
+    <% end %>
 
   </div>
+</div>
 </div>
