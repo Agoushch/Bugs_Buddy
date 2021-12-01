@@ -4,7 +4,7 @@
   position: sticky;
   top: 0px;
   z-index: 99;
-  height: 58px;
+  height: 52px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +13,18 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.fas {
+  color: white;
+}
+#solologo {
+  padding-right: 15px;
+}
+
+.title_app {
+  color: white;
+  font-size: 28px;
+  font-family: "Anton", sans-serif;
+  width: 50px;
 }

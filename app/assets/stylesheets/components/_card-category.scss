@@ -198,7 +198,6 @@ body {
   }
 }
 
-
 .card-2 {
   .card-img,
   .card-img-hovered {
@@ -248,7 +247,6 @@ body {
   padding-top: 14px;
 }
 
-
 .sport_container {
 }
 
@@ -288,7 +286,6 @@ body {
   right: 7px;
   bottom: 7px;
 }
-
 
 .recommended-title {
   padding-left: 15px;
@@ -347,9 +344,10 @@ a {
   line-height: 50px;
   text-align: center;
   background-color: #ca4133;
-  margin: 15px;
+  margin: 5px;
   color: white;
   opacity: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .singlecard_category a {
   color: white;
@@ -389,18 +387,16 @@ a {
   flex-direction: column;
 }
 
-
 .container-card-activities {
-display: flex;
-flex-wrap: wrap;
-// align-items: center;
-justify-content: center;
-margin-top: 30px;
-margin-bottom: 30px;
-
+  display: flex;
+  flex-wrap: wrap;
+  // align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.card-activities{
+.card-activities {
   border-style: solid;
   padding: 10px;
   margin: 15px;
@@ -408,10 +404,9 @@ margin-bottom: 30px;
   height: 150px;
   display: grid;
   flex-direction: column;
-/*   justify-content: center; */
-/*   align-items: center; */
+  /*   justify-content: center; */
+  /*   align-items: center; */
   width: 300px;
-
 }
 
 .card-activities:hover {
@@ -441,18 +436,20 @@ margin-bottom: 30px;
     padding: 1rem 2rem;
   }
 
-.categoryandsports {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+  .categoryandsports {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-.categoryandactivites {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.container-category-sports {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
+  .categoryandactivites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .container-category-sports {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+  }
 }
