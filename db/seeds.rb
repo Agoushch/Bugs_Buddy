@@ -24,10 +24,14 @@ filip = User.create!(email: "filip.brouwers@gmail.com", password: "123123", nick
 thibaut = User.create!(email: "thibautbutaye@gmail.com", password: "123123", nickname: 'Thibbe')
 file = URI.open('https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg')
 nicolas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+file = URI.open('https://fr.web.img2.acsta.net/pictures/19/01/22/16/22/0699464.jpg')
+adonis.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+file = URI.open('https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/people-a-z/tom-hardy/6032632-4-fre-FR/Tom-Hardy.jpg')
+thibaut.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+file = URI.open('https://voi.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fprismamedia_people.2F2017.2F06.2F30.2F36cc06e4-a456-4e22-bf80-68614a792d8a.2Ejpeg/2048x1536/quality/80/michael-jackson.jpeg')
+filip.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-25.times do
-  User.create(email: Faker::Internet.email, password: "123456", nickname: Faker::Name.name)
-end
+
 # Categories
 ['Ball', 'Endurance', 'Indoor', 'Outdoor', 'Strength', 'Water'].each do |category|
   Category.create(name: category)
@@ -139,40 +143,213 @@ p Activity.create!(
   localisation: '12 Rue du midi 1000 Bruxelles',
   user_id: filip.id,
   description: 'Anyone up to swim near Etterbeek ?',
-  sport: Sport.all.sample,
+  sport_id: Sport.all.sample.id,
   date: Date.today + 7
 )
 
 
 
 #Activity
-courir = Activity.create!(
-    localisation: '10 Cantersteen 1000 Bruxelles',
-    user_id: nicolas.id,
-    description: 'Running at Bois de la Cambre this evening at 6pm',
-    sport_id: 1,
-    level: rand(1..5),
-    date: Date.today
-  )
-url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
-json = JSON.parse(URI.open(url).read)
-result = json["addresses"]
-result.first(20).each do |hash|
-  address = "#{hash["address1"]}, #{hash["city"]}"
+# activity_id = 1
+Activity.create!(
+  localisation: '10 Cantersteen 1000 Bruxelles',
+  user_id: nicolas.id,
+  description: 'Running at Bois de la Cambre this evening at 6pm',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 3
+)
+# activity_id = 2
 p Activity.create!(
-    localisation: address,
-    user_id: nicolas.id,
-    description: Faker::Quote.famous_last_words,
-    sport: Sport.all.sample,
-    level: rand(1..5),
-    date: Date.today + 2
-  )
-end
-#user1= nicolas user 2= adonis ;; user3 =filip ;; user4= thibaut
-UserActivity.create!(activity_id: 3, user_id: 2)
-UserActivity.create!(activity_id: 3, user_id: 3)
-UserActivity.create!(activity_id: 3, user_id: 1)
-UserActivity.create!(activity_id: 4, user_id: 3)
-UserActivity.create!(activity_id: 4, user_id: 2)
-UserActivity.create!(activity_id: 4, user_id: 4)
-UserActivity.create!(activity_id: 4, user_id: 1)
+  localisation: '12 Rue du midi 1000 Bruxelles',
+  user_id: filip.id,
+  description: 'Anyone up to swim near Etterbeek ?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 7
+)
+p Activity.create!(
+  localisation: 'rue du moulin, 1390 grez-doiceau',
+  user_id: User.all.sample.id,
+  description: 'Someone up for Yoga?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'avenue reine astrid, 1950 kraainem',
+  user_id: User.all.sample.id,
+  description: 'Someone up for Swim?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 8
+)
+p Activity.create!(
+  localisation: 'Chaussée de huy, 1325 Chaumont-gistoux',
+  user_id: User.all.sample.id,
+  description: 'Someone up for a run??',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'PLace alphonse bosh, 1300 wavre',
+  user_id: User.all.sample.id,
+  description: 'Someone up for running?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 6
+)
+p Activity.create!(
+  localisation: 'rue du stade, 7870 bauffe',
+  user_id: User.all.sample.id,
+  description: 'Someone up for Yoga?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'rue de la poste, 1000 bruxelles',
+  user_id: User.all.sample.id,
+  description: 'Someone up for karate?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 11
+)
+p Activity.create!(
+  localisation: 'chau. des collines, 1300 wavre',
+  user_id: User.all.sample.id,
+  description: 'Someone up for judo?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 6
+)
+p Activity.create!(
+  localisation: 'chau. du chateau de Bawette, 1300 wavre',
+  user_id: User.all.sample.id,
+  description: 'Someone up for run?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 10
+)
+p Activity.create!(
+  localisation: 'rue des collines, 1340 ottignies',
+  user_id: User.all.sample.id,
+  description: 'Someone up for foot',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'rue du moulin, 1390 grez-doiceau',
+  user_id: User.all.sample.id,
+  description: 'Someone up for Yoga?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'rue des sablières, 1435 mont saint gibert',
+  user_id: User.all.sample.id,
+  description: 'Someone up for swimming?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 4
+)
+p Activity.create!(
+  localisation: 'Scavée du Biéreau, 1348 Louvain La Neuve',
+  user_id: User.all.sample.id,
+  description: 'Someone up for fitness?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 8
+)
+p Activity.create!(
+  localisation: 'Avenue des arts, 1348 Louvain La Neuve ',
+  user_id: User.all.sample.id,
+  description: 'Someone up for climbing?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'Rue leeman, 1325 beauvechain',
+  user_id: User.all.sample.id,
+  description: 'Someone up for making some stuff?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'rue des vallées, 1000 brussels',
+  user_id: User.all.sample.id,
+  description: 'Someone up for climbing?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'Rue de la fosse, 1300 wavre ',
+  user_id: User.all.sample.id,
+  description: 'Someone up for snorkling?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 5
+)
+p Activity.create!(
+  localisation: 'rue des carabinier, 1300 wavre',
+  user_id: User.all.sample.id,
+  description: 'Someone up for shooting?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 12
+)
+p Activity.create!(
+  localisation: 'rue du heysel, 1000 brussels',
+  user_id: User.all.sample.id,
+  description: 'Someone up for watching a fottball game?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 7
+)
+p Activity.create!(
+  localisation: 'rue Emile Wauters, 1000 brussels',
+  user_id: User.all.sample.id,
+  description: 'Someone up for climbing?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'bd du centenaire, 1000 brussels',
+  user_id: User.all.sample.id,
+  description: 'Someone up for lol?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'rue fineau, 1000 brussels',
+  user_id: User.all.sample.id,
+  description: 'Someone up for climbing?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'Rue Drootbeek, 1000 brussels ',
+  user_id: User.all.sample.id,
+  description: 'Someone up for climbing?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 9
+)
+# url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
+# json = JSON.parse(URI.open(url).read)
+# result = json["addresses"]
+# result.first(20).each do |hash|
+#   address = "#{hash["address1"]}, #{hash["city"]}"
+# p Activity.create!(
+#     localisation: address,
+#     user_id: nicolas.id,
+#     description: Faker::Quote.famous_last_words,
+#     sport: Sport.all.sample,
+#     level: rand(1..5),
+#     date: Date.today + 2
+#   )
+# end
+
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
+Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)

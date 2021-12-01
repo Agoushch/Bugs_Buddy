@@ -79,7 +79,7 @@
                   <% current_user.preferences.each do |preference| %>
                     <div class='preference'>
                       <h6><%= preference.sport.kind.capitalize %></h6>
-                      <p><%= preference.level.times do %>💪<% end %></p>
+                      <p><% preference.level.to_i.times do %>💪<% end %></p>
                       <%= link_to 'delete', preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }, class: "button-6" %>
                     </div>
                   <% end %>
