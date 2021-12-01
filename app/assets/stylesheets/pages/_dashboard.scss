@@ -4,11 +4,12 @@
   justify-content: center;
 
   margin: 10px;
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4) ;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
 }
 
 .profile_photo {
-  width: 400px;
+  width: 200px;
+  height: 200px;
   display: flex;
   background-size: cover;
   justify-content: center;
@@ -33,10 +34,6 @@
   margin-top: 10px;
   border-top: 1px solid black;
   padding-top: 20px;
-  h3 {
-    text-align: center;
-    padding-bottom: 10px;
-  }
 }
 
 .preference_wrap {
