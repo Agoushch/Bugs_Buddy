@@ -70,7 +70,7 @@ padding: 15px;
 .new_comment {
   border: 1px solid black;
   padding: 5px;
-  margin: 15px;
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -106,8 +106,13 @@ input.btn {
 // }
 
 .chatbox {
-  overflow: scroll;
+  overflow: auto;
   max-height: 70vh;
+}
+.chatbox::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
 }
 
 .comment {
@@ -131,7 +136,7 @@ input.btn {
 .container_photo_and_info {
   display: flex;
   margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
 }
 
 .profile_info_act {
@@ -165,50 +170,51 @@ input.btn {
 
 .button-7 {
   align-items: center;
-  background-color: #116530;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1.25;
-  margin: 0;
-  min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
-  text-decoration: none;
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
-  border-radius: 3px;
+    background-color: #ca4133;
+    border: 2px solid white;
+    // box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
 }
 
-.button-7:hover,
-.button-7:focus {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-}
+// .button-7:hover,
+// .button-7:focus {
+//   border-color: rgba(0, 0, 0, 0.15);
+//   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+// }
 
-.button-7:hover {
-  transform: translateY(-1px);
-}
+// .button-7:hover {
+//   transform: translateY(-1px);
+// }
 
-.button-7:active {
-  background-color: #F0F0F1;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
-}
+// .button-7:active {
+//   background-color: #F0F0F1;
+//   border-color: rgba(0, 0, 0, 0.15);
+//   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+//   color: rgba(0, 0, 0, 0.65);
+//   transform: translateY(0);
+// }
 
-.fab{
- color: #116530;
-}
+// .fab{
+//  color: #116530;
+// }

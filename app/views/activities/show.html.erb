@@ -5,6 +5,9 @@
       <p><i class="fas fa-map-marked-alt"></i>    <%= @activity.localisation %></p>
       <p><i class="far fa-calendar-alt"></i>    <%= @activity.date %></p>
       <p>Level:  <% @activity.level.to_i.times do %>💪<% end %></p>
+      <p>Equipment required: <%= @activity.equipment %></p>
+      <p>Max number parcipants: <%= @activity.participants %></p>
+      <p>Duration: <%= @activity.duration %></p>
       <div class="attending_container dropdown">
         <p class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
           Buddies attending
@@ -18,7 +21,7 @@
       <% unless @user_activity %>
         <div class='join'>
           <%= link_to activity_user_activities_path(@activity), method: :post do %>
-            <button class="button-7" role="button">+ join</button>
+            <button class="button-7" role="button">+join</button>
           <% end %>
         </div>
       <% end %>
@@ -43,7 +46,8 @@
           <% user_activity.comments.each do |comment| %>
             <ul class="comment">
               <%# <%= cl_image_tag comment.user_activity.user.photo.key, height: 50, width: 50, crop: :fill, radius: 50 %>
-              <p><%= comment.user_activity.user.nickname %> posted: <%= comment.content %></p>
+              <p><strong><%= comment.user_activity.user.nickname %> posted:</strong></p>
+              <p><%= comment.content %></p>
             </ul>
           <% end %>
         <% end %>
