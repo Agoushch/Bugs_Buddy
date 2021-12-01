@@ -61,13 +61,13 @@
 
   <div class="dashboard-right">
     <div class="dashboard-profile">
-      <h1>Welcome <%= current_user.nickname %></h1>
+      <h2>Welcome <%= current_user.nickname %></h2>
       <div class="profile_card">
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key %>
         <% end %>
         <div class="profile_info">
-          <h2><%= current_user.nickname %></h2>
+          <%# <h2><%= current_user.nickname %>
           <div class="profile_description">
             <h4>Description: <%= current_user.description %></h4>
             <h4>Age: <%= current_user.age %> yo</h4>
@@ -76,7 +76,7 @@
               <div class='preference_wrap'>
                 <% current_user.preferences.each do |preference| %>
                   <div class='preference'>
-                    <h3><%= preference.sport.kind.capitalize %></h3>
+                    <h4><%= preference.sport.kind.capitalize %></h4>
                     <p><%= preference.level.times do %>💪<% end %></p>
                     <%= link_to 'delete', preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }, class: "button-6" %>
                   </div>
