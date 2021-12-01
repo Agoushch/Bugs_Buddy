@@ -68,16 +68,14 @@ padding: 15px;
 }
 
 .new_comment {
-  border: 1px solid black;
-  padding: 5px;
-  margin-top: 15px;
-  text-align: center;
+  padding: 15px;
+  // margin-top: 15px;
+  // margin-bottom: 15px;
 }
 
 .information_newcomment label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-size: 23px;
 }
 
 .information_newcomment input {
@@ -117,9 +115,9 @@ input.btn {
 
 .comment {
   display: flex;
-  justify-content: flex-start;
-  padding: 10px;
-  border: 1px solid white;
+  flex-direction: column;
+  padding: 15px;;
+
 }
 
 
