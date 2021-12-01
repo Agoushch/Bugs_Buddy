@@ -1,12 +1,12 @@
-<div class="titre">
-  <h1><%= @sport.kind.capitalize %></h1>
-</div>
+<%# <div class="titre">
+  <h1><%= @sport.kind.capitalize %>
+
 <div class="two-columns">
 
   <div class="col-first">
 
 
-      <h3>Find an activity for <%= @sport.kind %> or a budy  <h3>Buddies for <%= @sport.kind %></h3></h3>
+      <h3>Activities and Buddies for <%= @sport.kind %></h3>
 
       <%= form_tag sport_path, method: :get, class: "d-flex  form-aligned" do %>
         <%= date_field_tag :query,
