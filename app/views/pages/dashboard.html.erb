@@ -1,8 +1,8 @@
 <%# User profile %>
 <div class="container-dashboard">
   <div class="dashboard-left">
-        <h2>Buddies activites: Upcoming/ Finished</h2>
         <div class="all_activities">
+        <h2>Buddies activites: Upcoming/ Finished</h2>
           <% @activities.each do |user_activiti| %>
           <%# per activity: DATE/ SPORT / DESCR / LINK_TO Sport show  %>
             <div class="card-product2">
@@ -92,22 +92,22 @@
         </div>
       </div>
 
-      <h2>My proposed activities:</h2>
             <div class="all_activities">
-            <% @activities_mine.each do |activ| %>
-                <div class="card-product2">
-                <%= cl_image_tag activ.sport.photo.key %>
-                  <div class="card-product-info2">
-                    <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
-                    <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
-                    <% if time_delta> 0 %>
-                        <h6><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
-                        <h6><%= activ.sport.kind  %></h6>
-                        <h6><%= activ.description %></h6>
-                    <% end %>
+              <h2>My proposed activities:</h2>
+              <% @activities_mine.each do |activ| %>
+                  <div class="card-product2">
+                  <%= cl_image_tag activ.sport.photo.key %>
+                    <div class="card-product-info2">
+                      <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
+                      <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
+                      <% if time_delta> 0 %>
+                          <h6><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
+                          <h6><%= activ.sport.kind  %></h6>
+                          <h6><%= activ.description %></h6>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
-            <% end %>
+              <% end %>
             </div>
   </div>
 </div>
