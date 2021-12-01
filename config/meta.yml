@@ -1,5 +1,5 @@
 meta_product_name: "Bugs Buddies"
 meta_title: "Bugs Buddies - Find your sport buddy"
 meta_description: "This app will find the perfect sport buddy(ies) near your location"
-meta_image: "../app/assets/images/cover.jpg" # should exist in `app/assets/images/`
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards

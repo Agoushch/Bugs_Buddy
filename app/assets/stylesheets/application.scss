@@ -49,8 +49,8 @@ ul {
 
 
 a {
-   text-decoration: none;
-a:hover {
+   text-decoration: none !important;
+  a:hover {
   text-decoration: none;
-}
+  }
 }
