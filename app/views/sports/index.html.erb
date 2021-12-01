@@ -4,7 +4,7 @@
 </div>
 <div class="container-category-sports">
   <div>
-    <h2 class="text ">Categories</h2>
+    <h2 class="text p-2">Categories</h2>
     <div class="sport_categories">
       <% @categories.each do |category| %>
         <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get, class: "singlecard_category" %></h3>
@@ -12,16 +12,18 @@
   </div>
 </div>
 <div>
-  <div class="activity-title">
+  <div class="text p-2">
     <h2>All Sports</h2>
   </div>
-  <%= form_tag sports_path, method: :get do %>
-    <%= text_field_tag :query,
+  <div class="formleft pl-3 pt-1">
+    <%= form_tag sports_path, method: :get do %>
+      <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control ",
     placeholder: "Search a sport or category"
   %>
-  <% end %>
+    <% end %>
+  </div>
   <div class= "big_sport_container">
     <% @sports.each do |sport| %>
       <% if sport.photo.attached? %>

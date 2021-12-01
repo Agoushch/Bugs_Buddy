@@ -237,6 +237,7 @@ body {
 }
 
 .big_sport_container {
+  font-size: 23px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -353,6 +354,7 @@ a {
 .singlecard_category:hover {
   opacity: 1;
   text-decoration: none;
+  color: white;
 }
 
 .all_activities {
@@ -383,12 +385,12 @@ a {
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 160px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  width: 512px;
+  // width: 512px;
   margin-bottom: 20px;
 }
 
@@ -425,17 +427,37 @@ a {
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.4;
-  opacity: 0.7;
+/*   opacity: .7; */
   margin-bottom: 0;
   margin-top: 8px;
+
 }
 
 .card-product .card-product-infos {
   padding: 16px;
-  height: 120px;
-  width: 512px;
+  height: 183px;
+  // width: 512px;
+  p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+}
+
+.card-activities{
+  width: 80px;
+  display: flex;
+  text-decoration: none;
+  color: rgb(202, 65, 51);
+  position: relative;
+  padding-left: 8px;
+  i {
+    padding-left: 7px;
+    line-height: 2;
+  }
 }
 
 .card-product2 .card-product-info2 {
@@ -446,6 +468,17 @@ a {
 .card-activities {
   width: 300px;
 }
+  
+.fas_fa-arrow-right {
+  position: absolute
+}
+
+.card-activities:hover {
+  text-decoration: none;
+  background-color: rgb(202, 65, 51);
+  color: white !important;
+}
+
 
 .container-card-activities:hover {
   text-decoration: none;
