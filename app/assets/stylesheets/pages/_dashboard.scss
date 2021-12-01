@@ -1,8 +1,8 @@
 .profile_card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 90%;
-  height: 500px;
+
   margin: 10px;
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4) ;
 }
@@ -19,11 +19,6 @@
 }
 
 .profile_info {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
   text-align: center;
   background-color: white;
   margin-left: 10px;
@@ -46,6 +41,7 @@
 
 .preference_wrap {
   display: flex;
+  flex-wrap: wrap;
 }
 .preference {
   padding: 15px;
