@@ -142,7 +142,160 @@ p Activity.create!(
   sport: Sport.all.sample,
   date: Date.today + 7
 )
-
+p Activity.create!(
+  localisation: 'rue du moulin, 1390 grez-doiceau',
+  user_id: user.all.sample,
+  description: 'Someone up for Yoga?',
+  sport: Sport.all.sample,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'avenue reine astrid, 1950 kraainem',
+  user_id: user.all.sample,
+  description: 'Someone up for Swim?',
+  sport: Sport.all.sample,
+  date: Date.today + 8
+)
+p Activity.create!(
+  localisation: 'Chaussée de huy, 1325 Chaumont-gistoux',
+  user_id: user.all.sample,
+  description: 'Someone up for a run??',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'PLace alphonse bosh, 1300 wavre',
+  user_id: user.all.sample,
+  description: 'Someone up for running?',
+  sport: Sport.all.sample,
+  date: Date.today + 6
+)
+p Activity.create!(
+  localisation: 'rue du stade, 7870 bauffe',
+  user_id: user.all.sample,
+  description: 'Someone up for Yoga?',
+  sport: Sport.all.sample,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'rue de la poste, 1000 bruxelles',
+  user_id: user.all.sample,
+  description: 'Someone up for karate?',
+  sport: Sport.all.sample,
+  date: Date.today + 11
+)
+p Activity.create!(
+  localisation: 'chau. des collines, 1300 wavre',
+  user_id: user.all.sample,
+  description: 'Someone up for judo?',
+  sport: Sport.all.sample,
+  date: Date.today + 6
+)
+p Activity.create!(
+  localisation: 'chau. du chateau de Bawette, 1300 wavre',
+  user_id: user.all.sample,
+  description: 'Someone up for run?',
+  sport: Sport.all.sample,
+  date: Date.today + 10
+)
+p Activity.create!(
+  localisation: 'rue des collines, 1340 ottignies',
+  user_id: user.all.sample,
+  description: 'Someone up for foot',
+  sport: Sport.all.sample,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'rue du moulin, 1390 grez-doiceau',
+  user_id: user.all.sample,
+  description: 'Someone up for Yoga?',
+  sport: Sport.all.sample,
+  date: Date.today + 3
+)
+p Activity.create!(
+  localisation: 'rue des sablières, 1435 mont saint gibert',
+  user_id: user.all.sample,
+  description: 'Someone up for swimming?',
+  sport: Sport.all.sample,
+  date: Date.today + 4
+)
+p Activity.create!(
+  localisation: 'Scavée du Biéreau, 1348 Louvain La Neuve',
+  user_id: user.all.sample,
+  description: 'Someone up for fitness?',
+  sport: Sport.all.sample,
+  date: Date.today + 8
+)
+p Activity.create!(
+  localisation: 'Avenue des arts, 1348 Louvain La Neuve ',
+  user_id: user.all.sample,
+  description: 'Someone up for climbing?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'Rue leeman, 1325 beauvechain',
+  user_id: user.all.sample,
+  description: 'Someone up for making some stuff?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'rue des vallées, 1000 brussels',
+  user_id: user.all.sample,
+  description: 'Someone up for climbing?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'Rue de la fosse, 1300 wavre ',
+  user_id: user.all.sample,
+  description: 'Someone up for snorkling?',
+  sport: Sport.all.sample,
+  date: Date.today + 5
+)
+p Activity.create!(
+  localisation: 'rue des carabinier, 1300 wavre',
+  user_id: user.all.sample,
+  description: 'Someone up for shooting?',
+  sport: Sport.all.sample,
+  date: Date.today + 12
+)
+p Activity.create!(
+  localisation: 'rue du heysel, 1000 brussels',
+  user_id: user.all.sample,
+  description: 'Someone up for watching a fottball game?',
+  sport: Sport.all.sample,
+  date: Date.today + 7
+)
+p Activity.create!(
+  localisation: 'rue Emile Wauters, 1000 brussels',
+  user_id: user.all.sample,
+  description: 'Someone up for climbing?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'bd du centenaire, 1000 brussels',
+  user_id: user.all.sample,
+  description: 'Someone up for lol?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'rue fineau, 1000 brussels',
+  user_id: user.all.sample,
+  description: 'Someone up for climbing?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
+p Activity.create!(
+  localisation: 'Rue Drootbeek, 1000 brussels ',
+  user_id: user.all.sample,
+  description: 'Someone up for climbing?',
+  sport: Sport.all.sample,
+  date: Date.today + 9
+)
 
 
 #Activity
