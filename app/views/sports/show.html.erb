@@ -1,72 +1,58 @@
 <div class="titre">
   <h1><%= @sport.kind.capitalize %></h1>
 </div>
-
 <div class="two-columns">
-
   <div class="col-first">
-
-
-      <h3>Find an activity for <%= @sport.kind %> or a budy  <h3>Buddies for <%= @sport.kind %></h3></h3>
-
-      <%= form_tag sport_path, method: :get, class: "d-flex  form-aligned" do %>
-        <%= date_field_tag :query,
+    <h3>Find an activity for <%= @sport.kind %> or a budy
+      <h3>Buddies for <%= @sport.kind %></h3>
+    </h3>
+    <%= form_tag sport_path, method: :get, class: "d-flex  form-aligned" do %>
+      <%= date_field_tag :query,
           params[:query]
         %>
-        <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
-      <% end %>
-
-<div class="container-card-product">
-
-
+      <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
+    <% end %>
+    <div class="container-card-product">
       <% @sport.users.each do |user| %>
-       <div class="card-product">
-        <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
-        <%= user.nickname %>
-        <% user.preferences.each do |preference| %>
-          <% if preference.sport == @sport %>
-            <%= preference.level %>
+        <div class="card-product">
+          <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
+          <%= user.nickname %>
+          <% user.preferences.each do |preference| %>
+            <% if preference.sport == @sport %>
+              <%= preference.level %>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
       <% end %>
-
-
-
-
       <% @activities.each do |activity| %>
-
-            <div class="card-product">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-                      <div class="card-product-infos">
-                          <%= activity.description %>
-                          <%= activity.date %>
-                          <p>Level: <% activity.level.times do  %>
-                            <span class="glyphicon glyphicon-star">💪</span>
-                          <% end %>
-                          </p>
-                          <p>posted by <%= activity.user.nickname %></p>
-                          <%= link_to activity_path(activity), class: "card-activities" do %>
-                          <p>Lets Go !</p><i class="fas fa-arrow-right"></i>
-                        <% end %>
-                      </div>
-                </div>
-           <% end %>
-      </div>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <%= activity.description %>
+            <%= activity.date %>
+            <p>Level: <% activity.level.times do  %>
+                <span class="glyphicon glyphicon-star">💪</span>
+              <% end %>
+            </p>
+            <p>posted by <%= activity.user.nickname %></p>
+            <%= link_to activity_path(activity), class: "card-activities" do %>
+              <p>Lets Go !</p>
+              <i class="fas fa-arrow-right"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-
-
-<div class="col-second"> <div id="map"
+  <div class="col-second">
+    <div id="map"
     style="width: 100%; height: 100%"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       >
-    </div></div>
-
-
+    </div>
+  </div>
 </div>
-
 <div class='sport_users'>
   <h3>Buddies for <%= @sport.kind %></h3>
   <% @sport.users.each do |user| %>
@@ -75,7 +61,7 @@
     <% user.preferences.each do |preference| %>
       <% if preference.sport == @sport %>
         <%= preference.level %>
+      <% end %>
+      <% end %>
+      <% end %>
 
-      <% end %>
-      <% end %>
-      <% end %>

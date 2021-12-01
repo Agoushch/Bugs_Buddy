@@ -1,6 +1,74 @@
 // Specific CSS for your home-page
 .banner-home {
   border: 1px solid rgb(170, 170, 170);
-  border-radius: 10px;
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+.all_home_page_container {
+  height: 100vh;
+}
+.home_page_descirption {
+  color: white;
+  background-color: rgb(189, 189, 189);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 340px;
+  height: 80px;
+  opacity: 0.7;
+}
+.home_page_descirption:hover {
+  opacity: 0.9;
+  color: #ca4133;
+  text-decoration: none;
+}
+
+.infoaboutus {
+  color: white;
+  font-size: 25px;
+}
+.rainbow {
+  strong {
+    animation: animateBg 4s linear infinite;
+    background-image: linear-gradient(
+      45deg,
+      #6e96e6,
+      #bf1336,
+      #f3a076,
+      #6e96e6,
+      #bf1336,
+      #f3a076
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @keyframes animateBg {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+}
+.container_home_page {
+  padding: 30px;
+  padding-bottom: 80px;
+}
+.texttextde {
+  background-color: #ca4133;
+  color: white;
+  width: 300px;
+  padding: 6px;
+  text-align: center;
+
+  &:hover {
+    background-color: rgb(255, 255, 255);
+
+    color: #ca4133;
+  }
 }
