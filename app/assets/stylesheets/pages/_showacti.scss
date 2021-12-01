@@ -1,22 +1,43 @@
-.container_activities {
-  padding-top: 5px;
+.container_activities_show {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
 }
 
+.user_profile_activity {
+    background-color: white;
+    width: 40%;
+    padding: 15px;
+}
+
+.card_info {
+padding: 15px;
+    position: relative;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px; */
+    flex-grow: 1;
+    width: 45%;
+    height: 92vh;
+}
+
+.the_activity {
+  position: relative;
+  background-color: #ca4133;
+  color: white;
+  padding: 15px;
+}
+
+.user_photo_activity {
+  height: 200px;
+
+}
 .container_new {
   margin-bottom: 10px;
 }
-.card_info {
-  padding: 15px;
-  border: 2px solid #e7e6e6;
-  width: 350px;
-  margin: 40px auto 10px;
-  position: relative;
-  border-color: #316b83;
-  border-radius: 5px;
-  background-color: white;
-}
+
 
 .card_info a {
   text-decoration: none;
@@ -39,27 +60,35 @@
   font-family: "Lobster";
 }
 .join {
-  font-weight: bold;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 27px;
+    bottom: 19px;
+    color: white;
+    text-align: center;
 }
 
-.information_newcomment {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.new_comment {
+  padding: 15px;
+  // margin-top: 15px;
+  // margin-bottom: 15px;
 }
+
 .information_newcomment label {
-  font-weight: bold;
-  font-size: 15px;
+  font-family: "Anton", sans-serif;
+  font-size: 23px;
 }
 
-.btn_comment {
-  color: white;
-  border-radius: 8px;
-  border: 1px solid white;
+.information_newcomment input {
+  border-radius: 10px;
+}
+
+.information_newcomment input:focus {
+  border: 3px solid #555;
+}
+
+input.btn {
+  border: 2px solid black;
 }
 
 .localisation {
@@ -76,42 +105,55 @@
 // }
 
 .chatbox {
-  background-color: #316b83;
-  border: 2px solid #72d7e9;
-  width: 310px;
-  margin: 20px auto;
-  padding-bottom: 100px;
-  border-radius: 8px;
-  color: white;
+  overflow: auto;
+  max-height: 70vh;
+}
+.chatbox::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
 }
 
 .comment {
   display: flex;
-  justify-content: flex-start;
-  padding: 10px;
-  border: 1px solid white;
+  flex-direction: column;
+  padding: 15px;;
+
 }
-.comment_title {
-  font-weight: bold;
-  margin-left: 10px;
-  margin-bottom: 2px;
-  margin-top: 20px;
-}
-.comment_text {
-  margin-left: 8px;
-}
+
 
 .attending_user {
   list-style: none;
 }
 
 .attending_container {
-  margin: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
 }
-.attending {
+
+.container_photo_and_info {
+  display: flex;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+.profile_info_act {
+  padding: 15px;
+
+}
+.profile_preference_act {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+}
+
+.preference_act {
+  padding: 9px;
+    border: 3px solid #ca4133;
+    border-radius: 1px;
+    display: flex;
+    justify-content: space-around;
+  margin-bottom: 5px;
 }
 
 // activity showpage
@@ -123,3 +165,55 @@
   display: flex;
   flex-direction: column;
 }
+
+
+.button-7 {
+  align-items: center;
+    background-color: #ca4133;
+    border: 2px solid white;
+    // box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+// .button-7:hover,
+// .button-7:focus {
+//   border-color: rgba(0, 0, 0, 0.15);
+//   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+// }
+
+// .button-7:hover {
+//   transform: translateY(-1px);
+// }
+
+// .button-7:active {
+//   background-color: #F0F0F1;
+//   border-color: rgba(0, 0, 0, 0.15);
+//   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+//   color: rgba(0, 0, 0, 0.65);
+//   transform: translateY(0);
+// }
+
+// .fab{
+//  color: #116530;
+// }

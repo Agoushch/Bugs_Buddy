@@ -11,4 +11,5 @@ resources :user_activities, only: %i[destroy] do
 end
 resources :preferences, only: %i[new create edit update destroy]
 resources :comments, only: %i[destroy]
+resources :users, only: %i[show]
 end
