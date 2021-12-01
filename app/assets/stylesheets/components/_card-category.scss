@@ -36,15 +36,14 @@
 // }
 /* RESET */
 * {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   background: #ebecf0;
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
+
 
   a {
     text-decoration: none;
@@ -198,7 +197,6 @@ body {
   }
 }
 
-
 .card-2 {
   .card-img,
   .card-img-hovered {
@@ -249,19 +247,17 @@ body {
 }
 
 
-.sport_container {
-}
 
 .sport_card {
   background-size: cover;
   position: relative;
-  width: 180px;
-  height: 180px;
-  margin: 1px;
+  width: 200px;
+  height: 200px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.7;
+  opacity: 0.9;
   // background-color: #316b83;
   // border: 1px solid rgb(0, 0, 0);
   text-align: center;
@@ -288,7 +284,6 @@ body {
   right: 7px;
   bottom: 7px;
 }
-
 
 .recommended-title {
   padding-left: 15px;
@@ -347,9 +342,10 @@ a {
   line-height: 50px;
   text-align: center;
   background-color: #ca4133;
-  margin: 15px;
+  margin: 5px;
   color: white;
   opacity: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .singlecard_category a {
   color: white;
@@ -384,31 +380,50 @@ a {
 }
 
 
-.container-card-activities {
-display: flex;
-flex-wrap: wrap;
-// align-items: center;
-justify-content: center;
-margin-top: 30px;
-margin-bottom: 30px;
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 512px;
+  margin-bottom: 20px;
 
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+  height: 120px;
+  width: 512px;
 }
 
 .card-activities{
-  border-style: solid;
-  padding: 10px;
-  margin: 15px;
-  border-radius: 20px;
-  height: 150px;
-  display: grid;
-  flex-direction: column;
-/*   justify-content: center; */
-/*   align-items: center; */
-  width: 300px;
 
+  width: 300px;
 }
 
-.card-activities:hover {
+.container-card-activities:hover {
   text-decoration: none;
   box-shadow: 0px 6px 10px;
 }
@@ -436,6 +451,7 @@ margin-bottom: 30px;
     padding: 1rem 2rem;
   }
 
+}
 .categoryandsports {
   display: flex;
   flex-wrap: wrap;
@@ -451,5 +467,12 @@ margin-bottom: 30px;
 .container-category-sports {
   display: grid;
   grid-template-columns: 2fr 10fr;
+
+
+  .container-category-sports {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+  }
 }
+
 }
