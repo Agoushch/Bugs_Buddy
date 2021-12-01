@@ -5,7 +5,15 @@
         <h2>Buddies activites: Upcoming/ Finished</h2>
         <div class="all_activities">
           <% @activities.each do |user_activiti| %>
-            <div class="activityy_card">
+            <div class="card-product">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2>Product name</h2>
+                <p>Product description with <strong>relevant info</strong> only.</p>
+              </div>
+            </div>
+
+
               <%# delta_same_day: used to determine which statement is valid: eg same day: >0 && <1 %>
               <% delta_same_day = (user_activiti.activity.date.to_datetime - DateTime.current).to_f %>
               <% time_delta = (user_activiti.activity.date.to_datetime - DateTime.current).to_i %>
