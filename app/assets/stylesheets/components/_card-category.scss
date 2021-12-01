@@ -237,6 +237,7 @@ body {
 }
 
 .big_sport_container {
+  font-size: 23px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -353,6 +354,7 @@ a {
 .singlecard_category:hover {
   opacity: 1;
   text-decoration: none;
+  color: white;
 }
 
 .all_activities {
