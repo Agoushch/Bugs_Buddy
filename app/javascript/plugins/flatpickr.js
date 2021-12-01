@@ -10,6 +10,7 @@ const initFlatpickr = () => {
         {
             from: "2020-04-01",
             to: date.setDate(date.getDate() - 1)
+
         },
 
     ]
