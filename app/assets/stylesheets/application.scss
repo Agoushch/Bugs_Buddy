@@ -15,7 +15,6 @@
 @import "pages/index";
 
 body {
-
   font-family: "Anton", sans-serif;
 
   background-color: white;
@@ -23,11 +22,15 @@ body {
 
 h2 {
   font-family: "Anton", sans-serif;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  margin-left: 20px;
+  // margin-bottom: 20px;
+  // margin-top: 20px;
+  // margin-left: 20px;
 }
 
 h3 {
   font-family: "Anton", sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
 }

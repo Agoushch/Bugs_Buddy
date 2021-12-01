@@ -7,12 +7,9 @@
     <h2 class="text ">Categories</h2>
     <div class="sport_categories">
       <% @categories.each do |category| %>
-        <div class="singlecard_category">
-          <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get %></h3>
-      </div>
+        <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get, class: "singlecard_category" %></h3>
     <% end %>
   </div>
-
 </div>
 <div>
   <div class="activity-title">
@@ -33,7 +30,6 @@
         </a>
       <% end %>
     <% end %>
-
   </div>
 </div>
 </div>
