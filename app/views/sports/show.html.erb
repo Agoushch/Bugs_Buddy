@@ -15,7 +15,9 @@
     <div class="container-card-product">
       <% @sport.users.each do |user| %>
         <div class="card-product">
-          <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
+          <% end %>
           <%= user.nickname %>
           <% user.preferences.each do |preference| %>
             <% if preference.sport == @sport %>

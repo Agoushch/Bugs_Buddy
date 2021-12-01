@@ -22,8 +22,9 @@ body {
 
 h2 {
   font-family: "Anton", sans-serif;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  // margin-bottom: 20px;
+  // margin-top: 20px;
+  // margin-left: 20px;
 }
 
 h3 {
@@ -44,4 +45,8 @@ p {
 
 ul {
   margin: 0px;
+}
+
+a:hover {
+  text-decoration: none;
 }

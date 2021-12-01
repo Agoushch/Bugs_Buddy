@@ -2,6 +2,7 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     <i class="fas fa-home"></i>
   <% end %>
+  <div class="title_app text-center">BugsBuddy</div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,9 +12,12 @@
         <li class="nav-item active">
           <%= link_to "Add activity", new_activity_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active">
-          <%= link_to "Profile", dashboard_path, class: "nav-link" %>
-        </li>
+        <%= link_to sports_path, class: "navbar-brand" do %>
+          <i class="fas fa-futbol"></i>
+        <% end %>
+        <%= link_to  dashboard_path, class: "nav-link" do %>
+          <i  id="solologo" class="fas fa-user-alt"></i>
+        <% end %>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, height:35, width:35, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,9 +30,6 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item ">
-          <%= link_to "Add activity", new_activity_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
