@@ -162,10 +162,10 @@ p Activity.create!(
   )
 end
 #user1= nicolas user 2= adonis ;; user3 =filip ;; user4= thibaut
-UserActivity.create!(activity_id: 3, user_id: 2)
-UserActivity.create!(activity_id: 3, user_id: 3)
-UserActivity.create!(activity_id: 3, user_id: 1)
-UserActivity.create!(activity_id: 4, user_id: 3)
-UserActivity.create!(activity_id: 4, user_id: 2)
-UserActivity.create!(activity_id: 4, user_id: 4)
-UserActivity.create!(activity_id: 4, user_id: 1)
+# UserActivity.create!(activity_id: 3, user_id: 2)
+# UserActivity.create!(activity_id: 3, user_id: 3)
+# UserActivity.create!(activity_id: 3, user_id: 1)
+# UserActivity.create!(activity_id: 4, user_id: 3)
+# UserActivity.create!(activity_id: 4, user_id: 2)
+# UserActivity.create!(activity_id: 4, user_id: 4)
+# UserActivity.create!(activity_id: 4, user_id: 1)
