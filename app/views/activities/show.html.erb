@@ -69,10 +69,12 @@
     <div class='profile_preference_act'>
       <h3>Favorite sports</h3>
       <% @activity.user.preferences.each do |preference| %>
-        <div class='preference_act'>
-          <p><%= preference.sport.kind.capitalize %></p>
-          <p><% preference.level.to_i.times do %>💪<% end %></p>
-        </div>
+        <% if preference %>
+          <div class='preference_act'>
+            <p><%= preference.sport.kind.capitalize %></p>
+            <p><% preference.level.to_i.times do %>💪<% end %></p>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
