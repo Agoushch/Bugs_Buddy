@@ -15,13 +15,21 @@
 @import "pages/index";
 
 body {
+
   font-family: "Anton", sans-serif;
+
 
   background-color: white;
 }
 
+h1 {
+  font-family: 'Keania One';
+  font-size: 46px;
+}
+
 h2 {
   font-family: "Anton", sans-serif;
+
 }
 
 h3 {
@@ -29,5 +37,34 @@ h3 {
 }
 
 a:hover {
+
+  font-size: 31px;
+}
+
+h3 {
+  font-family: 'Antonio', sans-serif;
+  font-size: 23px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 15px;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+ul {
+  margin: 0px;
+}
+
+
+a {
+   text-decoration: none !important;
+  a:hover {
+
   text-decoration: none;
 }

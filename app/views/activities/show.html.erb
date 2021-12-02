@@ -4,10 +4,10 @@
       <h3><%= @activity.description %></h3>
       <p><i class="fas fa-map-marked-alt"></i>    <%= @activity.localisation %></p>
       <p><i class="far fa-calendar-alt"></i>    <%= @activity.date %></p>
-      <p>Level:  <% @activity.level.to_i.times do %>💪<% end %></p>
-      <p>Equipment required: <%= @activity.equipment %></p>
-      <p>Max number parcipants: <%= @activity.participants %></p>
       <p>Duration: <%= @activity.duration %></p>
+      <p>Level:  <% @activity.level.to_i.times do %>💪<% end %></p>
+      <p>Max number participants: <%= @activity.participants %></p>
+      <p>Equipment required: <%= @activity.equipment %></p>
       <div class="attending_container dropdown">
         <p class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
           Buddies attending
@@ -21,7 +21,7 @@
       <% unless @user_activity %>
         <div class='join'>
           <%= link_to activity_user_activities_path(@activity), method: :post do %>
-            <button class="button-7" role="button">+join</button>
+            <button class="button-7" role="button">Join</button>
           <% end %>
         </div>
       <% end %>
@@ -71,7 +71,7 @@
       <% @activity.user.preferences.each do |preference| %>
         <div class='preference_act'>
           <p><%= preference.sport.kind.capitalize %></p>
-          <p><% preference.level.times do %>💪<% end %></p>
+          <p><% preference.level.to_i.times do %>💪<% end %></p>
         </div>
       <% end %>
     </div>
