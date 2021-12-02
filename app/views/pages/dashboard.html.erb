@@ -56,18 +56,18 @@
         </div>
       <% end %>
       <% @activities_mine.each do |activ| %>
-          <div class="card-product2">
-            <%= cl_image_tag activ.sport.photo.key %>
-            <div class="card-product-info2">
-              <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
-              <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
-              <% if time_delta> 0 %>
-                  <h6><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
-                  <h6><%= activ.sport.kind  %></h6>
-                  <h6><%= activ.description %></h6>
-              <% end %>
+          <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
+          <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
+          <% if time_delta > 0 %>
+            <div class="card-product2">
+              <%= cl_image_tag activ.sport.photo.key %>
+              <div class="card-product-info2">
+                    <h6><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
+                    <h6><%= activ.sport.kind  %></h6>
+                    <h6><%= activ.description %></h6>
+              </div>
             </div>
-          </div>
+          <% end %>
       <% end %>
     </div>
   </div>
