@@ -83,8 +83,10 @@
           <div class='preference_wrap'>
             <% current_user.preferences.each do |preference| %>
               <div class='preference'>
+                <% if preference %>
                 <h6><%= preference.sport.kind.capitalize %></h6>
                 <% preference.level.to_i.times do %>💪<% end %>
+                <% end %>
               </div>
             <% end %>
           </div>

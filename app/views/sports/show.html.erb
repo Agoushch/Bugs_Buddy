@@ -20,14 +20,18 @@
       <% @sport.users.each do |user| %>
        <div class="card-product">
        <% if user.photo.attached? %>
-        <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
+        <%= cl_image_tag user.photo.key, height: 70, width: 70, radius: 20 %>
         <% end %>
-        <%= user.nickname %>
-        <% user.preferences.each do |preference| %>
-          <% if preference.sport == @sport %>
-            <%= preference.level %>
+        <div class="card-product-user">
+          <h4><%= user.nickname %></h4>
+          <p><%= user.description %></p>
+          <p><%= user.age %></p>
+          <% user.preferences.each do |preference| %>
+            <% if preference.sport == @sport %>
+              <p><%= @sport.kind.capitalize %> : <%= preference.level.to_i.times do  %>💪<% end %></p>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
       <% end %>
       <% @activities.each do |activity| %>
@@ -35,7 +39,7 @@
             <div class="card-product">
                 <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                       <div class="card-product-infos">
-                          <p><%= activity.description %></p>
+                          <h4><%= activity.description %></h4>
                           <p><%= activity.date %></p>
                           <p>Level: <% activity.level.to_i.times do  %>
                             <span class="glyphicon glyphicon-star">💪</span>
