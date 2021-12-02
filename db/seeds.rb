@@ -139,21 +139,14 @@ p Activity.create!(
   localisation: '12 Rue du midi 1000 Bruxelles',
   user_id: filip.id,
   description: 'Anyone up to swim near Etterbeek ?',
-  sport: Sport.all.sample,
+  sport_id: Sport.all.sample.id,
   date: Date.today + 7
 )
 
 
 
 #Activity
-courir = Activity.create!(
-    localisation: '10 Cantersteen 1000 Bruxelles',
-    user_id: nicolas.id,
-    description: 'Running at Bois de la Cambre this evening at 6pm',
-    sport_id: 1,
-    level: rand(1..5),
-    date: Date.today
-  )
+
 url = "https://raw.githubusercontent.com/EthanRBrown/rrad/master/addresses-us-100.json"
 json = JSON.parse(URI.open(url).read)
 result = json["addresses"]
@@ -163,16 +156,16 @@ p Activity.create!(
     localisation: address,
     user_id: nicolas.id,
     description: Faker::Quote.famous_last_words,
-    sport: Sport.all.sample,
+    sport_id: Sport.all.sample.id,
     level: rand(1..5),
     date: Date.today + 2
   )
 end
 #user1= nicolas user 2= adonis ;; user3 =filip ;; user4= thibaut
-UserActivity.create!(activity_id: 3, user_id: 2)
-UserActivity.create!(activity_id: 3, user_id: 3)
-UserActivity.create!(activity_id: 3, user_id: 1)
-UserActivity.create!(activity_id: 4, user_id: 3)
-UserActivity.create!(activity_id: 4, user_id: 2)
-UserActivity.create!(activity_id: 4, user_id: 4)
-UserActivity.create!(activity_id: 4, user_id: 1)
+# UserActivity.create!(activity_id: 3, user_id: 2)
+# UserActivity.create!(activity_id: 3, user_id: 3)
+# UserActivity.create!(activity_id: 3, user_id: 1)
+# UserActivity.create!(activity_id: 4, user_id: 3)
+# UserActivity.create!(activity_id: 4, user_id: 2)
+# UserActivity.create!(activity_id: 4, user_id: 4)
+# UserActivity.create!(activity_id: 4, user_id: 1)
