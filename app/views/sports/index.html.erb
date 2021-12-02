@@ -24,10 +24,10 @@
   %>
     <% end %>
   </div>
-  <div class= "big_sport_container">
+  <div class= "big_sport_container" data-controller="card">
     <% @sports.each do |sport| %>
       <% if sport.photo.attached? %>
-        <a href="<%=sport_path(sport) %>"class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)">
+        <a href="<%=sport_path(sport) %>"class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)" data-action="mouseover->card#hover mouseout->card#nohover" data-background="<%= cl_image_path sport.photo.key %>">
           <%= sport.kind.capitalize %>
         </a>
       <% end %>
