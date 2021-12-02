@@ -118,10 +118,11 @@ input.btn {
 }
 
 .comment {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;;
-
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    padding-left: 15px;
+    border-bottom: 1px solid lightgrey;
 }
 
 
