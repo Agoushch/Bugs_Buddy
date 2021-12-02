@@ -16,7 +16,7 @@
           <% @user.preferences.each do |preference| %>
             <div class='preference'>
               <h3><%= preference.sport.kind.capitalize %></h3>
-              <p><%= preference.level.times do %>💪<% end %></p>
+              <p><% preference.level.to_i.times do %>💪<% end %></p>
             </div>
           <% end %>
         </div>

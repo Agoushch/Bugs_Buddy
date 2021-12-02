@@ -18,9 +18,9 @@
         <%= link_to  dashboard_path, class: "nav-link" do %>
           <i  id="solologo" class="fas fa-user-alt"></i>
         <% end %>
-        <li class="nav-item dropdown">
+        <li class="nav-item_dropdown">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, height:35, width:35, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key, height:30, width:30, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
