@@ -84,8 +84,8 @@
                 <h3><%= current_user.nickname %></h3>
                 <p>Description: <%= current_user.description %></p>
                 <p>Age: <%= current_user.age %></p>
-                <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
-                <% end %>
+                <p>.</p>
+                <%= link_to 'Update profile', edit_user_registration_path %>
               </div>
             </div>
           </div>
