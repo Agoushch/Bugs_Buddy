@@ -70,7 +70,7 @@
                 <%= cl_image_tag current_user.photo.key %>
         <% end %>
         <div class="d_profile_info">
-          <h3>Welcome <%= current_user.nickname %></h3>
+          <h3><%= current_user.nickname %></h3>
           <p>Description: <%= current_user.description %></p>
           <p>Age: <%= current_user.age %></p>
           <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
