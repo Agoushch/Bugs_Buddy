@@ -1,8 +1,8 @@
 <%# User profile %>
 <div class="container-dashboard">
   <div class="dashboard-left">
+      <div class="text-left"><h2>My activities</h2></div>
     <div class="all_activities">
-      <h2>My activities</h2>
       <% @activities.each do |user_activiti| %>
         <%# per activity: DATE/ SPORT / DESCR / LINK_TO Sport show  %>
         <div class="card-product2">
@@ -75,32 +75,31 @@
 
   <div class="dashboard-right">
     <h2>Your profile</h2>
-        <div class="d_container_profile">
-            <div class="d_photo_and_info">
-              <% if current_user.photo.attached? %>
-                      <%= cl_image_tag current_user.photo.key %>
-              <% end %>
-              <div class="d_profile_info">
-                <h3><%= current_user.nickname %></h3>
-                <p>Description: <%= current_user.description %></p>
-                <p>Age: <%= current_user.age %></p>
-                <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
-                <% end %>
-              </div>
-            </div>
-          </div>
-
-        <div class='profile_preference'>
-            <h3>My favorite sports</h3>
-            <div class='preference_wrap'>
-              <% current_user.preferences.each do |preference| %>
-                <div class='preference'>
-                  <h6><%= preference.sport.kind.capitalize %></h6>
-                  <% preference.level.to_i.times do %>💪<% end %>
-                </div>
-              <% end %>
-            </div>
+    <div class="d_container_profile">
+      <div class="d_photo_and_info">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key %>
+        <% end %>
+        <div class="d_profile_info">
+          <h3><%= current_user.nickname %></h3>
+          <p>Description: <%= current_user.description %></p>
+          <p>Age: <%= current_user.age %></p>
+          <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
+          <% end %>
         </div>
-        <%= link_to 'Add your preferences', new_preference_path, class: "button-6" %>
+      </div>
+    </div>
+    <div class='profile_preference'>
+      <h2>My favorite sports</h2>
+      <div class='preference_wrap'>
+        <% current_user.preferences.each do |preference| %>
+          <div class='preference'>
+            <h6><%= preference.sport.kind.capitalize %></h6>
+            <% preference.level.to_i.times do %>💪<% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to 'Add your preferences', new_preference_path, class: "button-6" %>
   </div>
 </div>
