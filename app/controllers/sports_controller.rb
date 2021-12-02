@@ -2,7 +2,6 @@ class SportsController < ApplicationController
   before_action :find, only: [:show, :edit, :update, :destroy]
   def index
     if params[:query].present? && params[:type].present?
-      sql_query = "name ILIKE :query"
       cat = Category.find_by(name: params[:query])
       @sports = cat.sports
     elsif params[:query].present?
@@ -18,7 +17,6 @@ class SportsController < ApplicationController
   # def categories
   #   @sports = Sport.select {|sport| sport.category == ''}
   # end
-
 
   def new
     @sport = Sport.new
