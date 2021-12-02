@@ -1,40 +1,4 @@
-// .card-category a {
-//   background-color: rgb(84, 145, 145);
-//   color: white;
-//   border-radius: 1.5rem;
-//   box-sizing: border-box;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: 30px auto;
-//   width: 200px;
-//   font-size: 1.1rem;
-//   font-weight: 600;
-//   line-height: 1;
-//   padding: 1rem 1.6rem;
-//   text-align: center;
-//   height: 200px;
-//   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-//     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-//   text-align: center;
-//   text-decoration: none;
-// }
 
-// .card-category:hover {
-//   color: #fff;
-//   text-decoration: none;
-// }
-
-// @media (min-width: 768px) {
-//   .card-category {
-//     color: white;
-//     text-decoration: none;
-//     font-size: 1.125rem;
-//     padding: 1rem 2rem;
-//   }
-// }
-/* RESET */
 * {
   padding: 0;
 }
@@ -60,7 +24,6 @@ body {
   --card-img-height: 200px;
 }
 .card-container {
-  // margin-top: 20px
   width: 100%;
   height: 100vh;
   display: flex;
@@ -181,7 +144,6 @@ body {
 
     .card-title {
       color: #ebecf0;
-      // margin-bottom: -40px;
       transform: translate(0, 40px);
     }
   }
@@ -241,7 +203,6 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 100%;
   padding-top: 14px;
 }
@@ -251,13 +212,10 @@ body {
   position: relative;
   width: 200px;
   height: 200px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0.9;
-  // background-color: #316b83;
-  // border: 1px solid rgb(0, 0, 0);
   text-align: center;
   color: white;
   text-decoration: none;
@@ -327,7 +285,6 @@ a {
 }
 
 .sport_categories {
-  // border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
@@ -368,7 +325,6 @@ a {
   border-radius: 18px;
   background-image: url("https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=384&q=80");
   max-width: 500px;
-  // min-width: 500px;
   margin-bottom: 10px;
   padding: 5px;
 }
@@ -382,10 +338,9 @@ a {
   overflow: hidden;
   height: 160px;
   background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  // width: 512px;
   margin-bottom: 20px;
 }
 
@@ -424,7 +379,6 @@ a {
 .card-product p {
   font-size: 15px;
   line-height: 1.4;
-/*   opacity: .7; */
   margin-bottom: 0;
   margin-top: 8px;
 
@@ -432,8 +386,7 @@ a {
 
 .card-product .card-product-infos {
   padding: 16px;
-  height: 183px;
-  // width: 512px;
+  height: 185px;
   p {
   width: 100%;
   white-space: nowrap;
@@ -461,17 +414,32 @@ a {
 
 
 .card-activities {
-  width: 300px;
+  width: 97px;
+   i {
+    color: rgb(202, 65, 51);
+  }
+
 }
-  
+
 .fas_fa-arrow-right {
-  position: absolute
+  position: absolute;
+
+}
+.letsgo {
+  display: flex;
+  i {
+    margin-top: 3px;
+  }
 }
 
 .card-activities:hover {
   text-decoration: none;
   background-color: rgb(202, 65, 51);
   color: white !important;
+  i {
+    color: white;
+  }
+
 }
 
 
@@ -490,7 +458,6 @@ a {
     justify-content: center;
     align-items: center;
     opacity: 1;
-    // border: 1px solid rgb(0, 0, 0);
     text-align: center;
   }
 }

@@ -11,7 +11,7 @@
           <%= date_field_tag :query,
             params[:query]
           %>
-          <%= submit_tag "Search", class: "btn btn-primary btn-sm mt-1" %>
+          <%= submit_tag "Search", class: "btn btn-primary search-btn" %>
         <% end %>
 
 <div class="container-card-product">
@@ -33,9 +33,13 @@
       <% @activities.each do |activity| %>
 
             <div class="card-product">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <%= cl_image_tag (User.find_by(id: activity.user_id).photo.key) %>
                       <div class="card-product-infos">
-                          <p><%= activity.description %></p>
+                          <p><% if activity.description.length <= 50 %></p>
+                            <h4><%= activity.description.capitalize %></h4>
+                            <% else %>
+                            <%= "#{activity.description[0, 50]} ..." %>
+                          <% end %>
                           <p><%= activity.date %></p>
                           <p>Level: <% activity.level.times do  %>
                             <span class="glyphicon glyphicon-star">💪</span>
@@ -43,7 +47,7 @@
                           </p>
                           <p>posted by <%= activity.user.nickname %></p>
                           <%= link_to activity_path(activity), class: "card-activities" do %>
-                          <p>Lets Go !</p><i class="fas fa-arrow-right"></i>
+                          <div class="letsgo"><p>Lets Go !</p><i class="fas fa-arrow-right"></i></div>
                         <% end %>
                       </div>
                 </div>
@@ -59,4 +63,3 @@
     </div>
   </div>
 </div>
-
