@@ -1,7 +1,7 @@
 <%# User profile %>
 <div class="container-dashboard">
   <div class="dashboard-left">
-        <h2>Buddies activites: Upcoming/ Finished</h2>
+        <h2>My activities</h2>
         <div class="all_activities">
           <% @activities.each do |user_activiti| %>
           <%# per activity: DATE/ SPORT / DESCR / LINK_TO Sport show  %>
@@ -62,52 +62,33 @@
 
 
   <div class="dashboard-right">
-      <div class="dashboard-profile">
-        <h2>Welcome <%= current_user.nickname %></h2>
-        <div class="profile_card">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key %>
+          <h2>Your profile</h2>
+
+    <div class="d_container_profile">
+      <div class="d_photo_and_info">
+        <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key %>
+        <% end %>
+        <div class="d_profile_info">
+          <h3>Welcome <%= current_user.nickname %></h3>
+          <p>Description: <%= current_user.description %></p>
+          <p>Age: <%= current_user.age %></p>
+          <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
           <% end %>
-          <div class="profile_info">
-            <%# <h2><%= current_user.nickname %>
-            <div class="profile_description">
-              <h6>Description: <%= current_user.description %></h6>
-              <h6>Age: <%= current_user.age %> yo</h6>
-              <div class='profile_preference'>
-                <h3>My favorite sports</h3>
-                <div class='preference_wrap'>
-                  <% current_user.preferences.each do |preference| %>
-                    <div class='preference'>
-                      <h6><%= preference.sport.kind.capitalize %></h6>
-                      <p><% preference.level.to_i.times do %>💪<% end %></p>
-                      <%= link_to 'delete', preference_path(preference), method: :delete, data: { confirm: "Are you sure?" }, class: "button-6" %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-              <%= link_to 'Add your preferences', new_preference_path, class: "button-6" %>
-              <%= link_to 'Update your Profile', edit_user_registration_path, class: "button-6" %>
-            </div>
-          </div>
+
         </div>
       </div>
-
-          <div class="all_activities">
-            <h2>My proposed activities:</h2>
-            <% @activities_mine.each do |activ| %>
-                <div class="card-product2">
-                <%= cl_image_tag activ.sport.photo.key %>
-                  <div class="card-product-info2">
-                    <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
-                    <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
-                    <% if time_delta> 0 %>
-                        <h6><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
-                        <h6><%= activ.sport.kind  %></h6>
-                        <h6><%= activ.description %></h6>
-                    <% end %>
-                  </div>
-                </div>
+      <div class='profile_preference'>
+          <h3>My favorite sports</h3>
+          <div class='preference_wrap'>
+            <% current_user.preferences.each do |preference| %>
+              <div class='preference'>
+                <h6><%= preference.sport.kind.capitalize %></h6>
+                <% preference.level.to_i.times do %>💪<% end %>
+              </div>
             <% end %>
-            </div>
+          </div>
+      </div>
+      <%= link_to 'Add your preferences', new_preference_path, class: "button-6" %>
+    </div>
   </div>
-</div>

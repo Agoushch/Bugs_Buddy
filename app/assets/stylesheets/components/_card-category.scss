@@ -526,3 +526,35 @@ a {
     grid-template-columns: 2fr 10fr;
   }
 }
+
+.d_container_profile {
+
+  position: relative;
+}
+.d_photo_and_info {
+  display: flex;
+
+}
+.d_photo_and_info img {
+  height: 200px;
+}
+
+.d_profile_info {
+  padding: 15px;
+  position: relative;
+      margin-left: 30px;
+}
+
+.d_profile_info p {
+font-weight: lighter;
+
+}
+
+.d_profile_info p .button-6 {
+margin-top: 15px;
+}
+
+.profile_preference .button-6 {
+ margin-top: 15px;
+
+}
