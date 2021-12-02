@@ -21,7 +21,6 @@ file = URI.open('https://resize-parismatch.lanmedia.fr/img/var/news/storage/imag
 thibaut.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 file = URI.open('https://voi.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fprismamedia_people.2F2017.2F06.2F30.2F36cc06e4-a456-4e22-bf80-68614a792d8a.2Ejpeg/2048x1536/quality/80/michael-jackson.jpeg')
 filip.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-
 # Categories
 ['Ball', 'Endurance', 'Indoor', 'Outdoor', 'Strength', 'Water'].each do |category|
   Category.create(name: category)
@@ -101,47 +100,6 @@ p Activity.create!(
   sport_id: Sport.all.sample.id,
   date: Date.today + 7
 )
-(126 kB)
-https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0d2f/313d/73c9/143a/6875/d46e/d976/bb81/2b1d/b017/b017.jpg
-
-(235 kB)
-https://fr.web.img2.acsta.net/pictures/19/01/22/16/22/0699464.jpg
-
-(194 kB)
-https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/people-a-z/tom-hardy/6032632-4-fre-FR/Tom-Hardy.jpg
-
-(452 kB)
-https://voi.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fprismamedia_people.2F2017.2F06.2F30.2F36cc06e4-a456-4e22-bf80-68614a792d8a.2Ejpeg/2048x1536/quality/80/michael-jackson.jpeg
-
-(614 kB)
-https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80
-
-white_check_mark
-eyes
-raised_hands
-
-
-
-
-
-11:46
-#Activity
-# activity_id = 1
-Activity.create!(
-  localisation: '10 Cantersteen 1000 Bruxelles',
-  user_id: nicolas.id,
-  description: 'Running at Bois de la Cambre this evening at 6pm',
-  sport_id: Sport.all.sample.id,
-  date: Date.today + 3
-)
-# activity_id = 2
-p Activity.create!(
-  localisation: '12 Rue du midi 1000 Bruxelles',
-  user_id: filip.id,
-  description: 'Anyone up to swim near Etterbeek ?',
-  sport_id: Sport.all.sample.id,
-  date: Date.today + 7
-)
 
 #Activity
 # activity_id = 1
@@ -160,7 +118,6 @@ p Activity.create!(
   sport_id: Sport.all.sample.id,
   date: Date.today + 7
 )
-
 p Activity.create!(
   localisation: 'rue du moulin, 1390 grez-doiceau',
   user_id: User.all.sample.id,
@@ -329,7 +286,6 @@ p Activity.create!(
 #     date: Date.today + 2
 #   )
 # end
-
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
@@ -338,7 +294,6 @@ UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.samp
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
-
 Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
 Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
 Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)

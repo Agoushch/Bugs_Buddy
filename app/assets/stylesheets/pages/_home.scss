@@ -65,10 +65,16 @@
   width: 300px;
   padding: 6px;
   text-align: center;
-
+  margin-top: 100px;
   &:hover {
     background-color: rgb(255, 255, 255);
 
     color: #ca4133;
   }
+}
+
+.text-home-page {
+  font-size: 40px;
+  // font-weight: bold;
+  font-family: "Anton", sans-serif;
 }

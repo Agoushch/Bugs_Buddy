@@ -29,7 +29,30 @@
   width: 50px;
 }
 
-.nav-item_dropdown img {
-  top: 5px;
+
+.rainboww {
+  padding-top: 4px;
+  strong {
+    animation: animateBg 3s linear infinite;
+    background-image: linear-gradient(
+      45deg,
+      #f3a076,
+      #ca4133,
+      #f3a076,
+      #ca4133,
+      #f3a076
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @keyframes animateBg {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
 
 }

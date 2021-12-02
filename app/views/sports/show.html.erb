@@ -1,16 +1,13 @@
 <%# <div class="titre">
   <h1><%= @sport.kind.capitalize %>
-
 <div class="two-columns">
   <div class="col-first">
-
-
-      <h3>Activities and Buddies for <%= @sport.kind %></h3>
-
-      <%= form_tag sport_path, method: :get, class: "d-flex  form-aligned" do %>
-          <%= date_field_tag :query,
+    <h3>Activities and Buddies for <%= @sport.kind %></h3>
+    <%= form_tag sport_path, method: :get, class: "d-flex  form-aligned" do %>
+      <%= date_field_tag :query,
             params[:query]
           %>
+
           <%= submit_tag "Search", class: "btn btn-primary search-btn" %>
         <% end %>
 
