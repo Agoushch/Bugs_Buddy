@@ -212,9 +212,11 @@ body {
   position: relative;
   width: 200px;
   height: 200px;
+  padding-right: 13px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
   opacity: 0.9;
   text-align: center;
   color: white;
@@ -235,7 +237,7 @@ body {
 .sport_card a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  font-size: 25px;
+  font-weight: bold;
   position: absolute;
   right: 7px;
   bottom: 7px;
@@ -299,6 +301,8 @@ a {
   background-color: #ca4133;
   margin: 5px;
   color: white;
+  font-family: 'Antonio', sans-serif;
+  font-size: 23px;
   opacity: 0.8;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -319,6 +323,11 @@ a {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.all_activities h2 {
+  margin-bottom: 10px;
+}
+
 
 .activityy_card {
   border: 1px solid black;
@@ -342,6 +351,10 @@ a {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+}
+
+  .card-product-user {
+    padding: 16px;
 }
 
 .card-product2 {
@@ -412,6 +425,10 @@ a {
   padding: 16px;
 }
 
+.bold {
+  font-weight: bold !important;
+
+}
 
 .card-activities {
   width: 97px;
@@ -450,17 +467,17 @@ a {
 
 @media (min-width: 768px) {
   .sport_card {
-    background-image: url("https://source.unsplash.com/random");
     background-size: cover;
     width: 200px;
     height: 200px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     opacity: 1;
-    text-align: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 }
+
 
 @media (min-width: 768px) {
   .card-category {
@@ -490,4 +507,36 @@ a {
     display: grid;
     grid-template-columns: 2fr 10fr;
   }
+}
+
+.d_container_profile {
+
+  position: relative;
+}
+.d_photo_and_info {
+  display: flex;
+
+}
+.d_photo_and_info img {
+  height: 200px;
+}
+
+.d_profile_info {
+  padding: 15px;
+  position: relative;
+      margin-left: 30px;
+}
+
+.d_profile_info p {
+font-weight: lighter;
+
+}
+
+.d_profile_info p .button-6 {
+margin-top: 15px;
+}
+
+.profile_preference .button-6 {
+ margin-top: 15px;
+
 }

@@ -7,31 +7,31 @@
     <h2 class="text p-2">Categories</h2>
     <div class="sport_categories">
       <% @categories.each do |category| %>
-        <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get, class: "singlecard_category" %></h3>
-    <% end %>
+        <%= link_to category.name, sports_path(query: category.name, type: 'cat'), method: :get, class: "singlecard_category" %>
+      <% end %>
+    </div>
   </div>
-</div>
-<div>
-  <div class="text p-2">
-    <h2>All Sports</h2>
-  </div>
-  <div class="formleft pl-3 pt-1">
-    <%= form_tag sports_path, method: :get do %>
-      <%= text_field_tag :query,
+  <div>
+    <div class="text p-2">
+      <h2 class='pl-2'>All Sports</h2>
+    </div>
+    <div class="formleft pl-3 pt-1">
+      <%= form_tag sports_path, method: :get do %>
+        <%= text_field_tag :query,
     params[:query],
     class: "form-control ",
     placeholder: "Search a sport or category"
   %>
-    <% end %>
-  </div>
-  <div class= "big_sport_container">
-    <% @sports.each do |sport| %>
-      <% if sport.photo.attached? %>
-        <a href="<%=sport_path(sport) %>"class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)">
-          <%= sport.kind.capitalize %>
-        </a>
       <% end %>
-    <% end %>
+    </div>
+    <div class= "big_sport_container" data-controller="card">
+      <% @sports.each do |sport| %>
+        <% if sport.photo.attached? %>
+          <a href="<%=sport_path(sport) %>"class= 'sport_card' style="background-image: url(<%= cl_image_path sport.photo.key %>)" data-action="mouseover->card#hover mouseout->card#nohover" data-background="<%= cl_image_path sport.photo.key %>">
+            <%= sport.kind.capitalize %>
+          </a>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
