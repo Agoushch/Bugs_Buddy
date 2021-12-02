@@ -63,3 +63,21 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<div class='sport_users'>
+  <h3>Buddies for <%= @sport.kind %></h3>
+  <% @sport.users.each do |user| %>
+    <%= cl_image_tag user.photo.key, height: 70, width: 70, crop: :fill, radius: 20 %>
+    <%= user.nickname %>
+    <% user.preferences.each do |preference| %>
+      <% if preference.sport == @sport %>
+        <%= preference.level %>
+      <% end %>
+    <% end %>
+  <% end %>
+=======
+
+>>>>>>> origin
+=======
+>>>>>>> origin

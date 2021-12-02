@@ -1,96 +1,106 @@
 <%# User profile %>
 <div class="container-dashboard">
   <div class="dashboard-left">
-        <h2>My activities</h2>
-        <div class="all_activities">
-          <% @activities.each do |user_activiti| %>
-          <%# per activity: DATE/ SPORT / DESCR / LINK_TO Sport show  %>
-            <div class="card-product2">
-              <%= cl_image_tag user_activiti.activity.sport.photo.key %>
-              <div class="card-product-info2">
-
-                    <%# delta_same_day: used to determine which statement is valid: eg same day: >0 && <1 %>
-                    <% delta_same_day = (user_activiti.activity.date.to_datetime - DateTime.current).to_f %>
-                    <% time_delta = (user_activiti.activity.date.to_datetime - DateTime.current).to_i %>
-                    <% time_delta_hours = (user_activiti.activity.date.to_datetime - DateTime.current).to_f*24 - time_delta*24  %>
-                    <%# time_delta < 0 : in the past !!!! > %>
-                    <% if delta_same_day > 0 && delta_same_day < 1 %>
-                        <h6><%= user_activiti.activity.date %> (in <%= time_delta_hours.round(1) %> hours)</h6>
-                        <h6>Activity: <%= user_activiti.activity.description %></h6>
-                        <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
-                        <h6>Participants:
-                          <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-                          <% next if user_activity_member == user_activiti  %>
-                          <%= user_activity_member.user.nickname %>
-                          <% end %>
-                          <%# more than 1 day in the future %>
-                    <% elsif delta_same_day > 1 %>
-
-                        <h6><%= user_activiti.activity.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
-                        <h6>Activity: <%= user_activiti.activity.description %></h6>
-                        <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
-                        <h6>Participants:
-                          <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-                          <% next if user_activity_member == user_activiti  %>
-                          <%= user_activity_member.user.nickname %>
-                          <% end %>
-                        <%# less than one day ago %>
-                        <% elsif delta_same_day < 0 && delta_same_day > -1 %>
-                            <h6><%= user_activiti.activity.date %> (<%= -time_delta_hours.round(0) %> hours ago)</h6>
-                            <h6>Activity: <%= user_activiti.activity.description %></h6>
-                            <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
-                            <h6>Participants:
-                              <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-                                <% next if user_activity_member == user_activiti  %>
-                                <%= user_activity_member.user.nickname %>
-                              <% end %>
-                          <% else %>
-                            <h6><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h6>
-                            <h6>Activity: <%= user_activiti.activity.description %></h6>
-                            <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
-                            <h6>Participants:
-                              <% user_activiti.activity.user_activities.each do |user_activity_member|%>
-                                <% next if user_activity_member == user_activiti  %>
-                                <%= user_activity_member.user.nickname %>
-                              <% end %>
-                    <% end %>
-              </div>
+    <div class="all_activities">
+      <h2>My activities</h2>
+      <% @activities.each do |user_activiti| %>
+        <%# per activity: DATE/ SPORT / DESCR / LINK_TO Sport show  %>
+        <div class="card-product2">
+          <%= cl_image_tag user_activiti.activity.sport.photo.key %>
+          <div class="card-product-info2">
+            <%# delta_same_day: used to determine which statement is valid: eg same day: >0 && <1 %>
+            <% delta_same_day = (user_activiti.activity.date.to_datetime - DateTime.current).to_f %>
+            <% time_delta = (user_activiti.activity.date.to_datetime - DateTime.current).to_i %>
+            <% time_delta_hours = (user_activiti.activity.date.to_datetime - DateTime.current).to_f*24 - time_delta*24  %>
+            <%# time_delta < 0 : in the past !!!! > %>
+            <% if delta_same_day > 0 && delta_same_day < 1 %>
+              <h6>hello<%= user_activiti.activity.date %> (<span class="bold">starts in <%= time_delta_hours.round(1) %> hours</span>)</h6>
+              <h6>Activity: <%= user_activiti.activity.description %></h6>
+              <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
+              <h6>Participants: </h6>
+              <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+                <% next if user_activity_member == user_activiti  %>
+                <%= user_activity_member.user.nickname %>
+              <% end %>
+                  <%# more than 1 day in the future %>
+            <% elsif delta_same_day > 1 %>
+              <h6><%= user_activiti.activity.date %> (starts in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
+              <h6>Activity: <%= user_activiti.activity.description %></h6>
+              <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
+              <h6>Participants: </h6>
+              <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+                <% next if user_activity_member == user_activiti  %>
+                <%= user_activity_member.user.nickname %>
+              <% end %>
+              <%# less than one day ago %>
+            <% elsif delta_same_day < 0 && delta_same_day > -1 %>
+              <h6><%= user_activiti.activity.date %> (<%= -time_delta_hours.round(0) %> hours ago)</h6>
+              <h6>Activity: <%= user_activiti.activity.description %></h6>
+              <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
+              <h6>Participants: </h6>
+              <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+                <% next if user_activity_member == user_activiti  %>
+                <%= user_activity_member.user.nickname %>
+              <% end %>
+            <% else %>
+              <h6><%= user_activiti.activity.date %> (<%= -time_delta.round(0) %> days ago)</h6>
+              <h6>Activity: <%= user_activiti.activity.description %></h6>
+              <h6>Sport: <%= user_activiti.activity.sport.kind %> </h6>
+              <h6>Participants: </h6>
+              <% user_activiti.activity.user_activities.each do |user_activity_member|%>
+                <% next if user_activity_member == user_activiti  %>
+                <%= user_activity_member.user.nickname %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% @activities_mine.each do |activ| %>
+          <div class="card-product2">
+            <%= cl_image_tag activ.sport.photo.key %>
+            <div class="card-product-info2">
+              <% time_delta = (activ.date.to_datetime - DateTime.current).to_i %>
+              <% time_delta_hours = (activ.date.to_datetime - DateTime.current).to_f*24 - time_delta*24 %>
+              <% if time_delta> 0 %>
+                  <h6><%= activ.date %> (in <%= time_delta %> days and <%= time_delta_hours.round%> hours)</h6>
+                  <h6><%= activ.sport.kind  %></h6>
+                  <h6><%= activ.description %></h6>
+              <% end %>
             </div>
-          <% end %>
-        </div>
-        </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
 
 
   <div class="dashboard-right">
-          <h2>Your profile</h2>
-
-    <div class="d_container_profile">
-      <div class="d_photo_and_info">
-        <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key %>
-        <% end %>
-        <div class="d_profile_info">
-          <h3><%= current_user.nickname %></h3>
-          <p>Description: <%= current_user.description %></p>
-          <p>Age: <%= current_user.age %></p>
-          <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
-          <% end %>
-
-        </div>
-      </div>
-      <div class='profile_preference'>
-          <h3>My favorite sports</h3>
-          <div class='preference_wrap'>
-            <% current_user.preferences.each do |preference| %>
-              <div class='preference'>
-                <% if preference %>
-                <h6><%= preference.sport.kind.capitalize %></h6>
-                <% preference.level.to_i.times do %>💪<% end %>
+    <h2>Your profile</h2>
+        <div class="d_container_profile">
+            <div class="d_photo_and_info">
+              <% if current_user.photo.attached? %>
+                      <%= cl_image_tag current_user.photo.key %>
+              <% end %>
+              <div class="d_profile_info">
+                <h3><%= current_user.nickname %></h3>
+                <p>Description: <%= current_user.description %></p>
+                <p>Age: <%= current_user.age %></p>
+                <% link_to edit_user_registration_path do %><i class="fas fa-user-edit"></i>
                 <% end %>
               </div>
-            <% end %>
+            </div>
           </div>
-      </div>
-      <%= link_to 'Add your preferences', new_preference_path, class: "button-6" %>
-    </div>
+
+        <div class='profile_preference'>
+            <h3>My favorite sports</h3>
+            <div class='preference_wrap'>
+              <% current_user.preferences.each do |preference| %>
+                <div class='preference'>
+                  <h6><%= preference.sport.kind.capitalize %></h6>
+                  <% preference.level.to_i.times do %>💪<% end %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        <%= link_to 'Add your preferences', new_preference_path, class: "button-6" %>
   </div>
+</div>
