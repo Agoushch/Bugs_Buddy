@@ -21,6 +21,7 @@ file = URI.open('https://resize-parismatch.lanmedia.fr/img/var/news/storage/imag
 thibaut.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 file = URI.open('https://voi.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fprismamedia_people.2F2017.2F06.2F30.2F36cc06e4-a456-4e22-bf80-68614a792d8a.2Ejpeg/2048x1536/quality/80/michael-jackson.jpeg')
 filip.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 # Categories
 ['Ball', 'Endurance', 'Indoor', 'Outdoor', 'Strength', 'Water'].each do |category|
   Category.create(name: category)
@@ -141,6 +142,25 @@ p Activity.create!(
   sport_id: Sport.all.sample.id,
   date: Date.today + 7
 )
+
+#Activity
+# activity_id = 1
+Activity.create!(
+  localisation: '10 Cantersteen 1000 Bruxelles',
+  user_id: nicolas.id,
+  description: 'Running at Bois de la Cambre this evening at 6pm',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 3
+)
+# activity_id = 2
+p Activity.create!(
+  localisation: '12 Rue du midi 1000 Bruxelles',
+  user_id: filip.id,
+  description: 'Anyone up to swim near Etterbeek ?',
+  sport_id: Sport.all.sample.id,
+  date: Date.today + 7
+)
+
 p Activity.create!(
   localisation: 'rue du moulin, 1390 grez-doiceau',
   user_id: User.all.sample.id,
@@ -309,6 +329,7 @@ p Activity.create!(
 #     date: Date.today + 2
 #   )
 # end
+
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
@@ -317,6 +338,7 @@ UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.samp
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
 UserActivity.create!(activity_id: Activity.all.sample.id, user_id: User.all.sample.id)
+
 Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
 Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
 Preference.create(user_id: User.all.sample.id, sport_id: Sport.all.sample.id)
