@@ -90,9 +90,14 @@ padding: 15px;
 }
 
 input.btn {
-border: 2px solid #ca4133;
-color: #ca4133;
-font-weight: bolder;
+  background-color: #ca4133;
+  border: 1px solid white !important;
+  color: white;
+  &:hover {
+    color: #ca4133;
+    background-color: white;
+    border: 1px solid #ca4133 !important;
+  }
 }
 
 .localisation {
