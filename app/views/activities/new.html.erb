@@ -11,7 +11,8 @@
       <% f.input :participants, placeholder: 'Maximum number of participants'%>
       <%= f.input :duration, label: "Duration (minutes)", placeholder: 'Estimated duration'%>
       <%= f.input :level, label: "Level <br> (1:beginner 2:amateur 3:intermediate 4:upperintermediate 5:competitive)".html_safe, input_html: { min: 0, max: 4 } %>
-      <%= f.association :sport, label_method: :kind %>
+      <label for="activity[sport_id]" > Sport </label>
+      <%= f.association :sport, input_html: { class: 'select2' }, label: false, label_method: :kind %>
       <%= f.submit class: 'texttextdee' %>
     <% end %>
   </div>
